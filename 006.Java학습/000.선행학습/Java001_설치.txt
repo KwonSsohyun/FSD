@@ -1,4 +1,4 @@
-[ ★★★이것을 깔자! ]
+[ ★★★ 이것을 깔자! ]
 
   ▶ JDK (JAVA, JRE(JVM포함), Compiler(머신랭귀지 0/1 -> 2진수변환), Tools ...)
   
@@ -93,7 +93,7 @@ ________________________________________________________________________________
      ▶ "Eclipse IDE for Java Developers" 클릭
      ▶ "INSTALL" 클릭
      
-     
+
   ※ 설치후 클릭했는데 무반응이면?
      : https://baekee.tistory.com/m/entry/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-%EC%84%A4%EC%B9%98-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95
 
