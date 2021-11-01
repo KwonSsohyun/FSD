@@ -2,7 +2,8 @@
 europop@daum.net (파일첨부)
 010-2869-6248 (문자)
 
-_______________________________________________
+________________________________________________________________
+
 
 변수, 상수, 함수, 클래스 ..
 연산자 
@@ -11,7 +12,33 @@ _______________________________________________
  조건문 : if, switch .. (삼항 조건 연산자)
  반복문 : for, while, do ~ while, 확장 for ..
 
-_______________________________________________
+________________________________________________________________
 
-Integrated Develoment Environment
+JDK (JAVA, JRE(JVM포함), Compiler(2진수변환), Tools ...)
+
+Integrated Develoment Environment -> eclipse
+
+
+JDK : JAVA Develoment Environment 
+      => oracle.com
+
+
+________________________________________________________________
+
+오라클 다운로드
+
+1) oracle.com
+2) 이 사이트의 쿠키에 대하여 > "모두승인"
+3) 초록색 맨 앞에 있는
+   "Oracle Cloud Infrastructure(오라클 클라우드 하부 구조)" 클릭
+4) "Application Development(응용 프로그램 개발)" 클릭
+5) "Java SE" 선택 >> 오른쪽 패널 나오면 >> "Learn more" 클릭
+6) Announcing Java 17 항목 아래
+   >> "Download Java 17" 선택 
+       : https://www.oracle.com/java/technologies/downloads/
+
+       아래로 스크롤 쭉 내리면
+       
+7) Java 8 >> Windows >> "x64 Installer" 설치
+   64비트인지 뭔지는 맨아래 설정에 들어가면 시스템종류에 운영체제 나와있다.
 
