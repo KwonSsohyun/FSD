@@ -5,8 +5,9 @@
   ▶ JDK : JAVA Develoment Environment 
            => oracle.com
 
-  ▶ Integrated Develoment Environment -> eclipse
-
+  ▶ Integrated Develoment Environment 
+     => eclipse
+     
 ______________________________________________________________________________________________________________
 
 
