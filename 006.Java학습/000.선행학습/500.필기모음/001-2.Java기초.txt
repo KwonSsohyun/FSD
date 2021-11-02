@@ -24,7 +24,7 @@ Octo- heXa-
 
 int, short, long int : 정수형 / 1, 123, 0b0101, 077, 0x1F, 100L
                        ▷ 0b0101 : (2진수) 0101 10진수로는 5에 해당
-                       ▷ 077 : (8진수) 77
+                       ▷ 077 : (8진수) 앞에 0이 오토켓 >> 77
                        ▷ 0x1F : (16진수) 1F
                        ▷ 100L : (long인티저) 100정수
 
@@ -67,17 +67,62 @@ _________________________________________________________________________
   ▶ 기본형(Primitive type)
      : boolean, char, 정수형(byte, short, int, long), 실수형(float, double)
 
+       int[] arr;  >> 배열
+
+
+           float pi;  >> 그래야 메모리를 작게 잡아먹으니 (메모리 효율)
+           pi = 3.14f;  >> f라는 접미사를 붙혀준다.
+
+           float : 1.4E-45 ~ 3.4E38
+           double : 4.9E-324 ~ 1.8E308
+           E=Exponent
+
+           0 0000000 = 0
+           1 1111111 = 127 (2의 7승 = 128)
+           -128 ~ 127까지 담을 수 있다.
+
+           학생1 : 92
+           학생2 : 100
+           학생3 : 72
+           int score1, score2, score3;
+           byte score1, score2, score3;
+
+           char : 0 ~ 65535(2의 16승) 
+
+           
+
   ▶ 참조형(reference type)
      : 기본형을 제외한 나머지 모든 타입. (즉 포인터가 된다.)
 
        ex) String str = "abc def";
            str이라는 박스공간이 있는데, 다른 박스에 abc def가 담겨있는데, 그걸 str이 가르키고 있다.
 
-           int[] arr;  >> 배열
+_________________________________________________________________________
 
 
-           float pi;  >> 그래야 메모리를 작게 잡아먹으니
-           pi = 3.14f;  >> f라는 접미사를 붙혀준다.
+printf() 함수 : 문자열을 출력하는 함수.
+f : format
 
-           float : 1.4E-45 ~ 3.4E38
-           double : 4.9E-324 ~ 1.8E308
+<format text, 서식문자 >
+%d(Decimal) : 10진 정수
+%X(heXa-) : 16진수
+%f(float) : 실수형
+%c(Character) : 문자
+%s(String) : 문자열
+
+_________________________________________________________________________
+
+입력함수 : nextLine(), nextlnt(), nextDouble() ...
+
+System.out.println()
+
+Scanner.nextlnt() XXXXXXXXXXXXXX 안됨!!!
+
+
+
+import java.util.Scanner;
+
+Scanner 변수 = new Scanner(System.in); >> 참조형
+String str = 변수.nextLine(); >> 참조형
+int num = 변수.nextlnt(); >> 기본형
+
