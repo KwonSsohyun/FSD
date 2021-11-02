@@ -31,6 +31,8 @@ float, double : 실수형 / 3.14, 10f, 3.0e8
 ex) float f;
     f = 3.14f;
 
+
+
 char : 단일글자형, 단일문자형 / '1', 'A' (A는 65번), '\n' 
 String : 문자열 / "abc def", "true"
 
