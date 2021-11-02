@@ -17,3 +17,23 @@ ex) final int val = 100;
 
 _________________________________________________________________________
 
+논리형 : boolean 
+         여기에 들어가는 리터럴은 >> false, ture
+
+Octo- heXa-
+
+int, short, long int : 정수형 / 1, 123, 0b0101, 077, 0x1F, 100L
+정수형의 기본은 int
+
+float, double : 실수형 / 3.14, 10f, 3.0e8
+실수형의 기본은 double
+
+ex) float f;
+    f = 3.14f;
+
+char : 단일글자형, 단일문자형 / '1', 'A' (A는 65번), '\n' 
+String : 문자열 / "abc def", "true"
+
+System.out.print("제 20회 JAVA 클라우드 개강 \n 대용량 DB설계 \n") >> \n (개행엔터 글자다.)
+▶ 제 20회 JAVA 클라우드 개강
+   대용량 DB설계
