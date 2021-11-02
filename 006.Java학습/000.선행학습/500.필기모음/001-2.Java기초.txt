@@ -1,4 +1,14 @@
 [ Java 기초 ｜ 2021.11.02  ]
 
+변수 <-> 상수
+variable <-> constant
 
+상수
+1. constant : 값을 한번만 할당할 수 있는 공간
+2. literal : 그 자체로 값을 의미하는 것
+
+final을 붙히면 상수!
+final int val = 100;
+-> constant >> val
+-> literal >> 100
 
