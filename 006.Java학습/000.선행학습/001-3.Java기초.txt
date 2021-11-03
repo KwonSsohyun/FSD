@@ -63,6 +63,7 @@ ________________________________________________________________________________
              C:\Program Files\Java\jdk1.8.0_311 >> "src.zip" >> java >> "util" 폴더 안에 ▶ "Scanner.java" 가 있다.
              그래서 해당파일 주소를 적는것이다.
              ▶▶ java.util.Scanner; (앞에 import 붙힌다.)
+             ▶▶ import 문은 다른 모듈에서 내보낸 바인딩을 가져올 때 사용합니다.
 
           ▷ Scanner 쓰고 ▶▶ "ctrl + space바" 누르면 어디 위치에 있는 클래스인지 나온다. 확인하고 엔터! 하면 import 나옴!
              참고 : Day3 > Ex08Char입력
