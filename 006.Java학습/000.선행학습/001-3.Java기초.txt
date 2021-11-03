@@ -57,7 +57,13 @@ ________________________________________________________________________________
 
    ▶ lang랭(기본)에 없으면 
       맨 상단에 import 뒤에 클래스의 위치를 적어줘야 한다. 
+
       ex) import java.util.Scanner;
+          ▶ Scanner이라는건 lang폴더에 없는 기본이 아니기 때문에 파일위치로 보면
+             C:\Program Files\Java\jdk1.8.0_311 >> "src.zip" >> java >> "util" 폴더 안에 ▶ "Scanner.java" 가 있다.
+             그래서 해당파일 주소를 적는것이다.
+             ▶▶ java.util.Scanner; (앞에 import 붙힌다.)
+
           ▷ Scanner 쓰고 ▶▶ "ctrl + space바" 누르면 어디 위치에 있는 클래스인지 나온다. 확인하고 엔터! 하면 import 나옴!
              참고 : Day3 > Ex08Char입력
 
