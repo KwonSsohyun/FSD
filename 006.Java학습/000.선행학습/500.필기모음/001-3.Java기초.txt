@@ -1,1 +1,4 @@
 [ Java 기초 ｜ 2021.11.03  ]
+
+JAVA RUNTIME Environment
+자바가 실행되는 시점
