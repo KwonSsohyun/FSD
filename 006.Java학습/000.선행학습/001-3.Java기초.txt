@@ -72,11 +72,15 @@ ________________________________________________________________________________
    ※ 참고자료 : Day3 > Ex10 문자변환
       ex) 
       import java.util.Scanner;
+
       public class Ex10문자변환 {
           public static void main(String[] args) {
+
               Scanner scan = new Scanner(System.in);
+
               System.out.print("문자열 입력 : ");
-              String str = scan.nextLine();
+
+              String str = scan.nextLine(); 
               str = str.toUpperCase();
 
 
@@ -97,11 +101,17 @@ ________________________________________________________________________________
 
          ▶ = 앞뒤로 Scanner를 쓴것은 데이터 형식이 같다는것을 나타내기 위해 쓴것임
 
+         ▶ scan은 참조형 변수다.
+            scan이라는 변수가 가르키는것은 ▷ nextInt() / nextDouble() / nextLine() ...
+
          -----------------------------------------------------------------------------------------------
 
 		   String str = scan.nextLine();	
          ▶ nextLine() 한줄입력 ｜ next() 여러줄 ｜ nextInt() 정수를 입력받는 함수
-
+         ▷ scan. >> 상단에 new Scanner(System.in) 이걸 가르킴
+            .nextLine() >> 한줄을입력받아 호출받는다. (이게 있기에 입력할 수 있는것임)
+            이 내용을 str변수에 담았다.
+         
          -----------------------------------------------------------------------------------------------
 
          str = str.toUpperCase();
