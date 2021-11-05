@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class Ex02성별카운트 {
+
+	public static void main(String[] args) {
+		Scanner inData = new Scanner(System.in);
+		
+		
+
+	}
+
+}

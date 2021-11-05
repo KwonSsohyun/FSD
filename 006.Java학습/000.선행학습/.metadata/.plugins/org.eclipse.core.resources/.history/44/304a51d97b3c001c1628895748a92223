@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Ex10문자변환 {
+	public static void main(String[] args)	{
+		Scanner scan = new Scanner(System.in); // (System.in)표준입력장치이다. 아래서 nextLine() 입력이 있기 때문
+		                                       // 입력할 수 있게 해주려고 new를 쓰는것임. next() 메모리에 올리려고
+		
+		System.out.print("문자열 입력 : ");
+		String str = scan.nextLine(); // string이니까 nextLine() 한줄입력 / char은 next() 여러줄
+		
+		str = str.toUpperCase(); // toUpperCase() 대문자 입력
+		System.out.print(str);
+	}
+}

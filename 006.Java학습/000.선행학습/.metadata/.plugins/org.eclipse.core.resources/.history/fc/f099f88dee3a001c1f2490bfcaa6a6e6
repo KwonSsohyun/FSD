@@ -1,0 +1,15 @@
+
+public class Ex02변수_2 {
+	public static void main(String args[]) {
+		int x = 100; // x에 100을 대입한다.
+		double pi = 3.14;
+		char ch = 'a';
+		String str = "abc def";
+		
+		System.out.println("x="+x);
+		System.out.println("pi="pi);
+		System.out.println(ch);
+		System.out.println(str);
+		
+	}
+}

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Quiz2 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("ธ๎ วเ : ");
+		
+		int num = scan.nextInt();
+		
+		for(int i = 1; i <= num ; i++) {
+			do {
+				System.out.println("*");
+			} while(i==num);
+		}
+		
+			
+
+	}
+
+}

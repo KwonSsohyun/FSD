@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class Ex09반복문For_4합계 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("정수를 입력해주세요. : ");
+		int num = scan.nextInt();
+		
+		for(int i = 10 ; )
+	}
+}

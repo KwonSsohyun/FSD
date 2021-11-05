@@ -1,0 +1,9 @@
+
+public class Ex06반올림 {
+	public static void main(String[] args)	{
+		double pi = 3.121592;
+		double shortPi = Math.round(pi);
+		
+		System.out.println(shortPi); // 3.0 출력
+	}
+}

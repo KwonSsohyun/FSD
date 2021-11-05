@@ -1,0 +1,16 @@
+
+public class Ex01변수 {
+	public static void main(String args[]) {
+		// 정수를 저장할 수 있는 변수 x를 메모리 할당.
+		int x = 5; // 초기값을 줘야한다. 초기값을 안주면 쓰래기값을 가질수 있다.
+		System.out.println(x);
+		int y = 3;
+		System.out.println(x + y); // 변수끼리 계산 가능하다. 숫자니까!
+		
+		System.out.println("x와 y를 맞바꾸면..."); // ln 줄바꿈 의미
+		System.out.print("x = ");
+		System.out.println(x);
+		System.out.print("y = ");
+		System.out.println(y);
+	}
+}

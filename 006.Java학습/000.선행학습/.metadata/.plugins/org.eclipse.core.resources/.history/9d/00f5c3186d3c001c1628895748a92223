@@ -1,0 +1,10 @@
+
+public class Ex03무한루프중지 {
+	public static void main(String[] args) {
+		while(true) {
+			System.out.print("test....\n"); 
+			// System.out.print("test....\n"); 입력하면 계속 도니까 아래 빨간색 박스 눌러서 멈춰준다.
+			// println이 아니기때문에 \n써서 개행해줌 
+		}
+	}
+}

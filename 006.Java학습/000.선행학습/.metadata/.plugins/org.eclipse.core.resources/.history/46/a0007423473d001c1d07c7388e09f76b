@@ -1,0 +1,10 @@
+
+public class Ex09반복문For_3합계 {
+	public static void main(String[] args) {
+		// 1~10 까지의 정수의 합계를 계산하여 결과(55)를 출력.
+		
+		int sum = 0;
+		
+		
+	}
+}

@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Ex06학점출력 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("점수를 입력하세요. : ");
+		int score = scan.nextInt();
+		
+		switch (score >= 90) {
+			case
+		
+		
+		
+		
+		}
+		
+		
+	}
+}

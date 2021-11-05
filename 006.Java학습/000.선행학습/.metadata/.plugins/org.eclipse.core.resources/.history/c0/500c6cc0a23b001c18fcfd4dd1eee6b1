@@ -1,0 +1,6 @@
+
+public class Ex01다른진수 {
+	public static void main (String args[]) {
+		int octNum = 010;
+	}
+}

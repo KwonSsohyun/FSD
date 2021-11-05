@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Ex08반복문For_2구구단 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("몇 단? : ");
+		int num = scan.nextInt();
+		
+		System.out
+		
+		for(int i = 1; i <= num ; i++) {
+			
+			i
+			
+		}
+		
+		
+		
+	}
+}

@@ -1,0 +1,9 @@
+
+public class Ex11문자열비교 {
+	public static void main(String[] args) { // args 변수명임
+		
+		String str1 = "abc";
+		String str2 = "abc";
+		
+	}
+}

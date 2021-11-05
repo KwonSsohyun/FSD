@@ -1,0 +1,15 @@
+
+public class Ex03상수 {
+	public static void main (String args[]) {
+		final double PI = 3.14; // final로 선언하면 상수다. 값을 바꿀 수 없다.(대문자로 선언)
+		
+		// PI = 3.141592; // 상수는 값의 변경이 불가.
+		
+		final char CH = 'A'; // 대문자로 선언한다.
+		
+		// 변수 : variable
+		// 상수 : constant
+ 		
+		
+	}
+}

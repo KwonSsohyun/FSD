@@ -1,0 +1,7 @@
+import java.util.Scanner;
+
+public class Ex09¼Ò¹®ÀÚ {
+	public static void main(String[] agrs)	{
+		Scanner scan = new Scanner(System.in);
+	}
+}

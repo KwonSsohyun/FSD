@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+// 한개의 정수를 입력받아, 거듭제곱을 계산 및 출력.
+// Math.pow()
+public class Ex07거듭제곱 {
+	public static void main(String[] args)	{
+		Scanner scan = new Scanner // ctrl +shift + O >> 단축키 그럼 import 바로 나옴!
+	}
+}

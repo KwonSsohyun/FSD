@@ -1,0 +1,10 @@
+
+public class Ex03상수 {
+	public static void main (String args[]) {
+		final double PI = 3.14; // final로 선언하면 상수다. 값을 바꿀 수 없다.
+		
+
+		
+		
+	}
+}

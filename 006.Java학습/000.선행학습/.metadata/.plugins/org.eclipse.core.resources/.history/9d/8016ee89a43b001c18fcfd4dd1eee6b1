@@ -1,0 +1,10 @@
+
+public class Ex01다른진수 {
+	public static void main (String args[]) {
+		int octNum = 010; // 10진수로는 8의 의미를 가진다.
+		int hexNum = 0x10;
+		int binNum = 0b10;
+		
+		System.out.printf("%d, %d, %d\n", octNum, hexNum, binNum);
+	}
+}

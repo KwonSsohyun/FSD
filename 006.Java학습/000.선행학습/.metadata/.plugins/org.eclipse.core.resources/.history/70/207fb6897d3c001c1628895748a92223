@@ -1,0 +1,18 @@
+
+public class Ex11문자열비교 {
+	public static void main(String[] args) { // args 변수명임
+		
+		String str1 = "abc";
+		String str2 = "abc"; // 똑같은 값을 주엇을때 서로 공유한다.
+		
+		System.out.println(str1 == str2); // true 
+		System.out.println(str1.equals(str2)); // true 
+		
+		
+		
+		str2 = new String("abc");
+		
+		System.out.println(str1 == str2); // false ▶
+		System.out.println(str1.equals(str2)); // true ▶
+	}
+}
