@@ -98,7 +98,7 @@
                 </children>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_VYY2ij93Eeyct6MwZTKDoA" containerData="7500" selectedElement="_VYY2iz93Eeyct6MwZTKDoA">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_VYY2ij93Eeyct6MwZTKDoA" containerData="7500" selectedElement="_VYY2kj93Eeyct6MwZTKDoA">
               <children xsi:type="basic:PartSashContainer" xmi:id="_VYY2iz93Eeyct6MwZTKDoA" containerData="7500" selectedElement="_VYY2jD93Eeyct6MwZTKDoA" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_VYY2jD93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_VYCRMD93Eeyct6MwZTKDoA"/>
                 <children xsi:type="basic:PartStack" xmi:id="_VYY2jT93Eeyct6MwZTKDoA" elementId="right" containerData="2500" selectedElement="_VYY2jj93Eeyct6MwZTKDoA">
@@ -121,8 +121,9 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_VYY2kj93Eeyct6MwZTKDoA" elementId="bottom" containerData="2500" selectedElement="_VYY2kz93Eeyct6MwZTKDoA">
+              <children xsi:type="basic:PartStack" xmi:id="_VYY2kj93Eeyct6MwZTKDoA" elementId="bottom" containerData="2500" selectedElement="_VYY2lz93Eeyct6MwZTKDoA">
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_VYY2kz93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.views.ProblemView" ref="_VYLbID93Eeyct6MwZTKDoA" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
@@ -139,7 +140,7 @@
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
                 </children>
-                <children xsi:type="advanced:Placeholder" xmi:id="_VYY2lz93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.console.ConsoleView" toBeRendered="false" ref="_VYMpQT93Eeyct6MwZTKDoA" closeable="true">
+                <children xsi:type="advanced:Placeholder" xmi:id="_VYY2lz93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.console.ConsoleView" ref="_VYMpQT93Eeyct6MwZTKDoA" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
                 </children>
@@ -197,14 +198,11 @@
       <children xsi:type="basic:PartStack" xmi:id="_VYCRMT93Eeyct6MwZTKDoA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_ZjlEkD93Eeyct6MwZTKDoA">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_ZjlEkD93Eeyct6MwZTKDoA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Quiz2.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Quiz2.java&quot; partName=&quot;Quiz2.java&quot; title=&quot;Quiz2.java&quot; tooltip=&quot;Day5/src/Quiz2.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Day5/src/Quiz2.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;543&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Quiz2.java&quot; partName=&quot;Quiz2.java&quot; title=&quot;Quiz2.java&quot; tooltip=&quot;Day5/src/Quiz2.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Day5/src/Quiz2.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;466&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -265,8 +263,16 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_VYMpQT93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.console.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.console.ConsoleView"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.console"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
+      <menus xmi:id="_FUYK4D94EeyecJPP7s0tqQ" elementId="org.eclipse.ui.console.ConsoleView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_FUYx8D94EeyecJPP7s0tqQ" elementId="org.eclipse.ui.console.ConsoleView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_VYMpQj93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.views.BookmarkView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Bookmarks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/bkmrk_nav.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.BookmarksView"/>
@@ -335,7 +341,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_VRC4Yj93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_VRJmED93Eeyct6MwZTKDoA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_VCBk_j93Eeyct6MwZTKDoA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_aCZSED94Eeyr1r8GqEMgBg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_VCBk_j93Eeyct6MwZTKDoA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_VRC4Yz93Eeyct6MwZTKDoA" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -366,7 +372,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_VRC4aj93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_VRLbQD93Eeyct6MwZTKDoA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_VB_wIT93Eeyct6MwZTKDoA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_aCZSHT94Eeyr1r8GqEMgBg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_VB_wIT93Eeyct6MwZTKDoA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_VRC4az93Eeyct6MwZTKDoA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
