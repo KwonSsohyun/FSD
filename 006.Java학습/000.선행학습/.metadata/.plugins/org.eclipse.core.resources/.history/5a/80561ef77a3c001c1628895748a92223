@@ -1,8 +1,0 @@
-import java.util.Scanner;
-
-public class Ex10문자변환 {
-	public static void main(String[] args)	{
-		Scanner scan = new Scanner(System.in);
-		
-	}
-}

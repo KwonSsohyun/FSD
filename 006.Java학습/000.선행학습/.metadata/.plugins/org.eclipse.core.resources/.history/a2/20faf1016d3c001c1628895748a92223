@@ -1,8 +1,0 @@
-
-public class Ex03무한루프중지 {
-	public static void main(String[] args) {
-		while(true) {
-			System.out.print("test....\n"); // println이 아니기때문에 \n써서 개행해줌
-		}
-	}
-}

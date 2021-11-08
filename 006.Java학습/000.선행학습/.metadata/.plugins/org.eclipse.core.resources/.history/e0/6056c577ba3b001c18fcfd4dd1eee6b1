@@ -1,8 +1,0 @@
-import java.util.Scanner;
-
-public class Ex03입력함수 {
-	public static void main (String[] args) {
-		Scanner scan = new Scanner(System.in); // nextLine(), nextlnt(), nextDouble() 호출해서 쓰려고
-		
-	}
-}

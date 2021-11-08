@@ -1,7 +1,0 @@
-
-public class Ex06¹Ý¿Ã¸² {
-	public static void main(String[] args)	{
-		double pi = 3.121592;
-		double shortPi = Math.round(pi);
-	}
-}

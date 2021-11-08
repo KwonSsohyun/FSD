@@ -1,7 +1,0 @@
-import java.util.Scanner;
-
-public class Ex08Char입력 {
-	public static void main(String[] args) {
-		Scanner  // Scanner 쓰고 ▶▶ ctrl + space바 누르면 어디 위치에 있는 클래스인지 나온다.
-	}
-}

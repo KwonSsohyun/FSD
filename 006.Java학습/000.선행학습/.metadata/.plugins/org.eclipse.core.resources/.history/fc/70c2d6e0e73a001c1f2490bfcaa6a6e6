@@ -1,8 +1,0 @@
-
-public class Ex01변수 {
-	public static void main(String args[]) {
-		// 정수를 저장할 수 있는 변수 x를 메모리 할당.
-		int x = 5;
-		System.out.println(x);
-	}
-}
