@@ -2,21 +2,21 @@
 
 [ 배열 ]
 
-int[] arr = new int[10];
+▶ int[] arr = new int[10];
 
-0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9
-↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑
-arr이 위에를 가르킨다.
+    0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9
+    ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑
+    arr이 위에를 가르킨다. (기본으로 가르키는건 0)
 
-참조형은 4byte니까
-개당 4byte니까 총 10개해서 
-= 40byte
+   참조형은 4byte니까
+   개당 4byte니까 총 10개해서 
+   = 40byte
 
 
-double[] darr = new double[10];
-double 두배사이즈 
-개당 8byte니까 총 10개해서
-= 80byte
+▶ double[] darr = new double[10];
+   double 두배사이즈 
+   개당 8byte니까 총 10개해서
+   = 80byte
 
 arr / darr 메모리번지를 저장한다. (참조형이니까)
 
