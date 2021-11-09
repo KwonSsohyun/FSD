@@ -1,0 +1,87 @@
+
+[ 클래스들 메서드 정의 확인 ] 
+
+  : 레퍼런스 참조문서 == API 래펀런스 도큐먼트 
+    (제공되는 것들이 api)(기능을 가져와서 쓴다.)
+
+  --------------------------------------------------------------------------------
+
+  < 문서파일 내려받기 >
+
+    1) 오라클 홈페이지 접속
+       https://www.oracle.com/index.html
+
+    2) 맨 왼쪽 배너 "Oracle Cloud Infrastructure" 클릭
+    3) 메뉴 중 "Application Development" 클릭
+    4) "Java SE" 클릭 
+    5) 오른쪽 패널이 옆에 뜨는데 "Learn more" 클릭
+
+
+    6) "Announcing Java 17" 아래 >> "Download Java 17" 클릭
+    7) 페이지 스크롤 계속 쭉 내리면 
+       ▶ "Java SE subscribers have more choices" 섹션을 보면
+       ▶▶  "Java 8"  탭 선택!
+
+
+    8) 조금만 스크롤 내리면
+       ▶▶ "Documentation Download" 클릭
+
+
+    9) Java SE Development Kit 8 Documentation 아래
+       ▶ Java SE Development Kit 8u311 Documentation 항목아래
+       ▶▶ Download 아래에 있는
+       ▶▶  "jdk-8u311-docs-all.zip" 클릭해 내려받는다.
+
+
+    10) 파일 내려받으면 알집 푼다.
+        ▶▶ "index.html" 클릭해서 크롬으로 본다.
+
+
+  --------------------------------------------------------------------------------
+
+
+  < 문서 보기 >
+
+    1) 계층도가 첫 화면에 보이는데
+       ▶▶ "Java SE API" 클릭하면 문서 확인할 수 있다.
+
+    2) 왼쪽 패널을 보면 (위아래로 2가지로 구분되 보인다.)
+       ▶ "Packages"
+       ▶ "All Classes"
+
+    ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+    3) System 을 한번 봐볼까?
+       ▷ "Packages" ▶ "java.lang" 선택
+       ▷ "All Classes" ▶ "System" 선택
+
+       Class System 이 오른쪽 화면에 보이는데
+       스크롤 내려서 보면,
+
+       static void 처럼 
+       ▷ 앞에 "static" 이 붙어있는것을 볼 수 있다.
+          : 이것은 new를 안 붙혀줘도 된다는 뜻.
+
+    -----------------------------------------------------
+
+    4) 이번엔 Scanner 를 봐볼까?
+       ▷ "Packages" ▶ "java.util" 선택
+       ▷ "All Classes" ▶ "Scanner" 선택
+
+       Class Scanner 이 오른쪽 화면에 보이는데
+       스크롤 내려서 보면,
+
+       void 처럼
+       ▷ 앞에 "static" 이 안붙어있는것을 볼 수 있다.
+          : 이것은 new를 붙혀줘야 한다는 뜻.
+
+
+          ex) 
+          ▷ 예제 : Day3/src >> Ex10문자변환
+
+          import java.util.Scanner; ▶ Scanner 랭lang(기본)에 없기 때문에 상단에 import를 쓴다.
+          Scanner scan = new Scanner(System.in); ▶ new 메모리 할당연산자이다. 입력할 수 있게 해주려고 new를 쓰는것임. / 뭘 쓸진 몰라도 메모리에 올려야 하기 때문에 new를 쓴다.
+
+    ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    
+  
