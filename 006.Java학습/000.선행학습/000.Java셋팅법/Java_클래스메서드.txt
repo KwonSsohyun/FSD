@@ -51,6 +51,7 @@
 
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
+
     3) System 을 한번 봐볼까?
        ▷ "Packages" ▶ "java.lang" 선택
        ▷ "All Classes" ▶ "System" 선택
@@ -81,6 +82,7 @@
 
           import java.util.Scanner; ▶ Scanner 랭lang(기본)에 없기 때문에 상단에 import를 쓴다.
           Scanner scan = new Scanner(System.in); ▶ new 메모리 할당연산자이다. 입력할 수 있게 해주려고 new를 쓰는것임. / 뭘 쓸진 몰라도 메모리에 올려야 하기 때문에 new를 쓴다.
+          
 
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
     
