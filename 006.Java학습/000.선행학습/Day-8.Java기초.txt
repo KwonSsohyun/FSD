@@ -9,41 +9,41 @@ ex) E:\권소현\JAVA\Day8\bin
 메인이 있는 클래스를 자바가상머신으로 호출한다.
 
 ▶ cmd ◀
-C:\Users\권소현>e:
-E:\>cd 권소현
-E:\권소현>cd JAVA
-E:\권소현\JAVA>cd Day8
-E:\권소현\JAVA\Day8>cd bin
-E:\권소현\JAVA\Day8\bin>dir
-E:\권소현\JAVA\Day8\bin>java Ex01_main함수로전달
+   C:\Users\권소현>e:
+   E:\>cd 권소현
+   E:\권소현>cd JAVA
+   E:\권소현\JAVA>cd Day8
+   E:\권소현\JAVA\Day8>cd bin
+   E:\권소현\JAVA\Day8\bin>dir
+   E:\권소현\JAVA\Day8\bin>java Ex01_main함수로전달
 
 ▶ 이클립스에서 직접 ◀
-1) 메뉴 "Run" >> "Run Configurations"
-2) 메뉴 탭에서 "(x)= Arguments" 선택
-3) "Program arguments" 에다 적으면 된다. >> 입력 후 Run클릭
+   1) 메뉴 "Run" >> "Run Configurations"
+   2) 메뉴 탭에서 "(x)= Arguments" 선택
+   3) "Program arguments" 에다 적으면 된다. >> 입력 후 Run클릭
     
-    ex) 
-    참고소스 : Day8/src >> Ex01_main함수로전달
-    
-    ▷ "Program arguments" 칸에 입력내용
-       : 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 1 10 100
-         ▶ 스페이스로 기준으로 구분한다.
+      ex) 
+      참고소스 : Day8/src >> Ex01_main함수로전달
+      
+      ▷ "Program arguments" 칸에 입력내용
+         : 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 1 10 100
+            ▶ 스페이스로 기준으로 구분한다.
 
-         콘솔로 찍어보면
-         ▶▶ 매개 변수의 개수 : 11
-              args[0] = 동해물과
-              args[1] = 백두산이
-              args[2] = 마르고
-              args[3] = 닳도록
-              args[4] = 하느님이
-              args[5] = 보우하사
-              args[6] = 우리나라
-              args[7] = 만세
-              args[8] = 1
-              args[9] = 10
-              args[10] = 100
+            콘솔로 찍어보면
+            ▶▶ 매개 변수의 개수 : 11
+               args[0] = 동해물과
+               args[1] = 백두산이
+               args[2] = 마르고
+               args[3] = 닳도록
+               args[4] = 하느님이
+               args[5] = 보우하사
+               args[6] = 우리나라
+               args[7] = 만세
+               args[8] = 1
+               args[9] = 10
+               args[10] = 100
 
-              ▷ 2차원배열 : 면의 개념
+               ▷ 2차원배열 : 면의 개념
 
 ________________________________________________________________________
 
@@ -86,4 +86,10 @@ ________________________________________________________________________
      다만, 아래 코드인 
      int[][] arr2D 	= new int[2][2]; 
      콘솔로 열을 개별로 찍어보면 0으로 나온다.
+
+     위에 코드는 
+     열의 각각 숫자를 지정했기때문에
+     콘솔로 열을 개별로 찍어보면 11, 12, 21, 22 
+
+     ▷ 참고소스 : Day8/src >> Ex04_Arrays클래스
 
