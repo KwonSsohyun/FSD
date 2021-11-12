@@ -9,3 +9,23 @@ class Test{
   }
 
 }
+
+main() {
+  Test test = new Test();
+  test.
+}
+
+
+------------------------------------------------------------------------------------
+
+[ 메모리 구조 - static/stack/heap ]
+  : Ram(메인메모리) 안에 들어있다.
+
+< stack >              < heap, instance >                  < static, class >
+   lv   
+   x                      iv                                   cv
+  test        ->>>           ...
+
+
++) 메모리를 차지하고 있으면 인스턴스
+   
