@@ -1,2 +1,11 @@
 [ Java 기초 ｜ 2021.11.12 ]
 
+class Test{
+  int iv; (인스턴스값)
+  static int cv; (클래스 값)
+
+  void method(int x){
+    int lv = x; (로컬값 = 지역변수함수안에서 선언)
+  }
+
+}
