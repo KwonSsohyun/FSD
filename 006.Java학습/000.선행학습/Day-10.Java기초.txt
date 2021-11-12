@@ -21,12 +21,14 @@ main() {
 [ 메모리 구조 - static/stack/heap ]
   : Ram(메인메모리) 안에 들어있다.
 
-< stack >              < heap, instance >                  < static, class >
-   lv   
-   x                      iv                                   cv
-  test        ->>>           ...
-
-
+< stack >                < heap, instance >                  < static, class >
+                      ------  인스턴스 --------
+   lv                 ---- this(시작번지) ----             cv (앞에 static 있으니까)
+x (먼저반납)           │        iv            │
+                      │      method()        │
+  test        ->>>    ------------------------
+                        
+ 
 +) 메모리를 차지하고 있으면 인스턴스
    
 ____________________________________________________________________________________
