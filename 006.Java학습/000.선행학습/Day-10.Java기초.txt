@@ -11,7 +11,7 @@ class Test{
 
 }
 
-main() {
+main() { 
   Test test = new Test();
   test.
 }
@@ -22,7 +22,7 @@ main() {
 [ 메모리 구조 - static/stack/heap ]
   : Ram(메인메모리) 안에 들어있다.
 
-  ▷ 위의 예제 풀이
+  ▷ 위의 예제 풀이 (4~17번라인)
 
 < stack >                < heap, instance >                  < static, class >
                       ------  인스턴스 --------
