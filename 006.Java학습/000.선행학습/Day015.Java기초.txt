@@ -57,9 +57,9 @@
        strArray[1] = "Java";
        strArray[2] = new String("Java");
 
-       System.out.println(strArray[0] == strArray[1]);       // true 출력 : 같은 객체 참조
-       System.out.println(strArray[0] == strArray[2]);       // false 출력 : 다른 객체 참조
-       System.out.println(strArray[0].equals(strArray[2]));  // true 출력 : 문자열 동일
+       System.out.println(strArray[0] == strArray[1]);            // true 출력 : 같은 객체 참조
+       ▷▷ System.out.println(strArray[0] == strArray[2]);       // false 출력 : 다른 객체 참조
+       ▶▶ System.out.println(strArray[0].equals(strArray[2]));  // true 출력 : 문자열 동일
 
        위의 코드는 아래와 같이 메모리 영역에 생성된다.
 
