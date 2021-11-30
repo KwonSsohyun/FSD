@@ -1,5 +1,6 @@
 [ 개발자 폰트 : D2 Coding ]
 https://github.com/naver/d2codingfont
+파일명 : D2Coding-Ver1.3.2-20180524 >> "D2CodingAll"
 
 1ㅣl I|
 0oOㅇ
