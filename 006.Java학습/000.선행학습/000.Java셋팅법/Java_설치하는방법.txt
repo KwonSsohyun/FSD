@@ -102,6 +102,28 @@ ________________________________________________________________________________
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
 
+[ 이클립스 하위버전 - Luna(루나) ]
+
+  1) https://www.eclipse.org/downloads/
+  2) 주황색 버튼 > Download x86_64 (이거말고) 아래!!! ▶ 조금한 글씨 "Download Packages" 클릭!!! 
+  3) "MORE DOWNLOADS" 오른쪽 패널에 있는 항목 중 ▶ "Older Versions" 클릭!!!
+
+  4) https://www.eclipse.org/downloads/packages/release (해당페이지로 넘어옴)
+     "Eclipse Packaging Project (EPP) Releases" 아래 중
+      ▶ "Luna" 클릭!!!
+
+  5) https://www.eclipse.org/downloads/packages/release/luna (해당페이지로 넘어옴)
+     "Eclipse Luna" 아래 중
+      ▶ "SR2 Packages" 클릭!!!
+
+  6) https://www.eclipse.org/downloads/packages/release/luna/sr2 (해당페이지로 넘어옴)
+     "Eclipse IDE Luna SR2 Packages" 아래 중
+      ▶ "Eclipse IDE for Java Developers" 다운 받을 것임!!!
+      ▶▶ "Windows 32-bit x86_64" 클릭해서 내려 받을 것!!!
+        
+______________________________________________________________________________________________________________
+
+
 [ 이클립스 실행 ]
   1) "작업환경" 설정!
       ▶ 상단 "File" > "Swith Workspace" > "Other"
