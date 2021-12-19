@@ -1,5 +1,5 @@
 
-[ 웹 서버 (HTTP Server) ]
+[ 웹 서버 (HTTP Server) ] 
 
   ▶ 아파치 : 웹서버 (web server)
   ▶▶ 아파치 톰캣 : WAS(웹어플리케이션 서버) 
