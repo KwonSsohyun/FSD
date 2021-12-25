@@ -1,0 +1,27 @@
+
+[ Eclipse로 Java 내부소스코드 보는 방법 (Attach Source) ]
+
+  1) 이클립스에 해당 코드를 적고
+     ▷ java.util.Scanner sc = new java.util.Scanner(System.in);
+
+
+  2) 앞에 있는 "Scanner" 에 
+     "ctrl" 을 누르고 해당 단어(Scanner)를 클릭한다.
+      (소스코드를 Ctrl + 마우스 왼쪽 클릭하면, 소스코드의 정의를 볼 수 있다.)
+
+
+  3) 그럼 "Scanner.class" 파일을 볼 수 있다.
+      근데 만약 정상적으로 보이지 않는다면?
+
+      ▶ "Attach Source" 클릭!
+
+      ▶  External location 클릭후 
+          Path에 있는 Extenal file을 클릭
+           -
+           ◎ External location 
+           Path :                 → "External File" 클릭!
+           -
+
+      ▶  java jdk가 설치된 디렉터리 밑에있는 src.zip을 클릭
+          → C:\Program Files\Java\jdk1.8.0_311
+          ▷ "src.zip" 클릭!
