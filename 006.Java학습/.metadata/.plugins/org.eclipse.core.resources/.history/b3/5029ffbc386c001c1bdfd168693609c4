@@ -1,0 +1,33 @@
+package com.hi;
+
+import java.awt.Frame;
+import java.awt.Label;
+import java.util.Date;
+
+public class Ex07 extends Frame{
+
+	Label la;
+	
+	public Ex07(){ // UI쪽 하나의 쓰레드
+		la = new Label();
+		
+		setBounds(200,200,200,100);
+		setVisible(true);
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// 메인쪽 하나의 쓰레드
+		// 시계
+		
+		Ex07 thr = new Ex07();
+		
+		while(true){
+			Date d = new Date();
+		}
+
+	}
+
+}

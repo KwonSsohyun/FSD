@@ -1,0 +1,26 @@
+package com.hi;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		URL url = null;
+		
+		try {
+			url = new URL("http://google.com");
+			
+			
+			
+			
+			
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

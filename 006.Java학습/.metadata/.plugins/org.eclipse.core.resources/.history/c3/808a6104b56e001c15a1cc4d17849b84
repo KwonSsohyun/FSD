@@ -1,0 +1,31 @@
+package com.hi.step01;
+
+import java.io.IOException;
+import java.net.*;
+
+public class Server {
+
+	public static void main(String[] args) {
+		// ▶ 서버
+		// 소켓만들면 안됨
+		// 클라이언트 요청한 만든 소켓 연결해야함.
+		// 서버소켓 사용한다.
+		ServerSocket serv = null;
+		
+		// 클라이언트가 5000포트를 보내고 있기 때문에 똑같은 숫자 써야한다.
+		try {
+			serv = new ServerSocket(5000);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				serv.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+
+	}
+
+}

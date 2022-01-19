@@ -1,0 +1,32 @@
+package com.hi;
+
+import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class Ex10 extends Frame{
+
+	public Ex10(){
+		
+		// 창닫기 ********************************************
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				dispose();
+			}
+		}); //************************************************
+		
+		
+		
+		
+		setBounds(200, 200, 800, 700);
+		setVisible(true);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// 두더지 게임
+		Ex10 me = new Ex10();
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.hi.udp;
+
+import java.net.*;
+
+public class HiReceiver { // 받는 사람
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

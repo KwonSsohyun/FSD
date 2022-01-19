@@ -1,0 +1,10 @@
+-- 잘 나오는지 확인용
+-- tab 은 테이블 중에 → tname 출력하겠다.
+-- 오라클데이터베이스는 테이블로 시작해서 테이블로 끝난다.
+select tname from tab;
+
+-- DML (select, insert, update,delete) - CRUD
+select * from dept;
+
+-- 추가
+insert into dept (deptno, dname, loc) values (50, 'add1', 'add2');

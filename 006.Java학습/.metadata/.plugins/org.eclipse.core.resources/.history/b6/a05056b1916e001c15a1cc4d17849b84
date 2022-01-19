@@ -1,0 +1,38 @@
+package com.hi;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		// java.net > Class URL
+		// https://docs.oracle.com/javase/8/docs/api/java/net/URL.html
+		
+		URL url = null;
+		
+		try {
+			url = new URL("http://google.com");
+			new URLConnection(url) {
+				
+				@Override
+				public void connect() throws IOException {
+					// TODO Auto-generated method stub
+					
+				}
+			};
+			
+			
+			
+			
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

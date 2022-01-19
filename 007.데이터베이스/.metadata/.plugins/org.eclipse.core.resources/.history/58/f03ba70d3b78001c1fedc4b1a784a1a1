@@ -1,0 +1,21 @@
+package com.hi;
+
+import java.sql.SQLException;
+
+import oracle.jdbc.driver.OracleDriver;
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+		// 드라이버에 있는 클래스 사용 가능
+		oracle.jdbc.driver.OracleDriver driver;
+		driver = new OracleDriver();
+		
+		try {
+			java.sql.DriverManager.deregisterDriver(driver);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

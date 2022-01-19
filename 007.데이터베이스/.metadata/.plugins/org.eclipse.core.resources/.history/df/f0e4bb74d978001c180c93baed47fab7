@@ -1,0 +1,22 @@
+package com.hi;
+
+import java.util.Scanner;
+
+public class Ex03 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String input= null;
+		
+		// 3번의 입력
+		System.out.println("deptno 입력 >");
+		input = sc.nextLine();
+		
+		System.out.println("dname 입력 >");
+		input = sc.nextLine();
+		
+		System.out.println("loc 입력 >");
+		input = sc.nextLine();
+	}
+
+}

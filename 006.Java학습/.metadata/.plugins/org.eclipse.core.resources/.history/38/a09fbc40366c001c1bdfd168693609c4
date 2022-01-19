@@ -1,0 +1,23 @@
+package com.hi;
+
+public class Ex05 extends Thread{
+
+	public static void main(String[] args) {
+		// 쓰래드 우선순위
+		Ex05 thr1 = new Ex05();
+		Ex05 thr2 = new Ex05();
+		Ex05 thr3 = new Ex05();
+		thr1.start();
+		thr2.start();
+		thr3.start();
+		
+	}
+
+	@Override
+	public void run() {
+		// 쓰래드 출력하는 순서를 보면, 막 다르다는걸 알 수 있다.
+		for(int i=0; i<10; i++){
+			System.out.println(getName() + "run..." + i);
+		}
+	}
+}

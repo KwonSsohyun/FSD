@@ -1,0 +1,16 @@
+package com.hi;
+
+public class Ex08 extends Thread{
+
+	public static void main(String[] args) {
+		System.out.println(Thread.currentThread().getName() + " 시작");
+		
+		
+		
+		
+		
+		System.out.println(Thread.currentThread().getName() + " 종료");
+
+	}
+
+}

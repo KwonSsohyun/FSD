@@ -1,0 +1,36 @@
+package com.hi.udp;
+
+import java.io.IOException;
+import java.net.*;
+import java.util.Arrays;
+
+public class HiReceiver { // 받는 사람
+	
+	// 받는 사람이 먼저 열기
+	// 찾아와도 문을 안열어주면 못들어오니까.
+
+	public static void main(String[] args) {
+		
+		DatagramSocket sock = null;
+		DatagramPacket pack = null;
+		
+		try {
+			sock = new DatagramSocket(5000);
+			byte[] buf = new byte[8];
+			pack = new DatagramPacket(buf, buf.length);
+			sock.receive(pack);
+			
+			System.out.println(Arrays.toString(buf));
+			System.out.println(new String(buf));
+			
+		} catch (SocketException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			sock.close();
+		}
+
+	}
+
+}

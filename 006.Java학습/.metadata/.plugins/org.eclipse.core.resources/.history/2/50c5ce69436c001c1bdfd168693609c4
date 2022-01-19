@@ -1,0 +1,44 @@
+package com.hi;
+
+import java.awt.BorderLayout;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class Ex10 extends Frame{
+
+	public Ex10(){
+		
+		// 창닫기 ********************************************
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				dispose();
+			}
+		}); //************************************************
+		
+		// <BorderLayout>
+		BorderLayout bl = new BorderLayout();
+		Panel p = new Panel();
+		p.setLayout(bl);
+		p.add(bl, BorderLayout.NORTH);
+		
+		// <GridLayout>
+		GridLayout title = new GridLayout(1,1);
+		
+		
+		
+		add(p);
+		setBounds(200, 200, 800, 700);
+		setVisible(true);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// 두더지 게임
+		Ex10 me = new Ex10();
+	}
+
+}

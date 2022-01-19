@@ -1,0 +1,43 @@
+package com.hi.udp;
+
+import java.io.IOException;
+import java.net.*;
+
+public class HiSender { // 보낸 사람
+	
+	public static void main(String[] args){
+		
+		byte[] ip = {127,0,0,1};
+		int port = 5000;
+		DatagramSocket sock = null;
+		DatagramPacket pack = null;
+		// 일정한 피켓단위를 보낸다.
+		// 약속을 먼저 정하고, 보낸다.
+		// 사이즈를 일정하게 보내겠다. -> UDP
+		String msg = "send udp";
+		// String msg = "udp로 발송하는 메시지";
+		
+		try {
+			InetAddress addr = InetAddress.getByAddress(ip);
+			// 소켓 (UDP)
+			// 각 피켓에 정보를 실어서 보낸다.
+			sock = new DatagramSocket();
+			// pack = new DatagramPacket(보낼데이터, 데이터의 길이, 주소 , 포트)
+			pack = new DatagramPacket(msg.getBytes(), msg.length(), addr, port);
+			sock.send(pack);
+			
+			
+			
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (SocketException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			sock.close();
+		}
+		
+		
+	}
+}

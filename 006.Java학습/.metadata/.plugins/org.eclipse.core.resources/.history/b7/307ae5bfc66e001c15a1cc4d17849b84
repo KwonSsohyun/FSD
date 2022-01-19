@@ -1,0 +1,50 @@
+package com.hi.step03;
+
+import java.net.*;
+import java.io.*;
+
+public class Server {
+
+	public static void main(String[] args) {
+		ServerSocket serve = null;
+		Socket scok = null;
+		
+		InputStream is = null;
+		OutputStream os = null;
+		// 문자열로 바꾸고
+		InputStreamReader isr = null;
+		OutputStreamWriter osw = null;
+		// 버퍼
+		BufferedReader br = null;
+		BufferedWriter bw = null;
+		
+		
+		
+		try {
+			serve = new ServerSocket(5000);
+			
+			
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// 생성의 역순으로 클로즈
+				bw.close();
+				br.close();
+				osw.close();
+				isr.close();
+				os.close();
+				is.close();
+				serve.close();
+				///////////////////////////
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+
+	}
+
+}

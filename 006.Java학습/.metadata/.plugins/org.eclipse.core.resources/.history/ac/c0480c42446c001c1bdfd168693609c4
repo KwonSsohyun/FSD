@@ -1,0 +1,57 @@
+package com.hi;
+
+import java.awt.BorderLayout;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class Ex10 extends Frame{
+
+	public Ex10(){
+		
+		// 창닫기 ********************************************
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				dispose();
+			}
+		}); //************************************************
+		
+		// <BorderLayout>
+		BorderLayout bl = new BorderLayout();
+		Panel p = new Panel();
+		p.setLayout(bl);
+
+		
+		// <GridLayout>
+		GridLayout title = new GridLayout(1,2);
+		Panel ptitle = new Panel();
+		ptitle.setLayout(title);
+		
+		Label la = new Label();
+		la.setText("두더지게임(ver 0.1.0)");
+		la.setAlignment(la.CENTER);
+		ptitle.add(la);
+		
+		Label la2 = new Label();
+		la2.setText("60초");
+		la.setAlignment(la2.RIGHT);
+		ptitle.add(la2);
+		
+		p.add(ptitle, BorderLayout.NORTH);
+		
+		add(p);
+		setBounds(200, 200, 800, 700);
+		setVisible(true);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// 두더지 게임
+		Ex10 me = new Ex10();
+	}
+
+}

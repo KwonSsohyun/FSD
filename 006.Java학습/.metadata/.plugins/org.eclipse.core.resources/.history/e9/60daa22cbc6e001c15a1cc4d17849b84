@@ -1,0 +1,39 @@
+package com.hi.step02;
+
+import java.io.*;
+import java.net.*;
+
+public class Client {
+
+	public static void main(String[] args) {
+		Socket sock = null;
+		InputStream is = null;
+		OutputStream os = null;
+		
+		try {
+			sock = new Socket("localhost", 5000);
+			os = sock.getOutputStream();
+			is = sock.getInputStream();
+		
+			os.write(65);
+			int su = is.read();
+			System.out.println(su);
+
+			
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			os.close();
+			is.close();
+			try {
+				sock.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,62 @@
+package com.hi;
+
+import java.util.Scanner;
+import java.sql.*;
+import oracle.jdbc.driver.OracleDriver;
+
+public class Stu01 {
+
+	public static void main(String[] args) {
+		
+		// 학생성적관리프로그램 (ver 0.9.0)
+		// 1.보기(day29→Ex01)  2.입력(day30→Ex03)  3.수정  4.삭제  0.종료  >  
+		// 1.보기  2.입력  3.수정  4.삭제  0.종료  >  
+		
+		String sql;
+		String url = "jdbc:oracle:thin:scott/tiger@localhost:1521:xe";
+		
+		OracleDriver driver = new OracleDriver();
+		Connection conn = null;
+		Statement stmt = null;
+		
+		Scanner scan = new Scanner(System.in);
+		int su;
+		
+		while(true) {
+			System.out.println("1.보기  2.입력  3.수정  4.삭제  0.종료  >");
+			su = Integer.parseInt(scan.nextLine());
+			
+			if(su == 1) {
+				sql = "select * from stu01";
+				try {
+					DriverManager.deregisterDriver(driver);
+					
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				continue;
+			} else if(su ==2) {
+				
+				
+				continue;
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

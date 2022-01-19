@@ -1,0 +1,5 @@
+package com.hi.udp;
+
+public class HiSender { // 보낸 사람
+
+}

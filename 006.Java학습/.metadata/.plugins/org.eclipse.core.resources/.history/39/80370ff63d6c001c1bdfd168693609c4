@@ -1,0 +1,45 @@
+package com.hi;
+
+public class Ex09 extends Thread{
+
+	public static void main(String[] args) {
+		Ex09 me = new Ex09();
+		me.start();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		me.suspend();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		me.resume();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		me.stop();
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			System.out.println(getName() + " run....");
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

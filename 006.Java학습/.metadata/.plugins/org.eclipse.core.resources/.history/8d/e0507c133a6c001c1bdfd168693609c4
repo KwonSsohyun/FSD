@@ -1,0 +1,38 @@
+package com.hi;
+
+public class Ex08 extends Thread{
+
+	public static void main(String[] args) {
+		
+		System.out.println(Thread.currentThread().getName() + " 시작");
+		
+		// 총 3개 쓰래드 일한다.
+		// 메인 / thr1 / thr2
+		Ex08 thr1 = new Ex08();
+		Ex08 thr2 = new Ex08();
+
+		thr1.start();
+		thr2.start();
+		
+		// 메인쓰래드는 맨 마지막에 실행하고 싶다면 .join()
+		// 쓰레드 1이 0일것이다.
+		try {
+			thr1.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		System.out.println(Thread.currentThread().getName() + " 종료");
+
+	}
+	
+	@Override
+	public void run() {
+		for(int i=0; i<10; i++){
+			System.out.println(getName() + " 수행 : " + (i+1));
+		}
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.hi;
+
+import java.util.Scanner;
+
+public class Stu02 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.hi;
+
+import java.awt.Frame;
+
+public class Ex10 extends Frame{
+
+	public Ex10(){
+		
+		
+		
+		
+		
+		setBounds(200, 200, 600, 700);
+		setVisible(true);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// 두더지 게임
+		Ex10 me = new Ex10();
+	}
+
+}

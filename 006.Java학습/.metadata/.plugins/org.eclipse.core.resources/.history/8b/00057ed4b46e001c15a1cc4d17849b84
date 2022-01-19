@@ -1,0 +1,19 @@
+package com.hi.step01;
+
+import java.net.*;
+
+public class Server {
+
+	public static void main(String[] args) {
+		// ▶ 서버
+		// 소켓만들면 안됨
+		// 클라이언트 요청한 만든 소켓 연결해야함.
+		// 서버소켓 사용한다.
+		ServerSocket serv = null;
+		
+		serv = new ServerSocket(5000);
+		
+
+	}
+
+}

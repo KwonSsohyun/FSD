@@ -1,0 +1,33 @@
+package com.hi;
+
+import java.io.IOException;
+import java.net.*;
+
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		
+		// java.net > Class URLConnection
+		// https://docs.oracle.com/javase/8/docs/api/java/net/URLConnection.html
+		
+		URL url = null;
+		
+		try {
+			url = new URL("http://google.com");
+			URLConnection conn = url.openConnection();
+			
+	
+			
+			
+			
+			
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

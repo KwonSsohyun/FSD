@@ -1,0 +1,40 @@
+package com.hi;
+
+import java.util.Scanner;
+
+public class Stu02 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("학생성적관리프로그램 (ver 0.9.0)");
+		String input = null;
+		
+		
+		while(true) {
+			System.out.println("1.보기  2.입력  3.수정  4.삭제  0.종료  >");
+			input = sc.nextLine();
+			
+			if(input.equals("0")) break;
+			if(input.equals("1")) { // 1. 보기 ------------------------------
+				String sql = "select * from stu01 order by num asc"; // num가 오름차순으로 출력
+				System.out.println("-------------------------");
+				System.out.println("학번\t 이름\t 국어\t 영어\t 수학");
+				System.out.println("-------------------------");
+				System.out.println("-------------------------");
+				System.out.println(sql);
+				
+				
+			} else if(input.equals("2")) { // 2. 입력  -----------------------
+				String sql = "";
+				
+				System.out.println(sql);
+				
+			}
+			
+			
+		}
+		
+	}
+
+}

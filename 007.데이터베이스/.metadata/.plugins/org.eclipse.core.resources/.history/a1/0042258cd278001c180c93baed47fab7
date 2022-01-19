@@ -1,0 +1,41 @@
+package com.hi;
+
+import java.sql.*;
+import oracle.jdbc.driver.OracleDriver;
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		// 자바연동
+		String sql = "insert into dept (deptno, dname, loc) values (70, 'HH', 'II)"; // 쿼리문장을 오라클데베에 날리면 된다.
+		String url = "jdbc:oracle:thin::scott/tiger@localhost:1521:xe";
+		
+		// 드라이버클래스 객체 생성
+		OracleDriver driver = new OracleDriver();
+		// 데이터 베이스 연결
+		Connection conn = null;
+		// 자바 sql에 있는 드라이버로 레지스터 해줌
+		// 드라이버 로딩
+		try {
+			DriverManager.deregisterDriver(driver);
+			conn = DriverManager.getConnection(url);
+			System.out.println(conn);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null){ conn.close(); }
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	 	
+		
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,38 @@
+package com.hi;
+
+public class Ex07 {
+
+	public static void main(String[] args) {
+		// 학생성적관리프로그램(ver 0.6.0)
+
+		java.util.Scanner sc = new java.util.Scanner(System.in);
+		
+		System.out.println("학생성적관리프로그램(ver 0.6.0)");
+		
+		String input; // 입력 받은 데이터 넣을거임
+		
+		
+		while(true){
+			
+			System.out.println("1.보기  2.입력  3.삭제  4.수정  0.종료 > ");
+			input = sc.nextLine();
+			
+			if(input.equals("1")){
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+	}
+
+}

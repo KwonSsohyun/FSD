@@ -1,0 +1,41 @@
+package com.hi.step01;
+
+import java.io.IOException;
+import java.net.*;
+
+public class Client {
+
+	public static void main(String[] args) {
+		// ▶ 클라이언트
+		// 서버에 접속 -> "IP, 포트번호" 필요
+		
+		
+		String ip = "127.0.0.1";
+		// 클라이언트도 서버랑 똑같이 5000포트로 적어줘야 서버 접속 가능
+		int port = 5000; // ~1024 (기존에 있는 포트번호는 건들면 안됨) ▶ ~2000번 이후로 써야함 
+		
+		Socket sock = null;
+		
+		
+		// IO 수반하니까 트라이 캐치
+		try {
+			sock = new Socket(ip,port);
+			System.out.println("client > 접속요청했습니다.");
+			
+			
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				sock.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+
+	}
+
+}

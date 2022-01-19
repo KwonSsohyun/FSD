@@ -1,0 +1,57 @@
+package com.hi;
+
+public class Ex07 {
+
+	public static void main(String[] args) {
+		// 학생성적관리프로그램(ver 0.6.0)
+
+		java.util.Scanner sc = new java.util.Scanner(System.in);
+		
+		System.out.println("학생성적관리프로그램(ver 0.6.0)");
+		
+		String input; // 입력 받은 데이터 넣을거임
+		String data = ""; // 성적 쌓을 데이터
+		
+		
+		while(true){
+			
+			System.out.println("1.보기  2.입력  3.삭제  4.수정  0.종료 > ");
+			input = sc.nextLine();
+			
+			if(input.equals("1")){
+				System.out.println("------------------------------------------");
+				System.out.println("학번\t │이름\t │국어\t │영어\t │수학\t ");
+				System.out.print("------------------------------------------");
+				System.out.println(data);
+				System.out.println("------------------------------------------");
+			}else if(input.equals("2")){
+				System.out.println("학번 > ");
+				data = "\n" + data + sc.nextLine() + "\t";
+				System.out.println("이름 > ");
+				data += " │"+ sc.nextLine() + "\t";
+				System.out.println("국어 > ");
+				data += " │"+ sc.nextLine() + "\t";
+				System.out.println("영어 > ");
+				data += " │"+ sc.nextLine() + "\t";
+				System.out.println("수학 > ");
+				data += " │"+ sc.nextLine();
+			}else if(input.equals("3")){
+				System.out.println("삭제할 학번을 입력해주세요. > ");
+			}
+			
+	
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+	}
+
+}

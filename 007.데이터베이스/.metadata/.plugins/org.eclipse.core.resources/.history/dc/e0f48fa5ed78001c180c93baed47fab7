@@ -1,0 +1,24 @@
+-- 테이블 만들기
+-- ▶ create table 테이블명 (컬럼명 자료형, 컬럼명 자료형, ...);
+create table ex03(
+	num number,       -- 40자리 이하로 정수 가능
+	name varchar2(3), -- 영문으로는 3글자, 한글으로는 1글자 
+	num2 number(2),   -- 숫자 2자리 (num2는 컬럼명 (내맘대로지음) (※소숫점 자리수 외 날림)
+	num3 number(3,1)  -- 숫자 3자리 & 소숫점 1자리 (※소숫점 자리수 외 날림)
+);
+
+-- 만든 테이블에 값 넣기
+-- 컬럼명 앞에 안적으면 다 넣어줘야 한다.
+select * from ex03;
+insert into ex03 values (1, 'aaa', 11, 12.3);
+insert into ex03 values (2, 'bbb', 222, 12.3); -- (오류남) 222 > 이 열에 대해 지정된 전체 자릿수보다 큰 값이 허용됩니다.
+-- 소숫점 자리수 외 날림
+insert into ex03 values (2, 'bbb', 33.33, 12.3); -- 33.33 > 자리수 외 날라감!
+insert into ex03 values (2, 'bbb', 44, 12.34);   -- 12.3  > 자리수 외 날라감!
+
+insert into ex03 values (5, 'bbb', 55, 112.34); -- (오류남) 112.34 > 이 열에 대해 지정된 전체 자릿수보다 큰 값이 허용됩니다.
+insert into ex03 values (1.1, 'bbb', 66, 12.4); -- 1.1 > 들어올수 있음! (소수점은 언제든지 들어와도됨)
+
+insert into ex03 values (6, '한', 66, 12.4);
+insert into ex03 values (6, '한글', 66, 12.4);  -- 한글 한글자가 3byte -> 한글로 2글자 들어오니까 오류남
+

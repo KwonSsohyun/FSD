@@ -1,0 +1,68 @@
+package com.hi.step03;
+
+import java.net.*;
+import java.io.*;
+
+public class Server {
+
+	public static void main(String[] args) {
+		ServerSocket serve = null;
+		Socket scok = null;
+		
+		InputStream is = null;
+		OutputStream os = null;
+		// 문자열로 바꾸고
+		InputStreamReader isr = null;
+		OutputStreamWriter osw = null;
+		// 버퍼
+		BufferedReader br = null;
+		BufferedWriter bw = null;
+		////////////////////////////////////
+		
+		try {
+			serve = new ServerSocket(5000);
+			scok = serve.accept();
+			///////////////////////////////
+			is = scok.getInputStream();
+			os = scok.getOutputStream();
+			isr = new InputStreamReader(is);
+			osw = new OutputStreamWriter(os);
+			br = new BufferedReader(isr);
+			bw = new BufferedWriter(osw);
+			///////////////////////////////
+			
+			while(true){
+				String msg = br.readLine(); // 개행단위로 읽어옴 
+				msg = "re : " + msg;
+				bw.write(msg);
+				bw.newLine(); // -> 개행이 빠져서 개행 다시 넣어줌
+				bw.flush();
+				
+			}
+			
+			
+			
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// 생성의 역순으로 클로즈
+				bw.close();
+				br.close();
+				osw.close();
+				isr.close();
+				os.close();
+				is.close();
+				serve.close();
+				///////////////////////////
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+
+	}
+
+}

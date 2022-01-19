@@ -1,0 +1,33 @@
+package com.hi;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import oracle.jdbc.driver.OracleDriver;
+// https://docs.oracle.com/cd/E11882_01/appdev.112/e13995/oracle/jdbc/OracleDriver.html
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+		// 드라이버에 있는 클래스 사용 가능
+		String url ="jdbc:oracle:thin:scott/tiger@localhost:1521:xe";
+		oracle.jdbc.driver.OracleDriver driver;
+		driver = new OracleDriver();
+		
+		try {
+			// 쿼리주고 받으니 IO 작업
+			java.sql.DriverManager.deregisterDriver(driver);
+			Connection conn = DriverManager.getConnection(url);
+			
+			System.out.println(conn);
+			
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

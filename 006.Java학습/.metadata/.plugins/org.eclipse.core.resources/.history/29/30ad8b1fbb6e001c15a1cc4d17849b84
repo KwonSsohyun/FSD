@@ -1,0 +1,21 @@
+package com.hi.step02;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+public class Server {
+
+	public static void main(String[] args) {
+		int port = 5000;
+		
+		ServerSocket serv = null;
+		
+		try {
+			serv = new ServerSocket(5000);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

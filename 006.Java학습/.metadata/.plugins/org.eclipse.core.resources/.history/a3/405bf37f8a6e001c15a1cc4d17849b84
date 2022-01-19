@@ -1,0 +1,32 @@
+package com.hi;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.*;
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+		// Ελ½Ε
+		// https://docs.oracle.com/javase/8/docs/api/java/net/URI.html
+		
+		URI url = null;
+		
+		try {
+			url = new URI("http://naver.com");
+			
+			System.out.println(url.getHost());
+			System.out.println(url.getPort());
+			System.out.println(url.getPath());
+			System.out.println(url.getQuery());
+			System.out.println(url.getFragment());
+			System.out.println(url.getScheme());
+			
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

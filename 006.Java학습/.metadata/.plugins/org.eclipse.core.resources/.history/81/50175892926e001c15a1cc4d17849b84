@@ -1,0 +1,39 @@
+package com.hi;
+
+import java.io.*;
+import java.net.*;
+
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		
+		// java.net > Class URLConnection
+		// https://docs.oracle.com/javase/8/docs/api/java/net/URLConnection.html
+		
+		URL url = null;
+		InputStream is = null;
+		
+		try {
+			url = new URL("http://google.com");
+			
+			// URL 目池记 按眉 (林家 立加窍绰巴)
+			URLConnection conn = url.openConnection();
+			is = conn.getInputStream();
+			
+			
+			
+			
+			
+			is.close();
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

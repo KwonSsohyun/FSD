@@ -1,0 +1,8 @@
+-- create table (테이블 만들기)
+create table stu01(
+	num number,      
+	name varchar2(9), -- 3글자 한글이름 (한글 한글자당 3byte)  3byte X 3 = 9
+	kor number(3), -- 100점생각해서 3자리정수
+	eng number(3),
+	math number(3)
+);

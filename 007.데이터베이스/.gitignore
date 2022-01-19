@@ -1,0 +1,14 @@
+# .settings
+/*/.settings/
+
+# bin
+/*/bin/
+
+# .classpath
+/*/*.classpath
+
+# .project
+/*/*.project
+
+# ojdbc14.jar
+/*/*.jar

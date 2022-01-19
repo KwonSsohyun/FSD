@@ -1,0 +1,166 @@
+package com.hi;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class Ex10 extends Frame{
+	
+	// 필드
+	Button dudu1,dudu2,dudu3,dudu4,dudu5,dudu6,dudu7,dudu8,dudu9,
+	       dudu10,dudu11,dudu12,dudu13,dudu14,dudu15,dudu16;
+
+	public Ex10(){
+		
+		// 창닫기 ********************************************
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				dispose();
+			}
+		}); //************************************************
+		
+		// <BorderLayout>
+		BorderLayout bl = new BorderLayout();
+		Panel p = new Panel();
+		p.setLayout(bl);
+
+		// -----------------------------------------------------
+		// <<상단부>>
+		// <GridLayout>
+		GridLayout title = new GridLayout(1,2);
+		Panel ptitle = new Panel();
+		ptitle.setLayout(title);
+		
+		Label la = new Label();
+		la.setText("두더지게임(ver 0.1.0)");
+		la.setAlignment(la.CENTER);
+		ptitle.add(la);
+		
+		Label la2 = new Label();
+		la2.setText("60초");
+		la2.setAlignment(la2.RIGHT);
+		ptitle.add(la2);
+		// -----------------------------------------------------
+		// <<중간부>>
+		// 버튼
+		GridLayout button = new GridLayout(2,1);
+		Panel pbutton = new Panel();
+		pbutton.setLayout(button);
+		
+		Button str = new Button();
+		str.setLabel("시작");
+		Button end = new Button();
+		end.setLabel("종료");
+		pbutton.add(str);
+		pbutton.add(end);
+		// ---------------------
+		// 두더지 
+		GridLayout gdudu = new GridLayout(4,4);
+		Panel pdudu = new Panel();
+		pdudu.setLayout(gdudu);
+		
+		for(int i=1; i<=16; i++){
+			Button dudu = new Button();
+		}
+		
+		Button dudu1 = new Button();
+		dudu1.setLabel("두더지1");
+		pdudu.add(dudu1);
+		
+		Button dudu2 = new Button();
+		dudu2.setLabel("두더지2");
+		pdudu.add(dudu2);
+		
+		Button dudu3 = new Button();
+		dudu3.setLabel("두더지3");
+		pdudu.add(dudu3);
+		
+		Button dudu4 = new Button();
+		dudu4.setLabel("두더지4");
+		pdudu.add(dudu4);
+		
+		Button dudu5 = new Button();
+		dudu5.setLabel("두더지5");
+		pdudu.add(dudu5);
+		
+		Button dudu6 = new Button();
+		dudu6.setLabel("두더지6");
+		pdudu.add(dudu6);
+		
+		Button dudu7 = new Button();
+		dudu7.setLabel("두더지7");
+		pdudu.add(dudu7);
+		
+		Button dudu8 = new Button();
+		dudu8.setLabel("두더지8");
+		pdudu.add(dudu8);
+		
+		Button dudu9 = new Button();
+		dudu9.setLabel("두더지9");
+		pdudu.add(dudu9);
+		
+		Button dudu10 = new Button();
+		dudu10.setLabel("두더지10");
+		pdudu.add(dudu10);
+		
+		Button dudu11 = new Button();
+		dudu11.setLabel("두더지11");
+		pdudu.add(dudu11);
+		
+		Button dudu12 = new Button();
+		dudu12.setLabel("두더지12");
+		pdudu.add(dudu12);
+		
+		Button dudu13 = new Button();
+		dudu13.setLabel("두더지13");
+		pdudu.add(dudu13);
+		
+		Button dudu14 = new Button();
+		dudu14.setLabel("두더지14");
+		pdudu.add(dudu14);
+		
+		Button dudu15 = new Button();
+		dudu15.setLabel("두더지15");
+		pdudu.add(dudu15);
+		
+		Button dudu16 = new Button();
+		dudu16.setLabel("두더지16");
+		pdudu.add(dudu16);
+		
+		
+
+		// -----------------------------------------------------
+		// <<하단부>>
+		GridLayout footer = new GridLayout(1,1);
+		Panel pfooter = new Panel();
+		pfooter.setLayout(footer);
+		
+		Label la3 = new Label();
+		la3.setText("점수 (맞추면 1점, 틀리면 -2점)");
+		la3.setAlignment(la3.CENTER);
+		pfooter.add(la3);
+		// ------------------------------------------------------
+		
+		p.add(pdudu, BorderLayout.CENTER);
+		p.add(pfooter, BorderLayout.SOUTH);
+		p.add(ptitle, BorderLayout.NORTH);
+		p.add(pbutton, BorderLayout.EAST);
+		
+		add(p);
+		setBounds(200, 200, 800, 700);
+		setVisible(true);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// 두더지 게임
+		Ex10 me = new Ex10();
+	}
+
+}

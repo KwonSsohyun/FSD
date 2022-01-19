@@ -1,0 +1,30 @@
+package com.hi.udp;
+
+import java.net.*;
+
+public class HiSender { // 보낸 사람
+	
+	public static void main(String[] args){
+		
+		byte[] ip = {127,0,0,1};
+		int port = 5000;
+		DatagramSocket sock = null;
+		
+		try {
+			InetAddress addr = InetAddress.getByAddress(ip);
+			// 소켓 (UDP)
+			sock = new DatagramSocket();
+			
+			
+			
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (SocketException e) {
+			e.printStackTrace();
+		} finally {
+			sock.close();
+		}
+		
+		
+	}
+}
