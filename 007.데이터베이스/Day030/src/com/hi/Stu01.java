@@ -28,6 +28,7 @@ public class Stu01 {
 			System.out.println("1.보기  2.입력  3.수정  4.삭제  0.종료  >");
 			su = Integer.parseInt(scan.nextLine());
 			
+			if(su == 0) { break; } // 0. 종료
 			if(su == 1) { // 1. 보기
 				System.out.println("-----------------------------------");
 				System.out.println("학번\t 이름\t 국어\t 영어\t 수학");
@@ -136,7 +137,7 @@ public class Stu01 {
 				
 				sql = sql + " where num = " + suu ;
 				
-				// System.out.println(sql);
+				 System.out.println(sql);
 				
 				try {
 					DriverManager.deregisterDriver(driver);
