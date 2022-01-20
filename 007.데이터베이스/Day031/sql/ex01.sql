@@ -17,7 +17,7 @@
 --   CONVERT 	: CHAR SET을 변환한다.
 --   CHR ASCII 	: 코드 값으로 변환한다.
 --   ASCII 		: ASCII 코드 값을 문자로 변환한다.
---   REPLACE 	: 문자열에서 특정 문자를 변경한다
+--   REPLACE 	: 문자열에서 특정 문자를 변경한다.
 
 
 select 'aAbBcCD' from dual;
@@ -45,9 +45,9 @@ select substr('aAbBcCD', 1, 3) from dual; -- 1부터 3까지만 해당글자 뽑
 
 -- substrb b 바이트를 가지고 계산을 하겠다. (1,6) -> 한글로 2글자 추출 가능 
 -- 테이블에 입력시 데이터형식을 정하는데 넘어가면 이걸로 잡아줄 수 있다.
-select substrb('aAbBcCD', 1, 3) from dual;
+select substrb('aAbBcCD', 1, 3) from dual; -- aAb
 select substr('한글로작성', 1, 3) from dual;   -- 한글로
-select substrb('한글로작성', 1, 2) from dual;  -- 한 (한글 한글자 3byte)
+select substrb('한글로작성', 1, 3) from dual;  -- 한 (한글 한글자 3byte)
 select substrb('한글로작성', 1, 6) from dual;  -- 한글
 
 
@@ -76,11 +76,11 @@ select rpad('abc', 10, '#') from dual; -- abc#######
 
 
 -- 트림
-select lpad(rpad(trim('    ab  c    '),20,'#'),30,'#') from dual;
+select lpad(rpad(trim('    ab  c    '),20,'#'),30,'#') from dual; -- ##########ab  c###############
 -- 디폴트
 select trim(' ' from ' abcd  ') from dual;
 -- 특정 없애기
-select trim('#' from '###abcd####') from dual; -- '#' from 을 없애기로 해서 #이 사라짐
+select trim('#' from '###abcd####') from dual; -- abcd 값추출 -> '#' from 을 없애기로 해서 #이 사라짐 
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -105,6 +105,7 @@ select trim('#' from '###abcd####') from dual; -- '#' from 을 없애기로 해�
 -- mod - 나머지 연산자
 select 5/2, floor(5/2), mod(5,2) from dual; 
 
+
 -- round - 반올림
 select round(3.14), round(3.54) from dual; -- 3 | 4
 
@@ -127,7 +128,7 @@ select trunc(123.456 , -2) from dual; -- 100
 --   NEXT_DAY		  : 특정 날짜에서 최초로 도래하는 인자로 받은 요일의 날짜를 반환한다.
 --   LAST_DAY		  : 해당 달의 마지막 날짜를 반환한다.
 --   ROUND			  : 인자로 받은 날짜를 특정 기준으로 반올림한다.
---   TRUNC			  : 인자로 받은 날짜를 특정 기준으로 버림한다
+--   TRUNC			  : 인자로 받은 날짜를 특정 기준으로 버림한다.
 
 
 -- sysdate - 현재 날짜를 반환
@@ -156,8 +157,8 @@ select last_day(sysdate + 20) from dual; -- 오늘 날짜에서 +20일을 더한
 select round(sysdate) from dual; -- 12시가 넘었기 때문에 반올림 하면 다음날 날짜 나옴
 select trunc(sysdate) from dual; -- 12시가 넘었기 때문에 버리면 오늘 날짜 나옴
 
-select round(sysdate, 'mm') from dual; -- 2022-02-01
-select trunc(sysdate, 'mm') from dual; -- 2022-01-01
+select round(sysdate, 'mm') from dual; -- 2022-02-01 : 월 초기화
+select trunc(sysdate, 'mm') from dual; -- 2022-01-01 : 월 초기화
 
 -- 날짜포멧
 -- 월mm 
@@ -188,26 +189,56 @@ select to_char(1234, '999,999') from dual;   -- 1,234
 select to_char(1234, '000,000') from dual;   -- 001,234
 
 -- 소숫점이 발생할 경우 0이건 9건 나타낸다.
--- +는 S | - 
+-- 부호인 +를 나타내고 싶으면 > S기입! 
 select to_char(1234, 'S999,999.99') from dual; -- +1,234.00
-select to_char(1234, 'L999,999.99') from dual;
+select to_char(1234, 'L999,999.99') from dual; -- ₩1,234.00
 
 
-select null+1234 from dual; -- NULL과 연산하면 NULL
--- NULL을 치환해주는 함수 
--- nvl(컬럼명,0)  -> 해당컬럼명 이 null이면 0으로 바꿔라
--- 치환은 수식의 어떤 부분에 그와 대등한 무언가를 바꿔 넣는 행위
--- 바꿔넣을때 데이터형식과 타입이 똑같아야 한다.
+----------------------------------------------------------------------------------------------------------------------------------
+
+-- < 일반 함수 > 
+
+-- NULL과 연산하면 NULL이 나온다.
+-- 이를 사전에 방지하려면 어떻게 해야할까?
+select null+1234 from dual; --> NULL
+
+-- ▶ NVL(컬럼, 변환 값)
+--   : NULL을 치환해주는 함수
+--     ⇒ 치환은 수식의 어떤 부분에 그와 대등한 무언가를 바꿔 넣는 행위 
+--       nvl(컬럼명,0)  -> 해당컬럼데이터가 null이면 0으로 바꿔라 (숫자형 타입이면, 없으면 0이 맞으니 그말임)
+--       단, 바꿔넣을값이 테이블 만들때 해당 컬럼에 정해진 데이터형식과 타입과 똑같아야 한다.
 select ename, sal, nvl(comm,0), sal+nvl(comm,0) from emp;
+-- < 코드풀이 >
+--   ∴ sal컬럼을 보면 null인 값이 없고, comm컬럼에만 null이 존재해서
+--     comm에 null이면 0으로 바꿔라 라고 명령은 줬다. ▶ nvl(comm,0)
+--     이걸 왜 했냐면, sal에 값이 있어도 null과 연산 취하면 같이 null이 된다... 그래서 null을 치환함
+--     이제 sal과 comm의 컬럼을 더해 줄거다.
+--     이때도 null값이면 0으로 바꿔라했다.  ▶ sal+nvl(comm,0)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+-- ▶ DECODE(컬럼명, 비교대상1, 반환값1, 비교대상2, 반환값2, ... , 비교대상N, 반환값N, 디폴트 값) 
+--   ⇒ 디폴트 값은 입력하지 않으면 NULL이다.
+-- 10일때 관리팀 / 20일때 영업팀 / 30 총무팀 ⇒ 으로 decode에 값 바꿔치기 해라.
+select ename, decode(deptno, 10 , '관리팀' , 20,'영업팀' , 30,'총무팀') from emp; -- 그외 조건은 조건식이 없으니 NULL로 표기됨
 
 
--- 10일때 관리팀 / 20일때 영업팀 / 30 총무팀 으로 decode에 값 바꿔치기 해라.
-select ename, decode(deptno, 10 , '관리팀' , 20,'영업팀' , 30,'총무팀') from emp; -- 없으면 NULL로 표기됨
 
--- 케이스문 (위 코드보다 직관적)
--- ▶ case when 조건식 then 데이터값 (else) end  →  해당케이스 없으면 NULL로 표기됨
+-- ▶ 케이스문 (위 코드보다 직관적)
+-- ▶ case when 조건문 then 바꿀데이터값 (else) end  →  해당케이스 없으면 NULL로 표기됨 (else는 필수기입이 아님)
+-- CASE 표현식
+--      WHEN 비교대상(조건문)1 THEN 반환값1
+--      WHEN 비교대상(조건문)2 THEN 반환값2
+--                    ....
+--      WHEN 비교대상(조건문)N THEN 반환값N
+--
+--      ELSE 디폴트값
+--
+-- END
+
+
 select ename, 
-		case     -- 조건절 -
+		case     -- 조건문 -
 			when deptno = 10 then '관리팀' -- 만족하면 then 실행
 			when deptno = 20 then '영업팀' -- 만족안하면 다음~
 			when deptno = 30 then '총무팀'
@@ -216,7 +247,7 @@ select ename,
 	from emp;
 
 
-
+----------------------------------------------------------------------------------------------------------------------------------
 
 
 
