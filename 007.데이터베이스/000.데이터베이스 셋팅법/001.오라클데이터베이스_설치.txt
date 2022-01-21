@@ -1,0 +1,95 @@
+[ 오라클데이터베이스 설치 ]
+
+   1) "전자정부프레임워크"
+       개발 도구 다운로드  
+       ▶ https://www.egovframe.go.kr/home/sub.do?menuNo=41
+    
+       ▶ 개발환경 - 3.x 다운로드
+          개발자용 개발환경 64bit(Implementation Tool) Version 3.10.0
+          → eGovFrameDev-3.10.0-64bit.exe [993,611,485 Byte]
+
+          다운로드 받은 후
+          로컬 디스크 (D:) >  "utils" 새 폴더를 만들고, 해당폴더 안에 넣는다.
+
+
+
+   2) "오라클 데이터베이스" 
+       Oracle Express 10g XE
+       ▶ https://www.youwindowsworld.com/en/downloads/database/oracle/oracle-database-express-10g-edition-xe
+
+          스크롤 내리면
+          "Download" 버튼클릭!
+           → OracleXEUniv.exe 내려 받는다.
+             내려받으면 실행
+
+             ▶ 암호입력 : oracle 
+             -------------------------------------------------------------------
+              대상 폴더:C:\oraclexe\
+              ▷ 'Oracle Database Listener'용 포트:1521
+                 'Oracle Services for Microsoft Transaction Server'용 포트:2030
+              ▷  HTTP 리스너용 포트:8080
+             -------------------------------------------------------------------             
+               설치하면 이런 문구가 나온다.
+
+               → "oracle http port 변경"
+                  : https://zeroco.tistory.com/21
+                  : 톰켓 / 오라클디비도 같은 웹포트 8080 써서 문제여서
+                    오라클 HTTP 포트를 변경한다.
+
+
+                    
+                    (우리는 9090으로 변경)
+                     
+                     > cmd 창
+                     > sqlplus
+                     > 유저 : system  
+                     > 비번 : oracle 
+                     > exec DBMS_XDB.SETHTTPPORT(9090);
+
+               ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+               [ cmd창을 열어서 오라클데이터베이스가 잘 깔렸나 확인해보자! ]
+
+                 1) cmd창 실행 (아래 각각 입력 후 엔터!)
+                    > sqlplus
+                    > 사용자명 입력 : system
+                    > 암호 입력 : oracle
+               
+                    → "다음에 접속됨" 이라고 잘 뜨면,
+  
+
+
+                 2) "dummyData" 파일 내려받고, 압축을 푼다. 
+                     (이것 또한 마찬가지로 파일경로
+                      로컬 디스크 (D:) > "webWork" 폴더 생성후 해당 폴더 놓는다.
+                
+                     ▶ "dummyData" 폴더 안에 → "RESET.sql" 파일이 있는데 메모장형식으로 연다.
+                         해당 내용 복사해서 cmd에 붙혀넣는다.
+                         (이게 뭐하는거냐면? scott/tiger계정 부여하는 것)
+
+
+                 3) 해당 cmd창에 이어서 입력
+                    엔터 치고
+                    > sqlplus
+                    > 유저 : scott
+                    > 비번 : tiger
+
+
+                 4) "dummyData" 폴더 안에 
+                     ▶ "data.sql" 파일이 있는데 메모장형식으로 연다.   
+                         전체복사 후 cmd창에 붙혀 넣는다.
+                         (이게 뭐하는거냐면? 그야말로 더미데이터인
+                          테이블만들고, 해당테이블 안에 값을 넣는것이다.)
+
+
+                     ▶ 교육용 더미데이터가 잘 붙혀졌나 확인!
+                        cmd창 이번엔 새로 연다.
+                        > sqlplus
+                        > 유저 : scott
+                        > 비번 : tiger
+                        > select tname from tab; 
+                          내용이 나오면 잘 들어간 것임!
+               
+
+               ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
