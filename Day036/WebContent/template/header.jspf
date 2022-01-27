@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+	<!-- 메뉴에 간격 틈 없애기(간격설정) ▶ cellspacing="0"-->
+	<table border="0" width="800" align="center" cellspacing="1"> 
+		<tr>
+		    <!--******************************* 로고 *******************************-->
+			<td colspan="6">
+				<!-- 절대주소로 해서 넣는다. -->
+				<!-- <img src="imgs/img01.png"> -->
+				<!-- 이미지 클릭하면 주소창에서 경로 긁어서 온다. -->
+				
+				<!-- 원격이라 가능하지만, ip주소 포트번호 공인 ip  -->
+				<!-- file:///F:/webWork ▶ 안들어가면 절대주소 -->
+				<!-- <img src="file:///F:/webWork/Day036/WebContent/imgs/img01.png"> -->
+				
+				<!-- ▶▶ 절대경로 처리 -->
+				<!-- 내 컴퓨터에 서버니까 들어온거니까 여기서 찾겠죠 -->
+				<!--    /Day036/ -->
+				<!--    지금은 루트기준으로 찾아라 -->
+				<!--    (슬러시부터 시작) → / 최상위 기준으로 / 그다음 -->
+				<img src="/Day036/imgs/img01.png">
+			</td>
+		</tr>
+		<tr>
+		    <!--******************************* GNB 메뉴 *******************************-->
+			<td bgcolor="#aaaaaa"></td>
+			<td bgcolor="#aaaaaa" width="150"><a href="/Day036/index.jsp"><img src="https://dummyimage.com/150x50/aaa/fff.png&text=HOME"></a></td>
+			<td bgcolor="#aaaaaa" width="150"><a href="/Day036/intro.jsp"><img src="https://dummyimage.com/150x50/aaa/fff.png&text=INTRO"></a></td>
+			<td bgcolor="#aaaaaa" width="150"><a href="/Day036/bbs/list.jsp"><img src="https://dummyimage.com/150x50/aaa/fff.png&text=BBS"></a></td>
+			<td bgcolor="#aaaaaa" width="150"><a href="/Day036/login/form.jsp"><img src="https://dummyimage.com/150x50/aaa/fff.png&text=LOGIN"></a></td>
+			<td bgcolor="#aaaaaa"></td>
+		</tr>
+		<tr>
+			<td colspan="6" align="center">
+		    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  컨텐츠 영역 - 시작  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
