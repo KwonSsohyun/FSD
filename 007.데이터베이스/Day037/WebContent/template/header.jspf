@@ -1,0 +1,55 @@
+<!-- 이것은 문서에 대한 정의라서 안지우는게 좋다. -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!-- UI를 가지고 있는 모든 페이지는 이걸 가지고 있다. -->
+<jsp:useBean id="user" class="com.hi.bean.UserBean" scope="session"></jsp:useBean>
+<!-- UI인 헤더에 이게 있으니까 데이터베이스 계정변수명과 중복되니, 
+     UI 들어가서 이거 인쿠르트 한 페이지는 데이터베이스 변수명 수정해준다. ▶ username -->
+    
+    
+    	<table border="0" width="800" align="center">
+		<tr>
+			<td colspan="6">
+				<img src="https://dummyimage.com/300x100/aaa/fff.png&text=logo">
+				<% if(user.isResult()){ %> <!-- 값을 가져올수 있다 - true -->
+					<p align="right"><jsp:getProperty property="name" name="user"/>님이 로그인 중...</p>
+				<% } else{ %>
+					<p align="right"> guest 접속중...</p>
+				<% } %>
+			</td>
+		</tr>		
+		<tr>
+		<%
+		    // ▶▶ request.getContextPath()
+			//    : 프로젝트명 컨텐츠트명 가져온다.
+			//      ROOT루트는 → / 슬러시
+			//      나중에 프로젝트명 바뀌면, 각페이지마다 일일히 바꾸는것이 귀찮기 때문
+			// ▶▶ 절대경로로 하되, 컨텐츠드명 가져와서 변수로 선언해서 가져다가 쓴다.
+			String root = request.getContextPath();
+		
+		%>
+			<td bgcolor="#aaaaaa">&nbsp;</td> <!-- &nbsp; → 띄어쓰기 -->
+			<td bgcolor="#aaaaaa" width="100" align="center"><a href="<%= root %>/">[ HOME ]</a></td>
+			<td bgcolor="#aaaaaa" width="100" align="center"><a href="<%= root %>/intro.jsp">[ INTRO ]</a></td>
+			<td bgcolor="#aaaaaa" width="100" align="center"><a href="<%= root %>/bbs/">[ BBS ]</a></td>
+			
+			<% if(user.isResult()){ %>
+				<td bgcolor="#aaaaaa" width="100" align="center"><a href="<%= root %>/login/logout.jsp">[ LOGOUT ]</a></td>
+			
+			<%} else{ %>
+				<td bgcolor="#aaaaaa" width="100" align="center"><a href="<%= root %>/login/">[ LOGIN ]</a></td>
+			<%} %>
+			
+			
+			<td bgcolor="#aaaaaa">&nbsp;</td>
+		</tr>		
+		<tr>
+			<td colspan="6" align="center">
+			<!--**************************** 컨텐츠 시작 ****************************-->
+			
+			
+			
+			
+			
+			

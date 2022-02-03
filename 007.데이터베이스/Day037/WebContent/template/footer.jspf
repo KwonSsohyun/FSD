@@ -1,0 +1,18 @@
+<!-- 이것은 문서에 대한 정의라서 안지우는게 좋다. -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
+
+    			<!--**************************** 컨텐츠 끝 ****************************-->
+			</td>
+		</tr>		
+		<tr>
+			<td colspan="6" align="center" bgcolor="#dddddd">
+			<p>(주) 하이미디어 아카데미</p>
+			<p>&copy; Himedia Academy. All Rights Reserved.</p> <!-- © → &copy; -->
+			</td>
+		</tr>		
+	
+	
+	</table>
