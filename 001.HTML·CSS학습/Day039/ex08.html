@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            body{
+                /* 백그라운드 이미지 삽입 */
+                background-image: url("img01.jpg");
+                /* 이미지 반복되니 반복 안함 */
+                /* background-repeat: no-repeat; */
+                /* x축 가로로 이미지 반복됨 */
+                background-repeat: repeat-x;
+
+                /* 이미지 정렬 */
+                /* 아래에 이미지 반복됨 */
+                background-position: bottom;
+
+                /* 이미지 높이 주자 */
+                /* height: 60px; */
+
+            }
+
+            img{
+                float: left;
+            }
+
+            /* div 자식중에 3번째인데 그게 p태그인 것 */
+            div>p:nth-child(3){
+                clear: both;
+            }
+        </style> 
+    </head>
+    <body>
+        <div>
+            <img src="img01.jpg">
+            <p>
+            국회의 회의는 공개한다. 다만, 출석의원 과반수의 찬성이 있거나 
+            의장이 국가의 안전보장을 위하여 필요하다고 인정할 때에는 공개하지 
+            아니할 수 있다.</p>
+
+            <p>
+            모든 국민은 헌법과 법률이 정한 법관에 의하여 법률에 의한
+            재판을 받을 권리를 가진다. 대한민국은 민주공화국이다.
+            연소자의 근로는 특별한 보호를 받는다.</p>
+
+            <p>
+            국회는 상호원조 또는 안전보장에 관한 조약, 중요한 국제조직에 관한 조약, 
+            우호통상항해조약, 주권의 제약에 관한 조약, 강화조약, 국가나 국민에게 
+            중대한 재정적 부담을 지우는 조약 또는 입법사항에 관한 조약의 체결·비준에 
+            대한 동의권을 가진다.</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            #header>h1{ 
+                /* 로고 이미지로 대체하기 */
+
+                /* 글자 날리기 */
+                text-indent: -999px;
+                
+                /* 영역 확인하려고 배경색 넣음 */
+                /* background-color: rgb(243, 184, 184); */
+
+                /* 이 자리에 이미지 삽입 */
+                /* 반복해서 깔림 */
+                background-image: url("img01.jpg");
+                /* 높이를 줘야한다. 텍스트 눈에 안보일뿐 컨텐츠 영역만큼(텍스트사이즈) 
+                   높이가 존재하기 때문에
+                   이미지 사이즈의 높이를 줘야한다.  */
+                height: 200px;
+
+                /* 이미지 사이즈 줄이기 */
+                /* 컨텐츠영역은 그대로 있음 (텍스트 사이즈) */
+                background-size: 300px 30px;
+                /* background-size: 50px;  가로세로 50px */
+
+                /* 이미지 센터정렬 */
+                background-position: center;
+
+                /* 이미지 반복 없애기 */
+                background-repeat: no-repeat;
+                height: 60px;
+                /* background-repeat: repeat-y;  y축으로 반복 */
+            }
+
+
+            #menu{
+                height: 40px;
+                background-color: darkgrey;
+
+            }
+
+            #menu>ul{
+                list-style: none;
+                padding: 0px;
+                /* 기준은 부모이기 때문에 li가 가운데로 딸려온다. */
+                width: 440px;
+                margin: 0px auto;
+                /* 떠버리니까 컨텐츠가 없다. 
+                   그래서 아래 width: 100px; * 4개니까
+                   너비를 400으로 주고 마영오 준다.
+                */
+                background-color: rgb(50, 255, 112);
+            }
+            #menu>ul>li{
+                /* 띄어버림 */
+                float: left;
+                /* 양쪽에 5px씩이니까 개당 10px씩 늘어났고
+                   그게 4개니까 40px 더한것을 
+                   위에 width: 440px; 적용해준다.  */
+                margin: 0px 5px;
+            }
+            #menu>ul>li>a{
+                display: block;
+                width: 100px;
+                height: 40px;
+                background-color: grey;
+                color: white;
+                text-decoration: none;
+                text-align: center;
+                line-height: 40px;
+                text-transform: uppercase;
+            }
+
+            #menu>ul>li>a:hover{
+                background-color: rgb(199, 57, 57);
+            }
+
+         
+
+            #content{
+                /* 양쪽 다 끊어내줌 */
+                clear: both;
+                height: 300px;
+                background-color: rgb(177, 118, 118);
+                width: 70%;
+            }
+            .article{
+                width:30%;
+                height: 100px;
+                background-color: rgb(131, 192, 151);
+            }
+
+            #content, .article{
+                float: left;
+                /* float: right; */
+            }
+
+            #footer{
+                clear: both;
+                background-color: rgb(118, 122, 177);
+                height: 30px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- 메뉴 만들기 -->
+        <!-- --------------------------------------------- -->
+        <div id="header">
+           <h1>하이미디어</h1>
+        </div>
+        <!-- --------------------------------------------- -->        
+        <div id="menu">
+            <ul>
+                <li><a href="#">menu 1</a></li>
+                <li><a href="#">menu 2</a></li>
+                <li><a href="#">menu 3</a></li>
+                <li><a href="#">menu 4</a></li>
+            </ul>
+        </div>
+        <!-- --------------------------------------------- -->        
+        <div id="content">
+             section
+        </div>
+        <!-- --------------------------------------------- -->
+        <div class="article">aside 1</div>
+        <div class="article">aside 2</div>
+        <div class="article">aside 3</div>
+        <!-- --------------------------------------------- -->        
+        <div id="footer">footer</div>
+    </body>
+</html>

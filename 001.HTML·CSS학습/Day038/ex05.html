@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* 선택자 
+               +       ▶ 다음 형제 요소
+               ~       ▶ 다음 형제 요소 들
+               >       ▶ 자식 요소
+               띄어쓰기 ▶ 자손 요소
+
+            */
+
+            
+            h2+p+p{  /* + ▶ 다음을 선택 */
+                color: red;
+            }
+            
+
+            h1~p{  /* ~ ▶ 다음에 등장하는 태그들 (시블링스:형제요소) */
+                color: royalblue;
+            }
+
+            /* 부모속성이 자식에게 전파 */
+            ul{
+                color: salmon;
+            }
+            /* ul밑에있는 li만 선택됨 */
+            ul>li{ 
+                color: blue;
+            }
+            /* 자식속성 전부 li태그들 다 적용됨 */
+            li{ 
+                color: salmon;
+            }
+
+            /* a앵커태그 색상변경 */
+            /* > ▶ 자식엘리먼트 접근 */
+            ul>li>a{
+                color: chartreuse;
+            }
+
+            /* 띄어쓰기하면 바로 아래 없어도 찾아서 잡아준다. */
+            ul a{
+                color: chartreuse;
+            }
+
+            /* li:first-child */
+            /* ▶ 첫번째 자식이 li이면 */
+            /* 첫번째 것만 선택됨 */
+            /* 뒤에 +li를 붙혀주면 2번째 li이인 얘가 선택됨 */
+            ul>li:first-child+li{  
+                color: rgb(139, 0, 104);
+            }
+            ul>li:first-child>a{  
+                color: rgb(0, 118, 139);
+            }
+            /* 2n 짝수 */
+            /* 2n-1 홀수 */
+            ul>li:nth-child(2n-1){  
+                color: rgb(56, 139, 0);
+            }
+
+            /* ---------------------------------------------------- */
+            /* 자식중에 홀수인 td */
+            /* td:nth-child(2n-1){
+                color: rgb(204, 50, 50);
+            } */
+
+            /* 자식으로 td */
+            /* tr이 상위이고 td는 아래니까 뒤에 td붙혀줌 */
+            /* tr의 짝수 인데 td인것만 */
+            /* 4n은 4의 배수임 */
+            /* table>tbody>tr:nth-child(2n)>td */
+            table tr:nth-child(2n)>td{
+                color: darkred;
+            }
+
+            /* , ▶ 다중 선택 */
+            h1,h2{
+                color: darkslateblue;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>태그선택자를 이용한</h1>
+        <h2>제어</h2>
+        <p>p1</p>
+        <p>p2</p>
+        <h2>제어</h2>
+        <p>p3</p>
+        <p>p4</p>
+
+        <ul>
+            <li>item1<a href="#">link</a></li>
+            <li>item2<a href="#">link</a></li>
+            <li>item3<a href="#">link</a></li>
+            <li>item4<a href="#">link</a></li>
+        </ul>
+        <ol>
+            <li>item5<a href="#">link</a></li>
+            <li>item6<a href="#">link</a></li>
+            <li>item7<a href="#">link</a></li>
+            <li>item8<a href="#">link</a></li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>col1</th>
+                    <th>col2</th>
+                    <th>col3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>item1</td>
+                    <td>item1</td>
+                    <td>item1</td>
+                </tr>
+                <tr>
+                    <td>item2</td>
+                    <td>item2</td>
+                    <td>item2</td>
+                </tr>
+                <tr>
+                    <td>item3</td>
+                    <td>item3</td>
+                    <td>item3</td>
+                </tr>
+                <tr>
+                    <td>item4</td>
+                    <td>item4</td>
+                    <td>item4</td>
+                </tr>
+                <tr>
+                    <td>item5</td>
+                    <td>item5</td>
+                    <td>item5</td>
+                </tr>
+                <tr>
+                    <td>item6</td>
+                    <td>item6</td>
+                    <td>item6</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

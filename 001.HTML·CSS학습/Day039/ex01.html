@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* 속성 선택자 */
+
+            /* 엘리먼트 선택
+            input[type='password'] {
+                color : red;
+            } 
+            */
+
+            input[type*='e'] {  /* e라는 문자가 들어만 있으면 */
+                color : red;
+            }
+            
+            input[type^='te'] {  /* te로 시작하는 */
+                color : rgb(0, 47, 255);
+            }
+            input[type$='t'] {  /* t로 끝나는 */
+                color : rgb(9, 255, 0);
+            }
+            /* input[title~='b'] {  
+                color : red;
+            } */
+            a[href^='http'] {  /* http로 시작하면 */
+                color : rgb(255, 0, 234);
+            }
+            a[href$='.com'] {  /* .com로 끝나면 */
+                color : rgb(186, 219, 0);
+            }
+
+            form>div:first-child {  
+                color : rgb(186, 219, 0);
+            }
+
+            /* -------------------------------------------------------------- */
+
+            /* div 첫번째 자식으로 label */
+            /* → div 첫번째 자식으로 label인것만 됨 */
+            div>label:first-child {  
+                color : rgb(0, 155, 47);
+            }
+            /* div의 첫번째 자식 */
+            /* → div 첫번째 자식들은 모조리 선택됨 */
+            div>:first-child {  
+                color : rgb(247, 0, 255);
+            }
+
+            /* -------------------------------------------------------------- */
+
+            input:read-only {  /* 파라미터 값 전달하고, 읽기전용만 선택 */
+                color : rgb(247, 0, 255);
+            }
+
+            a {  /* 앵커태그 선택 */
+                color : rgb(247, 0, 255);
+            }
+            /* 한번이라도 방문하면 멍든보라색 
+               첫 방문 파란색 */
+            a:link{  /* 첫 방문 */
+                color : rgb(247, 0, 255);
+            }
+            a:visited{  /* 방문한 - 링크한번이라도 클릭한 -> 맨 아래로 내려가면 안됨 */
+                color : rgb(0, 255, 128);
+            }
+            a:hover{ /* 마우스 오버시 */
+                color:blue
+            }
+            a:active { /* 클릭하는 그 순간 */
+                color: blueviolet;
+            }
+
+            /* 첫방문이나 재방문 같은 색 */
+            a:link,a:visited{color:green;}  
+            /* 마우스오버됬을때나, 순간 클릭했을때 같은 색 */
+            a:hover,a:active{color:red;}
+        </style>
+    </head>
+    <body>
+        <h1>회원가입</h1>
+        <form>
+            <div>
+                <label title="ab1">id</label><input type="text" value="admin" readonly="readonly"/>
+            </div>
+            <div>
+                <label title="bc2">pw</label><input type="password" value="1234"/>
+            </div>
+            <div>
+                <label title="cd1">name</label><input type="text" value="홍길동"/>
+            </div>
+            <div>
+                <label title="ef2">age</label><input type="number" value="20"/>
+            </div>
+            <div>
+                <input type="submit" value="가입"/>
+                <input type="reset" value="취소"/>
+            </div>
+        </form>
+        <p><a href="#">회원가입</a></p>
+        <p><a href="http://google.com">google</a></p>
+        <p><a href="http://naver.com">naver</a></p>
+        <p><a href="http://daum.net">daum</a></p>
+    </body>
+</html>

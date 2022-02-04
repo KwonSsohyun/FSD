@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* 박스 레이아웃 */
+            h1 { 
+                background-color: chocolate;
+                width : 200px; /* 인라인일경우 너비높이 안먹는다.(컨텐츠사이즈) */
+                height : 50px; /* 단위를 꼭 줘야한다. */
+                /* display: inline-block; */
+
+                /* 유격 없애기 (사이 띄어짐) ▶ margin */
+                /* 방향없이 margin만 주면 -> 네방향을 동일값으로 한번에 줌 */
+                /* margin: 0px; */
+
+                /* 위 오른쪽 아래 왼쪽 (시계방향 - 띄어쓰기만 함) */
+                /* margin: 0px 0px 0px 50px; */
+                /* 위아래 좌우 (시계방향 - 띄어쓰기만 함) */
+                /* margin: 10px 50px; */
+
+                /* 
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-right: 0px;
+                margin-left: 0px; 
+                */
+
+                /* 보더 ▶ 외곽라인 */
+                /* 보더를 줄때는 → 라인두께, 색깔, 라인의 종류 | 3가지 꼭 줘야함! */
+                /* 보더를 주는 순간, 원래 사이즈 별도로 보더 사이즈가 추가됨 → 205px됨 */
+                border: 5px blue solid;
+
+                /* 한방향에만 적용하고 싶으면? */
+                border-right: 5px blue solid;
+                /* 
+                border-width: 5px;
+                border-color: crimson;
+                border-style: solid; 
+                */
+            }
+
+            h2{
+                background-color: chocolate;
+                /* ▶ 컨텐츠 사이즈 */
+                width : 200px; 
+                height : 50px;
+
+                /* ▶ 안쪽으로 사이즈 추가됨 */
+                padding: 10px;
+
+                /* ▶ 보더는 외곽선 */
+                border: 0px;
+
+                /* ▶ 마진은 사이간격 띄어짐  */
+                margin: 0px; /* 바디의 유격 존재 */
+                
+            }
+
+            body{
+                /* 바디에 마진을 줘야, 모든 엘리먼트들이 사이 유격이 사라진다. */
+                /* ex) 상단메뉴바 */
+                margin: 0px;
+
+                /* 텍스트의 색깔 */
+                color:red;
+                /* 배경색 */
+                background-color: #ffffff;
+                /* ▶ 영문 ex) red */
+                /* ▶ 16진수
+                      10의자리와 1의 자리가 같으면 한번에 줄 수 있다.
+                      #ff0000 빨간색 |  #00ff00 녹색 |  #0000ff 파란색 
+                      #ffffff 흰색 
+                      #000000 검정 
+                */
+                /* ▶ rgb
+                      rgb(255, 0, 0) 빨간색
+                      rgb(0, 255, 0) 녹색
+                      rgb(0, 0, 255) 파란색 
+                */
+            }
+
+            /* 보통 이렇게 맨 처음 시작하고, 동일선상에서 시작하고 한다. */
+            
+            *{
+                /* 마진은 사이 띄어짐 간격 */
+                margin : 0px;
+                /* 안쪽으로 사이즈 추가됨 */
+                padding : 0px;
+
+            }
+
+            /* 구분선 */
+            /* div{
+                border-bottom: 1px black solid;
+            } */
+
+
+        </style>
+    </head>
+    <body>
+        <!-- < 엘리먼트 특징 >
+               어떤건 아래로 내려오고 ▶ 박스 레벨
+               어떤건 옆으로 흐르고   ▶ 인라인 레벨
+        -->
+        <h1>대제목</h1>
+        <div></div>
+        <h2>소제목</h2>
+        <p>내용 1</p>
+        <p>내용 2</p>
+        <p>내용 3</p>
+
+        <!-- 그룹 묶어줌 → div(블록) | span(인라인) -->
+        <!-- div 한줄 다 차지한다. (블록) 쌓임 -->
+        <div>div 1</div>
+        <div>div 2</div>
+        <div>div 3</div>
+        
+        <!-- span 옆으로 흐름(인라인) -->
+        <!-- 컨텐츠 사이즈 맞게 -->
+        <span>span 1</span>
+        <span>span 2aaaaaaaa</span>
+        <span>span 3</span><a href="#">link</a>
+    </body>
+</html>

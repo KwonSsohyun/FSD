@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 적용하고 싶은 폰트 : HTML링크 복사해서 그대로 같다 붙힘 -->
+        <!-- 적용하고 싶은 곳에 
+             →  +더하기 지우고, 띄어쓰기 
+             ▶ font-family: "Kirang Haerang", serif;      -->
+        <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang:400" rel="stylesheet">
+        <style rel="stylesheet" type="text/css">
+            h1{
+                /* 정렬 */
+                text-align: center;
+                text-decoration: underline; /* 텍스트 밑줄 */
+                /* text-decoration: overline; 텍스트 윗줄 */
+                /* text-decoration: line-through; /* 텍스트 가운데줄 */
+
+                text-transform: capitalize; /* 영어 대소문자 섞어서 */
+
+                width: 200px;
+                height: 100px;
+                background-color: sandybrown;
+
+                /* 세로정렬 ▶ 높이(height)와 똑같이 주면 세로가운데정렬 됨 */
+                /* 행간 */
+                /* 높이만큼 주면 가운데로 내려옴 */
+                /* 높이의 2배만큼 주면 끝에 걸쳐앉음 */
+                line-height: 100px;
+
+            }
+
+            p{
+                width : 200px;
+                background-color: salmon;
+                text-align: justify; /* 양쪽 정렬 */
+
+                /* 폰트적용 */
+                /* 폰트 3가지 정해줘야함 - 클라이언트컴에 없을 수도 있으니 */
+                /* 적용하고 싶은것 / 대안 / 무조건 적용 */
+                /* +더하기 지우고, 띄어쓰기 */
+                font-family: "Kirang Haerang", serif;
+            }
+
+            /* 앵커태그 밑줄 사라지게 하기 */
+            p>a{
+                text-decoration: none;
+            }
+
+            div>p:first-child{
+                /* 텍스트 들여쓰기 */
+                /* 마이너스값으로 주면 화면 밖으로 치워짐 안보임 */
+                text-indent: 50px; 
+                
+                /* 글자 간격 (자간) */
+                /* 마이너스값 주면 자간 좁아짐 */
+                /* letter-spacing: -1px; */
+                letter-spacing: 5px;
+
+                /* 단어끼리의 자간 */
+                word-spacing: 5px;
+
+                /* 한줄에 나타내기 */
+                white-space: nowrap;
+
+                /* 폰트 3가지 정해줘야함 - 클라이언트컴에 없을 수도 있으니 */
+                font-family: serif, serif, serif,;
+
+                /* 폰트 기울기 */
+                font-style: italic;
+
+                /* 폰트 두께 */
+                font-weight: bold;
+
+                /* 폰트 사이즈 */
+                font-size: 40px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h1>text</h1>
+        <div>
+            <p><a href="#">국가</a>는 대외무역을 육성하며, 이를 규제·조정할 수 있다.</p>
+
+            <p>피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 
+               인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 
+               이를 이유로 처벌할 수 없다.</p>
+
+
+        </div>
+    </body>
+</html>

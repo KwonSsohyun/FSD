@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* 속성 선택자 */
+
+            /* 타입이 넘버인 경우만 */
+            /* input[type='number']{
+                color: red;
+            } */
+
+            button[type='submit']{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <form action = "ex01.html"> <!-- 폼태그를 작동시키는게 submit  -->
+            <input type="number" value="0"/><!-- 숫자버튼 뜬다. | 디폴트값 value="" --> 
+            <input type="tel" value="0"/><!-- 전화기 버튼 뜬다. (# *) -->
+            <input type="url" /><br/> <!-- .com 뜬다 (http:// 앞에 써줘야 넘어감)-->
+            <input type="email" /><br/> <!-- @ 뜬다 -->
+            <input type="color" /><br/>
+            <input type="date" /><br/>
+            <input type="datetime" /><br/>
+            <input type="time" /><br/>
+            <input type="range" min="1" max="10" value="5" name="ran"/><br/> <!-- 값 주는것 -->
+
+            <input type="submit" value="전송 1" />
+            <input type="button" value="버튼 1" /> <!-- 버튼 기능없음  -->
+            <button>전송 2</button> <!-- 폼태그 안에서는 기본 타입이 submit  -->
+            <button type="submit">전송 3</button>
+            <button>전송 4</button>
+
+        </form>
+
+        <button>버튼 2</button>
+        <!-- 폼태그 밖에서는 타입이 버튼  -->
+    </body>
+</html>

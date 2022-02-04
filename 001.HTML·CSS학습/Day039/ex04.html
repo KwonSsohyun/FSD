@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            h1{
+                /* 글자안보이게 하기 */
+                text-indent: -999px;
+
+                /* 로고 이미지 넣으면 됨. */
+            }
+            
+
+            ul{
+                /* 앞에 표식 바꿈 */
+                /* list-style: circle;  */
+                list-style: square; /* 앞에 사각형  */
+                list-style: lower-roman; /* 순서붙을수있음  */
+                list-style: none; /* 기호 안붙힘  */
+
+                padding: 0px;
+                width: 420px;
+                height: 50px;
+                background-color: rgb(168, 255, 255);
+                margin: 0px auto;
+            }
+
+            ul>li{
+                background-color: skyblue;
+                /* width: 100px;
+                height: 50px; */
+                display: inline-block;
+             
+            }
+
+            li>a{
+                display: block;
+                width: 100px;
+                height: 50px;
+                color:white;
+                text-align: center;
+                text-decoration: none;
+                line-height: 50px;
+                /* 대문자화 */
+                text-transform: uppercase;
+                /* 첫글자만 대문자 */
+                text-transform: capitalize;
+            }
+
+            li>a:visited,li>a:link{
+                background-color: rgb(52, 179, 230);
+            }
+
+            li>a:hover,li>a:active{
+                background-color: rgb(72, 218, 53);
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h1>로고 list</h1>
+        <!-- 메뉴할때 많이 씀 -->
+        
+        <!-- ul ▶ 앞에 동그라미  -->
+        <!-- 순서가 없는 집합의 개념 -->
+        <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">intro</a></li>
+            <li><a href="#">bbs</a></li>
+            <li><a href="#">login</a></li>
+        </ul>
+
+        <!-- ol ▶ 1,2,3 순번있음  -->
+        <!-- 순서가 있는 리스트의 개념 -->
+        <ol>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+        </ol>
+    </body>
+</html>

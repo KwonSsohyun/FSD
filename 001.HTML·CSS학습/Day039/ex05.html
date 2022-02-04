@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            table{
+                width: 300px;
+
+                /* 외곽선 한줄로만 테두리 주고 싶으면? */
+                /* 한 라인으로 뽑고싶다. */
+                border-collapse: collapse;
+
+                
+            }
+
+            table,th,td{
+                /* 외곽선 줄때 → 각각 줘야함 */
+                border: 1px solid black;
+
+                /* 공백을 지정하는 것 */
+                /* border-spacing: 0px; */
+                
+            }
+
+            td:hover{ /* 마우스 오버시 색주기 */
+                background-color: rgb(173, 95, 95);
+            }
+
+            
+            /* 홀수번째 칸에 색 주기 */
+            tbody>tr:nth-child(2n-1)>td{
+                background-color: rgb(246, 195, 195);
+            }
+
+            table td{
+                /* 내용에 대한 정렬 */
+                text-align: center;
+
+                /* 세로정렬 */
+                vertical-align: middle;
+            }
+
+           
+        </style>
+    </head>
+    <body>
+        <h1>table</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>col 1</th>
+                    <th>col 2</th>
+                    <th>col 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>col 1</td>
+                    <td>col 2</td>
+                    <td>col 3</td>
+                </tr>
+                <tr>
+                    <td>col 1</td>
+                    <td>col 2</td>
+                    <td>col 3</td>
+                </tr>
+                <tr>
+                    <td>col 1</td>
+                    <td>col 2</td>
+                    <td>col 3</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
