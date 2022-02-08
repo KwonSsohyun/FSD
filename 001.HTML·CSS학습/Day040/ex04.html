@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* transition ▶ 상태변화 - 처음과 끝 */
+            a{
+                display: inline-block;
+                width: 100px;
+                height: 50px;
+                
+                /* background-color: darkgray; */
+                /* 그라데이션 */
+                background-image: linear-gradient(red, yellow, green);
+
+                color: white;
+                text-align: center;
+                line-height: 50px;
+                text-decoration: none;
+                border-radius: 25px;
+
+                /* 글자 그림자 */
+                /* x좌표 y좌표 번짐의정도 색깔 */
+                text-shadow: 0px 0px 2px red;
+
+                /* 박스 그림자 */
+                box-shadow: 2px 2px 5px black;
+
+                
+            }
+
+            a:hover{  /* 마우스 오버시 */
+
+                margin-top: 10px;
+
+                /* background-color: gray; */
+                background-image: linear-gradient(gray, darkgray, gray);
+            }
+
+            li{ 
+                /* 글시 날리기 */
+                text-indent: -9999px;
+                /* text-align: right; */
+
+                /* ▶▶ 애니메이션 시작 점 */
+                width: 100px;
+                height: 50px;
+                /* background-color: gray; */
+
+                /* 이미지를 넣을때 html에 넣지 않는다. */
+                /* 왜냐?? 이건 애니메이션을 위한 이미지이기 때문이다. */
+                background-image: url('car.png');
+                background-size: 50px; 
+                background-repeat: no-repeat; /* 이미지 반복 없애기 */
+                background-position: right; /* 이미지 정렬 오른쪽 끝으로 */
+
+                /* 애니메이션 진행시간 */
+                /* 3초 적용해줌 */
+                /* css는 처음과 끝이 있으면 중간을 알아서 해준다. */
+                transition-duration: 3s;
+
+                /* 가속도 조절 */
+                /* 디폴트값 ease */
+                /* 부드러운 움직임 - ease */
+                transition-timing-function: ease-out;
+                /* 점점 빨라짐 -> ease-in */
+                /* 점점 느려짐 -> ease-out */
+            }
+
+            li:nth-child(2){
+                /* 속도 일정 - linear */
+                transition-timing-function: linear;
+                /* 지연시간 주기 -> 1초 뒤 시작 */
+                transition-delay: 1s;
+            }
+
+            li:hover{
+                /* ▶▶ 애니메이션 끝 점 */
+                width: 300px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>animation 1</h1>
+        <a href="#">link</a>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+        </ul>
+    </body>
+</html>

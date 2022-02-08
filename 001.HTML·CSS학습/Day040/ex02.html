@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            body>div{
+                width: 100px;
+                height: 100px;
+                border: 1px solid gray;
+                
+            }
+
+            body>div:nth-child(3){
+                margin: 150px;
+                /* 디폴트는 static */
+                /* position: static; */
+
+                /* 부모 포지션 */
+                /* position: absolute; */
+                /* position: relative; */
+                position: fixed;
+            }
+
+            div>div{
+                width: 50px;
+                height: 50px;
+                background-color: gray;
+
+
+                /* 부모 -> position: fixed; ------------------------------------------ */
+                /* 부모가 fixed면 화면에 다 고정됨 */
+
+                /* 화면에 고정됨 */
+                /* position: static; */
+
+                /* 화면에 고정됨 */
+                /* position: relative;
+                left: 100px;
+                top: 0px; */
+
+                /* 부모기준하다보니 */
+                /* 화면에 고정됨 */
+                /* position: absolute;
+                left: 100px;
+                top: 0px; */
+
+                /* 화면에 고정됨 */
+                position: fixed;
+                left: 100px;
+                top: 0px;
+
+
+                /* 부모 -> position: relative;--------------------------------------- */
+                /* 아무런 변화없음 */
+                /* position: static; */
+
+                /* 부모가 static이 아니면, 부모를 기준으로 한다. */
+                /* 부모가 static이면 문서 기준 */
+                /* position: absolute;
+                left: 0px;
+                top: 0px; */
+
+                /* 내가 있어야할 위치를 기준 */
+                /* position: relative; */
+
+                /* 화면 기준 */
+                /* position: fixed;
+                left: 0px;
+                top: 0px; */
+
+
+
+                /* 부모 -> position: absolute;---------------------------------------- */
+
+                /* static은 안먹음 */
+                /* position: static;
+                left: 100px; */
+
+                /* 부모가 기준 */
+                /* position: absolute;
+                left: 0px;
+                top: 0px; */
+
+                /* relative - 기준이 원래 있어야할 위치 */
+                /* position: relative;
+                left: 0px;
+                top: 0px; */
+
+
+                /* 부모와 상관없이 화면 기준 */
+                /* 위치 안주면, 자기가 원래 있어야하는 위치 */
+                /* position: fixed;
+                left: 0px;
+                top: 0px; */
+
+
+                /* 부모없음 --------------------------------- */
+
+                /* position: fixed;
+                margin-left: 100px;
+                left: 50px; */
+
+                /* position: absolute;
+                margin-left: 100px;
+                left: 50px; */
+
+                /* position: relative;
+                margin-left: 100px;
+                left: 50px; */
+
+                 /* 디폴트는 static */
+                 /* position: static;
+                 margin-left: 100px; */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>mix</h1>
+        <div>
+            box 1
+        </div>
+        <div>
+            box 2
+            <div>box 3</div>
+        </div>
+        <!-- 스크롤 만들라고 -->
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </body>
+</html>

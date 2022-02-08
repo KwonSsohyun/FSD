@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            .container{
+                /* 바깥 컨테이너 1200px */
+                width: 1200px;
+                margin: 0px auto;
+            }
+            .containerw{
+                /* 바깥 컨테이너 1200px */
+                /* 퍼센테이지로 한다. */
+                width: 100%;
+                margin: 0px auto;
+            }
+
+            /* 컨테이너 자손으로 그리드1 과  /  컨테이너 자손으로 그리드2 ... */
+            /* 공통 */
+            .grid1,.grid2,.grid3,.grid4,
+            .grid5,.grid6,.grid7,.grid8,
+            .grid9,.grid10,.grid11,.grid12{
+                float: left;
+                background-color: yellow;
+            }
+
+
+            .container .grid1{ 
+                /* 그리드 1 -> 너비 정해준다. */
+                width: 100px;
+            }
+
+            .container .grid2{
+                /* 그리드 2 -> 너비 정해준다. */
+                width: 200px;
+            }
+
+            .container .grid3{width: 300px;}
+            .container .grid4{width: 400px;}
+            .container .grid5{width: 500px;}
+            .container .grid6{width: 600px;}
+            .container .grid7{width: 700px;}
+            .container .grid8{width: 800px;}
+            .container .grid9{width: 900px;}
+            .container .grid10{width: 1000px;}
+            .container .grid11{width: 1100px;}
+            .container .grid12{width: 1200px;}
+
+
+            /* 컨테이너 자손 로우 */
+            .row{
+                /* 한줄 내려오고 싶을때 끊어준다. */
+                clear: both;
+            }
+
+            /* -------------------------------------------------------------- */
+
+
+            /* 엑셀로 하는데 -> 소숫점 3째자리까지 하고, 2째자리까지 친다. (버림처리 정밀도)  */
+            /* 12/1 : 12분의 1 */
+            .containerw .grid1{ 
+                /* 그리드 1 -> 너비 정해준다. */
+                width: 8.33%;
+            }
+
+            .containerw .grid2{
+                /* 그리드 2 -> 너비 정해준다. */
+                width: 16.66%;
+            }
+
+            .containerw .grid3{width: 25%;}
+            .containerw .grid4{width: 33.33%;}
+            .containerw .grid5{width: 41.66%;}
+
+            /* 절반 -> 50% */
+            .containerw .grid6{width: 50%;}
+            .containerw .grid7{width: 58.33%;}
+            .containerw .grid8{width: 66.66%;}
+            .containerw .grid9{width: 75%;}
+            .containerw .grid10{width: 83.33%;}
+            .containerw .grid11{width: 91.66%;}
+            /* 12/12 : 12분의 12 -> 100% */
+            .containerw .grid12{width: 100%;}
+
+
+            /* ------------------------------------------------------------- */
+
+        </style>
+    </head>
+    <body>
+        <!-- 부트스트랩 모사 -->
+        <!-- https://getbootstrap.com/docs/3.4/css/#grid -->
+        <!-- <div class="container">       ▶ 컨테이너의 고유 너비 '픽셀' 유지 → container -->
+        <!-- <div class="container-fluid"> ▶ 화면 '퍼센테이지' 꽉차게        → containerw -->
+
+        <div class="container"> <!-- 1200px로 잡고 10칸 | 폭 1200px -->  <!-- 부트스트랩 모사함 → container -->
+        <!-- <div class="containerw"> --> <!--화면의 100% --> <!-- 부트스트랩 → container-fluid -->
+            <div class="row">
+                <div class="grid1">cell1</div>
+                <div class="grid11">cell11</div>
+            </div>
+
+            <div class="row">
+                <div class="grid2">cell2</div>
+                <div class="grid10">cell10</div>
+            </div>
+
+            <div class="row">
+                <div class="grid3">cell3</div>
+                <div class="grid9">cell9</div>
+            </div>
+
+            <div class="row">
+                <div class="grid4">cell4</div>
+                <div class="grid8">cell8</div>
+            </div>
+
+            <div class="row">
+                <div class="grid5">cell5</div>
+                <div class="grid7">cell7</div>
+            </div>
+
+            <div class="row">
+                <div class="grid6">cell6</div>
+                <div class="grid6">cell6</div>
+            </div>
+
+            <div class="row">
+                <div class="grid12">cell12</div>
+            </div>
+
+        </div>
+    </body>
+
+</html>

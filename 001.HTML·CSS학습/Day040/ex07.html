@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* @media */
+            /* 디폴트(print, screen,speech 3개 다임) : all */
+            /* 특정화 하기 위해서 3개가 존재 (추가옵션) */
+            /* 프린트인쇄 : print */
+            /* PC환경 : screen */
+            /* 시각장애인 : speech */
+
+
+            /* PC환경 : screen */
+            /* 반응형 웹 */
+            /* 어떤 디바이스별로 접근했을 때 그에 걸맞게 하나의 사이트가 알아서 바뀌는 것 */
+            /* 이때 css를 활용하는게 media 사용 */
+            /* pc - 최소 1024px 이상 */
+
+            /* 0~767px  -> 핸드폰 */
+            /* 숫자겹치면 안됨 - 겹치면 아랫것으로 적용됨!!! */
+            *{
+                margin: 0px;
+            }
+            @media screen and (max-width:767px){
+                /* body{
+                     0~767까지는 해당css 적용됨 
+                    background-color: black;
+                } */
+
+                #menu>div{
+                    /* border: 1px solid black; */
+                    background-color: gray;
+                    border-radius: 5px;
+                    width: 30px;
+                    height: 30px;
+                    margin: 10px 5px;
+                }
+                #menu>div>span{
+                    border: 1px solid black;
+                    display: block;
+                    margin: 5px 0px;
+                }
+
+                #menu{
+                    background-color: darkgrey;
+                    width: 100%;
+                    height: 50px;
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                }
+                ul{
+                    position: absolute;
+                    top: 50px;
+                    list-style: none;
+                    width: 100%;
+                    padding: 0px;
+                    /* display: none; 
+                       -> 나중에 자바스크립트 배워서 이벤트처리하면됨*/
+                }
+                li{
+                    width: 100%;
+                    height: 50px;
+                    background-color: gray;
+                }
+            }
+
+            /* 768~991px  -> 타블릿 */
+            /* 세분화 - and 붙힌다. */
+            /* @media screen and (min-width:800px) */
+            @media screen and (min-width:768px) and (max-width: 991px){
+                #menu{
+                    background-color: darkgrey;
+                    width: 100%;
+                    height: 50px;
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                }
+                ul{
+                    position: absolute;
+                    top: 50px;
+                    list-style: none;
+                    width: 100%;
+                    padding: 0px;
+                    /* display: none; 
+                       -> 나중에 자바스크립트 배워서 이벤트처리하면됨*/
+                }
+                li{
+                    width: 50%;
+                    float: left;
+                    height: 50px;
+                    background-color: gray;
+                }
+            }
+
+            /* 992px ~  -> PC */
+            @media screen and (min-width:992px) {
+                ul{
+                    list-style: none;
+                    padding: 0px;
+              
+                }
+                ul>li{
+                    width: 100px;
+                    height: 50px;
+                    background-color: gray;
+                    float: left;
+                    
+                }
+                #menu{
+                    background-color: darkgray;
+                    width: 100%;
+                    height: 50px;
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                }
+            }
+
+
+            /* 디폴트 설정 */
+            /* h1{
+                     로고 이미지 대체를 위해 글자 숨기기 
+                    text-indent: -999px;
+                    background-image: url("logo.jpg");
+                    height: 43px;
+                    background-repeat: no-repeat;
+                    color: yellow;
+                }
+
+            p{
+                color: white;
+            } */
+
+
+            /* 프린트 인쇄 시 설정 */
+            /* 타겟 : print */
+            @media print{
+                body{
+                    background-color: white;
+                }
+                h1{
+                /* 로고 이미지 대체를 위해 글자 숨기기 */
+                text-indent: -999px;
+                background-image: url("logo.jpg");
+                height: 100px;
+                background-repeat: no-repeat;
+                color: yellow;
+                }
+                p{
+                    color: black;
+                }
+            }
+
+
+            /* 시각장애인 : speech */
+            @media speech{
+                /* h1{
+                       읽어주는 컴퓨터
+                } */
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="menu">
+            <div><span></span><span></span><span></span></div>
+            <ul>
+                <li>menu 1</li>
+                <li>menu 2</li>
+                <li>menu 3</li>
+                <li>menu 4</li>
+                <li>menu 5</li>
+                <li>menu 6</li>
+            </ul> 
+        </div>
+       
+    </body>
+</html>

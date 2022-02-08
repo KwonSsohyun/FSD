@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            div{
+                width: 50px;
+                height: 50px;
+                border: 1px solid gray;
+
+                float: left;
+                /* 모서리 둥글게 */
+                /* border-radius  -> 방향안주면 4방향 모두 깍임*/
+                /* 방향설정도 가능 */
+                /* border-top-right-radius: 10px; */
+                /* 시계 방향 */
+                /* border-radius: 0px 10px 10px 0px; */
+
+                /* 이를 이용해 원을 만들 수 있다. */
+                /* 높이의 절반을 줘야한다. */
+                /* border-radius: 25px 25px; */
+            }
+
+            div:nth-child(1){
+                border-radius: 50px 0px 0px 0px;
+            }
+            div:nth-child(2){
+                border-radius: 0px 50px 0px 0px;
+            }
+            div:nth-child(3){
+                border-radius: 0px 0px 0px 50px;
+            }
+            div:nth-child(4){
+                border-radius: 0px 0px 50px 0px;
+            }
+
+
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div>box 1</div>
+        <div>box 2</div>
+        <div>box 3</div>
+        <div>box 4</div>
+        <img src="chu.png">
+    </body>
+</html>

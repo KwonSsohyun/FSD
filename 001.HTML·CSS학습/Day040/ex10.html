@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            .containerw{
+                /* 바깥 컨테이너 1200px */
+                /* 퍼센테이지로 한다. */
+                width: 100%;
+                margin: 0px auto;
+            }
+
+            /* 컨테이너 자손으로 그리드1 과  /  컨테이너 자손으로 그리드2 ... */
+            .containerw .grid1,.containerw .grid2,.containerw .grid3,.containerw .grid4,
+            .containerw .grid5,.containerw .grid6,.containerw .grid7,.containerw .grid8,
+            .containerw .grid9,.containerw .grid10,.containerw .grid11,.containerw .grid12{
+                float: left;
+                background-color: yellow;
+            }
+
+
+            /* 엑셀로 하는데 -> 소숫점 3째자리까지 하고, 2째자리까지 친다. (버림처리 정밀도)  */
+            /* 12/1 : 12분의 1 */
+            .containerw .grid1{ 
+                /* 그리드 1 -> 너비 정해준다. */
+                width: 8.33%;
+            }
+
+            .containerw .grid2{
+                /* 그리드 2 -> 너비 정해준다. */
+                width: 16.66%;
+            }
+
+            .containerw .grid3{width: 25%;}
+            .containerw .grid4{width: 33.33%;}
+            .containerw .grid5{width: 41.66%;}
+
+            /* 절반 -> 50% */
+            .containerw .grid6{width: 50%;}
+            .containerw .grid7{width: 58.33%;}
+            .containerw .grid8{width: 66.66%;}
+            .containerw .grid9{width: 75%;}
+            .containerw .grid10{width: 83.33%;}
+            .containerw .grid11{width: 91.66%;}
+            /* 12/12 : 12분의 12 -> 100% */
+            .containerw .grid12{width: 100%;}
+
+            /* 컨테이너 자손 로우 */
+            .containerw .row{
+                /* 한줄 내려오고 싶을때 끊어준다. */
+                clear: both;
+            }
+
+
+
+            /* 그리드시스템이 반응형이 됬다. mgrid  */
+            /* 모바일 사이즈 */
+            /* 0~799px */
+            @media screen and (max-width:799px) {
+                .containerw .mgrid1{ 
+                    /* 그리드 1 -> 너비 정해준다. */
+                    width: 8.33%;
+               }
+
+                .containerw .mgrid2{
+                    /* 그리드 2 -> 너비 정해준다. */
+                    width: 16.66%;
+                }
+
+                .containerw .mgrid3{width: 25%;}
+                .containerw .mgrid4{width: 33.33%;}
+                .containerw .mgrid5{width: 41.66%;}
+
+                /* 절반 -> 50% */
+                .containerw .mgrid6{width: 50%;}
+                .containerw .mgrid7{width: 58.33%;}
+                .containerw .mgrid8{width: 66.66%;}
+                .containerw .mgrid9{width: 75%;}
+                .containerw .mgrid10{width: 83.33%;}
+                .containerw .mgrid11{width: 91.66%;}
+                /* 12/12 : 12분의 12 -> 100% */
+                .containerw .grid12{width: 100%;}
+
+                 /* 컨테이너 자손 로우 */
+                .containerw .mrow{
+                    /* 한줄 내려오고 싶을때 끊어준다. */
+                    clear: both;
+                }
+
+                /* 모바일에서 안보이게 하고 싶은 것 설정 */
+                /* 엘리먼트 안보이게 하고 싶을 때 */
+                .containerw .mclear{
+                    display: none;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- 그리드시스템이 반응형이 됬다. mgrid -->
+        <!-- 2개 이상의 클래스를 이용해, 반응형 그리드 시스템 사용 -->
+
+        <!-- 부트스트랩  -->
+        <!-- https://getbootstrap.com/docs/3.4/css/#grid -->
+        <!-- 디바이스별 css에 정의된 클래스 사용 -> 내 html class에 적용하면 됨 -->
+        <!-- Class prefix	.col-xs-	.col-sm-	.col-md-	.col-lg-  -->
+
+        
+        <!-- 화면 꽉차게 100% 비율 -->
+        <div class="containerw">
+            <div class="row">
+                <div class="mgrid3 grid1">cell1</div>
+                <div class="mgrid9 grid11">cell11</div>
+            </div>
+
+            <div class="row">
+                <div class="mgrid3 grid2">cell2</div>
+                <div class="mgrid9 grid10">cell10</div>
+            </div>
+
+            <div class="row">
+                <div class="mgrid6 grid3">cell3</div>
+                <div class="mgrid6 grid9">cell9</div>
+            </div>
+
+            <div class="row">
+                <div class="mgrid9 grid4">cell4</div>
+                <div class="mgrid3 grid8">cell8</div>
+            </div>
+
+            <div class="row">
+                <div class="mgrid9 grid5">cell5</div>
+                <div class="mgrid3 grid7">cell7</div>
+            </div>
+
+            <div class="row">
+                <div class="mgrid12 grid6">cell6</div>
+                <!-- 12칸 넘어가면 자동으로 다음줄 내려감. -->
+                <div class="mgrid12 grid6">cell6</div>
+            </div>
+
+            <div class="row">
+                <!-- 모바일에서 안보이게 하고 싶은 것 설정 -> mclear -->
+                <div class="mclear grid12">cell12</div>
+            </div>
+            
+        </div>
+    </body>
+
+</html>
