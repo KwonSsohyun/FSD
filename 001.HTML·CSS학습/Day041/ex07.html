@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript">
+
+            // 자료형
+
+            // ▶ Number 타입
+            //    : 정수와 실수를 구분하지 않는다.
+            var a = 3.14;
+
+            // ▶ Object 타입 
+            // Number이면서 Object 타입 
+            var b = new Number(3.14);
+            var c = new Number(3.14);
+
+            // d변수에 b Object타입 복제
+            var d = b;
+
+
+            // 자료형 확인 -> typeof
+            console.log(a); // 3.14
+            console.log(typeof a); // number
+            console.log(b+1); // 4.140000000000001 
+            console.log(typeof b); // object
+
+
+            // ▶▶ == 벨류값 비교
+            console.log(a==b); // true
+            // 서로 다른 객체랑 객체 비교는 다름
+            console.log(b==c); // false > 객체와 객체에 대한 비교 (붕어빵 2개는 다른것)
+            // b를 복제했기에, 같은 객체를 가르키고 있기에 같음
+            console.log(b==d); // true
+
+            // ▶▶ === 벨류값과 , 같은 자료형인지 비교
+            console.log(a===b); // false > 벨류값은 같아도, 자료형이 달라서 틀림!
+            // 서로 다른 객체랑 객체 비교는 다름
+            console.log(b===c); // false > 객체와 객체에 대한 비교
+
+
+
+            console.log('-------------------------------');
+
+
+            var e = '200원';
+            // var e = '2,000원'; // 컴마가 숫자가 아니니까, 컴마에서 끊긴 -> 2만 숫자 변환됨
+            // var e = '$200';    // -> 처음부터 숫자가 아니라서 안됨.
+
+            // ▶▶ 숫자가 아니기 전까지 숫자 변환해줌 -> parseInt()
+            console.log(parseInt(e)*3); // 600
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

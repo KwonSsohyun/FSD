@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript">
+
+            // ▶ boolean 타입
+
+            var a = true;
+            
+            // ▶ Object 타입 
+            // boolean이면서 Object 타입
+            var b = new Boolean();     // 안주면, false
+            var c = new Boolean(true);
+
+            console.log(a===true); // true
+            console.log(a==b);     // false
+
+            // 서로 다른 객체랑 객체 비교는 다름
+            console.log(b==c);     // false
+            console.log(c===b);    // false
+
+            console.log(typeof a); // boolean
+            console.log(typeof b); // object
+
+
+            console.log("---------------------------------");
+
+
+            // ▶▶ null과 undefined을 구분한다.
+            //     ▶ 내가 값을 null줘야 → null이다.
+            //     ▶ 값이 초기화 되지 않았을 때 (값을 아무것도 안줄때) → undefined
+
+
+            // ▶ null
+            // null은 object 자료형
+            var d = null;
+            console.log(d);        // null
+            console.log(typeof d); // object 타입
+
+ 
+            // ▶ undefined 타입 자료형
+            // 선언하고 값이 없으면, undefined 라고 나옴
+            var e;
+            console.log(e);        // undefined
+            console.log(typeof e); // undefined 타입
+       
+
+            console.log("---------------------------------");
+
+
+            if(4<0){e=1234;}
+            // 대입을 못받아도 자바처럼 오류나지 않고, 자바는 초기화값이 있어야 하는데
+            // 자바스크립트에서는 그런거 구애받지 않고 쓸 수 있다.
+            console.log(e); // undefined
+
+
+        </script>
+    </head>
+</html>

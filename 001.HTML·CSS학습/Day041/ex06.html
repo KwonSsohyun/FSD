@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript">
+
+            // 반복문
+
+            // ▶▶ for 문
+
+            // for(var a=0; a<5; a++){
+            //    console.log('for 출력 ' + a); 
+            // }
+
+            // 선언을 빼도 됨
+            // for(a=5; a; a--)
+            for(var a=5; a; a--){
+                console.log('for 출력 ' + a); 
+            }
+
+            console.log('-------------------------------');
+
+
+            // ▶▶ while 문
+
+            var cnt = 5;
+            while(cnt){
+                console.log('while 출력' + cnt);
+
+                // cnt 값 감소
+                cnt--; 
+                // 계속 감소하다가 0이 되면 나간다.
+                // Number 타입  ▶ 0일때 거짓 이외 참
+                // ▶ 이를 이용해서 0이 되면 거짓이 되니, while문 빠져나간다.
+                //    while은 true면 계속 도는데, false되면 빠져나감.
+                // → ex05 참조
+                
+                // cnt++; // cnt 값 증가
+                // if(cnt==5) break;
+            }
+            
+
+            console.log('-------------------------------');
+
+
+            // ▶▶ do while 문
+
+            do{
+                console.log('do ~ while 출력' + cnt);
+            } while(cnt>5); // ▶ 조건을 만족하지 않아도, 한 번은 수행
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

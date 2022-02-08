@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            // ▶ 변수 선언 (자료형 명세 안함)
+            // variable 나는 변수다.
+            // 참조변수로 가르킨다.(객체)
+            // 객체 지향적인 언어
+            var a;
+
+            a = 1234;
+            a = 4321;
+           
+            // 콘솔 출력
+            // typeof -> 타입 확인해 보기
+            console.log(typeof a); // number 타입
+
+
+            a = "문자열";
+            // ▶ '단일문자'와 '문자열'을 구분하지 않는다.
+            // 단일문자도 string 타입으로 본다.
+            // 다 문자열이다. -> string 타입
+            // '홑따옴표(단일문자)' or "쌍따옴표(문자열)" -> 해도 오류없이 문자열
+            a = 'a';
+            // 표현 가능
+            a = "'문자열'" // -> '문자열'
+            // " -> \"
+            // 이걸 그냥 적어도 된다는것 (기존 자바에서는 "을 표현하기위해 → \" 함)
+            a = '"문\"자열"' // -> "문"자열" 
+            a = '"문"자열"'
+                 
+            console.log(a);
+            console.log(typeof a); // string
+
+
+
+            // ▶ '정수'와 '실수'를 구분하지 않는다.
+            // 숫자타입으로 number타입
+            // (코어단에서는) 실수는 float을 쓸것이다.(4byte) -> 표현범위가 큰 double(8byte)을 안쓰기에 실수의 연산 오차범위 크다.
+            a = 3;
+            a = 3.14;
+            console.log(typeof a); // number 타입
+
+            a = true;
+            console.log(typeof a); // boolean
+
+            a = new Date();
+            console.log(typeof a); // object
+
+
+
+        </script>
+    </head>
+    <body>
+ 
+    </body>
+</html>

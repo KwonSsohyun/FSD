@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // 문자열
+
+            // ▶ string 타입 (원시자료형 느낌)
+            var a = "문자열";
+            var b = '문자열';
+
+            // ▶ Object 타입 
+            // 객체 참조변수처럼 string이면서 Object 타입
+            var c = new String('문자열');
+            var d = new String('문자열');
+
+            console.log(typeof a); // string
+            console.log(typeof b); // string
+            console.log(c);        // String {'문자열'}
+            console.log(typeof c); // object
+
+            // ▶▶ == 벨류값 비교
+            console.log(a==b);  // true
+            console.log(a==c);  // true
+
+            // ▶▶ === 벨류값과 , 같은 자료형인지 비교
+            console.log(a===c); // false
+
+            // 서로 다른 객체랑 객체 비교는 다 false 난다.
+            console.log(c==d);  // false // == 벨류값 비교
+            console.log(c===d); // false // === 벨류값과 , 같은 자료형인지 비교
+
+
+            console.log('-------------------------------');
+
+
+            // < JavaScript String Methods >
+            //   : https://www.w3schools.com/jsref/jsref_obj_string.asp
+
+            // 자바 String클래스 명령어랑 비슷
+            // → 굿노트 150page 참조
+            // 얘들은 메서드 ()
+            console.log(a.charAt(0));      // 문
+            console.log(a.indexOf("자"));  // 1
+            console.log(a.substring(0,1)); // 문     // .substring(0,1) (처음은0부터세고startIdx, 뒤는1부터센다endIdx)
+            console.log(a.substring(0,3)); // 문자열 
+
+            // ▶ 문자열의 길이 → .length
+            //    여기서는 뒤에 괄호가 안씀! → 메서드아니고
+            //    → 프로퍼티 맴버필드
+            console.log(a.length);         // 3
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // ▶ 함수
+
+            console.log(typeof f01);    // undefined
+            console.log(typeof func01); // function
+
+            // 마지막께 호출됨
+            // 마지막것으로 값 덮어쓴 것
+            // 인자의 유무는 전혀 상관없음
+            func01();
+
+            // ▶ 함수먼저 스캐닝함
+            //    → 오류
+            //    → undefined
+            //      오류나는 이유는, 대입을 받아야 쓰니까!
+            //      이 코드를 되게하려면, 28번 라인인 var f01아래로 내려가서 쓰면 오류가 안난다.
+            f01();
+
+            // 대입을 받아야 쓰니까.
+            // 윈도우 객체에 생성됨
+            // 키 : 벨류
+            // f01(메서드) : function~  
+            var f01 = function (){ console.log('첫 번째'); }; // ▶ 메서드
+            f01 = function (a){ console.log('두 번째'); };
+
+            // ▶ 이건 가능
+            //    : 위에서 설명했듯이 대입을 받아야 쓰니까.
+            //      대입이 된 후행으로 붙어야 오류가 안난다.
+            // f01();
+
+
+            // ▶ 함수 (윈도우 객체에 있는것)
+            function func01(){ console.log('첫 번째'); }
+            function func01(a){ console.log('두 번째'); }
+
+
+            
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

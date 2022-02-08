@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript">
+            
+            // ▶ 사칙연산
+            
+            var a = 5;
+
+            console.log(a+2);
+            console.log(a-2);
+            console.log(a*2);
+            // ▶ 정수와 정수 연산했는데 -> 실수 반환
+            //      옛날자바에서는 정수와 정수 연산해서 실수나와도 정수만 나왔음
+            //      근데 자바스크립트에서는 정수와 정수 연산해서 실수 나오면 실수 나옴
+            //      → 정수와 실수를 구분하지 않기 때문
+            // number 타입
+            console.log(a/2); // 2.5
+
+            // 나머지 연산자
+            console.log(a%2); // 1
+
+            // 몫 구하기
+            console.log((a-a%2)/2); // 2
+
+
+            console.log('-------------------------------------------');
+
+
+            // < 대입 연산자 >
+            // ==  ▶ 벨류값 비교
+            console.log(a==5);
+            var b = new Number(5); // true
+            console.log(a==b);     // true  
+            console.log(a=='5');   // true
+
+
+            // === ▶ 벨류값과 자료형까지 같냐?
+            console.log(a==='5');  // false
+
+            
+            console.log('-------------------------------------------');
+
+
+            var c = 5;
+            var c = '5';
+
+            // 더하기
+            // ▶▶ 문자열 '5'와  +  숫자 2를 더한다.
+            //      → 52
+            console.log(c+2); // → 52
+
+            
+            // ▶ 진짜 숫자 극복 가능!
+            //    → ▶ 더하기를 제외한 나머지 연산은 문자열을 숫자로 바꾸기 때문에
+            //      이를 이용해서 한다!
+            //      빼도 타격없는 0을 뺀다! → 그 순간 문자열이었던 c변수의 값이 숫자형으로 바뀐다.
+            console.log(c-0+2); // → 7
+
+
+            // 더하기 제외한 나머지 연산
+            // ▶▶ 더하기를 제외한 나머지 연산은 숫자 벨류값으로 한다.
+            //      → 숫자 5 
+            console.log(c-2); // → 3
+            console.log(c*2); // → 10
+            console.log(c/2); // → 2.5
+            console.log(c%2); // → 1
+            
+
+        </script>
+    </head>
+    <body>
+        <!-- 문자열임 -->
+        <input type = "text" value="1234"/>
+    </body>
+</html>

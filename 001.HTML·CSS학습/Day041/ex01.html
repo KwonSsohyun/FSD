@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 부트스트랩(버전 v3.4.1) 그리드시스템 이용 - CDN방식 링크 가져옴 -->
+        <!-- Bootstrap CDN | Latest compiled and minified CSS 링크 가져옴 -->
+        <!-- https://getbootstrap.com/docs/3.4/getting-started/ -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+        <style rel="stylesheet" type="text/css">
+            /* 이렇게 필요에 따라 오버라이딩해서 정의해서 css줄 수도 있다. */
+            /* 시멘틱태그인 id로 준  → | header | menu | content | footer | 는 분간하기 위함이지 css로 꾸미지는 않는다. */
+            #menu, #footer{
+                background-color: gray;
+            }
+            #menu a{
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 1. 컨테이너 필요 -->
+        <!--    ▶ https://getbootstrap.com/docs/3.4/css/#grid -->
+        <!--       → <div class="container-fluid"> : 이건 화면 %백프로임 -->
+        <div class="container">
+            <!-- 2. 그리드 같다 붙히기 -->
+            <!--    ▶ Example: Stacked-to-horizontal -->
+            <!--    ▶ 각 한줄 12칸 맞추기 -->
+            <div class="row" id="header">
+                <div class="col-md-12">
+                    <!-- ★ 1. 헤더 ------------------------------>
+                    <h1>하이미디어</h1>
+                </div> 
+            </div>
+            <div class="row" id="menu">
+                <!-- ★ 2. 메뉴 ---------------------------------->
+                <div class="col-md-3">&nbsp;</div> 
+                <div class="col-md-2"><a href="#">menu 1</a></div> 
+                <div class="col-md-2"><a href="#">menu 2</a></div> 
+                <div class="col-md-2"><a href="#">menu 3</a></div> 
+                <div class="col-md-3">&nbsp;</div> 
+            </div>
+            <div class="row" id="content">
+                <!-- ★ 3. 컨텐츠 -------------------------------->
+                <div class="col-md-12">
+                    <!-- 실제 작성될 내용 -->
+
+                    <!-- 상단메뉴 components >  jumbotron 선택함 -->
+                    <!-- https://getbootstrap.com/docs/3.4/components/#jumbotron -->
+                    <!-- 코드 카피해서 가져오고, 글자만 바꿔주면 됨 -->
+                    <div class="jumbotron">
+                        <h1>환영합니다.</h1>
+                        <p>...</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                    </div>
+
+                </div> 
+            </div>
+            <div class="row" id="footer">
+                <!-- ★ 4. 푸터 ---------------------------------->
+                <div class="col-md-12">
+                    <address>
+                        (주) 하이미디어 아카데미	|서울 종로구 인사동길 12 대일빌딩 15층	|대표자 : 허미라<br/>
+                        사업자등록번호 : 220-86-58115	|기관명칭 : 하이미디어 아카데미	|통신판매업신고 : 제2018-서울종로-0495호	|기관등록번호 : 제2304호<br/>
+                        copyright ⓒHimedia Academy, All Rights Reserved.<br/>
+                    </address>
+                </div> 
+            </div>
+        </div>
+
+
+
+
+        <!-------------------------------------------------------------------------------->
+        <!-- https://getbootstrap.com/docs/3.4/css/ -->
+        <!-- <h1>test page</h1> -->
+
+        <!-- 이미 css에 다 정의 되있어서, 엘리먼트에 class추가하면됨 -->
+        <!-- <button class="btn btn-danger">버튼</button>
+        <a class="btn btn-danger" role="button">버튼</a> -->
+    </body>
+</html>

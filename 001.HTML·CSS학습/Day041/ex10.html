@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript">
+
+            // ▶ 배열
+            var arr1 = [1,3,5,7,9];
+
+            // var arr2 = new Array(2,4,6,8);    // (4) [2, 4, 6, 8]
+            // var arr2 = new Array('하나','둘'); // (2) ['하나', '둘']
+            
+            // ▶▶ 자바스크립트의 배열은 동적할당 (ArrayList)
+            //      : new Array(5); → 이렇게 진짜 5개 쓸거 아니면, 물론 더 추가하면 5개 이상 늘어나긴한데
+            //        ▶ 꼭 5개 아닐거면, 굳이 명세 안해도 됨. → new Array();
+            //        → 하나이면서 숫자이면, 길이로 인식
+            //        → var arr2 = new Array(5); // 몇개 배열갯수 할건지 // undefined 5개 생김 (값을 준적 없으니까)
+            var arr2 = new Array();
+            // arr2[0] = 2;
+            // arr2[1] = 4;
+            // arr2[2] = 6;
+            // arr2[3] = 8;
+
+            // ▶ 자바스크립트 배열은 자료형에 무관함
+            //    : 명세한 적도 없기 때문
+            //      객체의 주소를 담고 있기 때문이다.
+            //      ex) 객체 주소 5개를 담고 있기 때문 → var arr2 = new Array(5);
+            arr2[4] = '문자열'; // 앞에 4개(인덱스0~3)가 undefined 됨 (뛰어넘으면, 연속은 되야하지만 -> (인덱스0~3)값이 없으면 undefined)
+            arr2[5] = true
+
+            console.log(arr1);        // (5) [1, 3, 5, 7, 9]
+            console.log(typeof arr1); // object 타입
+
+            console.log(arr2);        // (4) [2, 4, 6, 8] // (5) [empty × 5] // (6) [empty × 4, '문자열', true]
+            console.log(typeof arr2); // object 타입
+
+
+            for(var i=0; i<arr1.length; i++){
+                console.log(arr1[i]);
+            }
+
+            // i<arr2.length 이것을 ▶ i<7 으로 바꾸면, 배열갯수 이상 많이 돌려도
+            // 자바처럼 인셉션 안떨어짐
+            // 초과되거나, 값 대입 받은적 없는 것은 ▶ undefined 나옴
+            for(var i=0; i<7; i++){
+                console.log(arr2[i]);
+            }
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // ▶ Object
+            //    최상위 객체 object
+            var a = new Object();
+
+            // 필드 (객체의 속성) ▶ 프로퍼티
+            // 메서드
+            
+            // ▶▶ 프로퍼티 대입
+            a.prop1 = 'p1';
+
+
+            console.log(typeof a); // object
+            console.log(a.prop1);  // 대입을 안해줬으면 undefined ▶ 프로퍼티 대입을 해주면됨
+                                   // ▶  p1  →  대입을 해줬기에 나온다.
+
+            console.log(a);       // {prop1: 'p1'}
+
+
+
+            // 자바의 맵타입과 유사 (키 벨류값)
+            // var obj2 = {"key1":"val1", "key2":"val2"};
+            // ▶▶ 일반적으로 '키'는  ▶ '문자열' 사용
+            // ▶▶ 객체를 생성한거임 → {};
+            var obj2 = {};
+            obj2.key1 = 'val1';
+            // 위의 var obj2 = {}; obj2.key1 = 'val1'; 을 한줄로 정리하면, 아래와 같다.
+            // var obj2 = {"key1":"val1"};
+
+            console.log(typeof obj2); // object 타입
+
+            console.log(obj2.key1);   // val1
+            console.log(obj2.key2);   // undefined
+            console.log(obj2.key3);   // undefined
+            console.log(obj2);        // {key1: 'val1'}
+
+
+            // 일반적으로 키는 문자열 사용 (제어를 쉽게 하기 위해)
+            // 벨류는 타입 얼마든지
+            var c = {1:'val1', true:1234, 'key3': 3.14, null:true};
+            
+            // 둘이 같다.
+            c.key3 = 4.14;
+            c['key3'] = 4.14;
+
+            c.null = false;
+            c[null] = false;
+            // 만약 1.1:'val1' 이랬다면,
+            // c.1.1 → 이렇기 안되기 때문 ▶ [] 쓴다.
+            c[1.1] = 'val1.1';
+
+            console.log(typeof c); // object
+            console.log(c);        // {1: 'val1', true: 1234, key3: 4.14, null: false, 1.1: 'val1.1'}
+                                   //  위에서 c[1.1] = 'val1.1'; 추가하였기에 추가됬다.
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript">
+            // 조건문
+
+            // ▶▶ if 문
+
+            // < 거짓 조건! >
+            // boolean 타입 ▶ true일때 참, false일때 거짓
+            // Number 타입  ▶ 0일때 거짓, 이외 참  (쉽게 생각하면, 값이 0이면 없는것임)
+            // String 타입  ▶ ''일때 거짓, 이외 참 (마찬가지로, ''빈문자열이면 없다는것)
+            // ▶ null일때  |  undefined 일때 거짓
+
+            // ▶ 0이면 거짓이라고 나옴
+            // ▶ ''빈문자열이어도 거짓
+            // ▶ null 이어도 거짓
+            var a = -1;
+            // var a = '';
+            // var a = null;
+            // var a = new Date(); -> 객체가 들어있으면 true
+
+            if(a){
+                console.log('참');
+            // } else if(a<0){
+            //     console.log('두번째 참')
+            // } 
+            } else{
+                console.log('거짓');
+            }
+
+
+            console.log('-------------------------------------------');
+
+
+            // ▶▶ switch case 문
+
+            // var b = 2;
+            var b = "문자열";
+            // var b = false;
+
+            // var b = '1'; ▶ 문자열은 안됨 →  default 케이스 값 나옴 → '모두 아님' 콘솔에 찍힘
+            // 스위치 case 타입: -> 자바에서는 해당 타입이 다 같아야 했었다. 
+            // ▶ 자바스크립트에서는 케이스 타입 자료형이 다 달라도 된다.
+            switch(b){
+                case "문자열": console.log('첫 번째'); break;
+                case 1: console.log('두 번째'); break;
+                case 0==b+2: console.log('세 번째'); break; // 연산이 들어가도 에러 안남
+                case true: console.log('네 번째'); break;
+                default: console.log('모두 아님'); break;
+            }
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
