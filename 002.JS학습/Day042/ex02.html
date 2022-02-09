@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // 펑셩의 인자
+
+
+            // ▶▶ 인자로 전달을 해야 "콜백 함수" 가능하다.
+            //      : func01(a) → 인자로 받기로 했다. 
+            function func01(a){
+
+                if(typeof a=='function'){ // a의 타입이 펑셩이면 -> if문 안으로 들어옴
+                    // ▶ 콜백 함수(펑셩)
+                    //    : 이 함수에 의해서 호출이 결정됨.
+                    //      실행 시점을 내가 결정함.
+                    //      실행 유무 결정
+                    // → 다른 코드의 인수로서 넘겨주는 실행 가능한 코드를 말한다. 
+                    // func01(인자로 담긴 func02가 실행됨 -> func02에는 함수가 대입되어있는데 그 함수가 실행됨)
+                    a(); // 실행
+                } else{
+                    console.log(a);
+                }
+                
+            }
+
+            var func02 = function (){ console.log('실행'); };
+            func01(func02);
+            // func01('aaa');
+
+
+            // 인자의 유무, 타입, 갯수에 따라
+            // 자바처럼 깐깐하지 않다.
+            // 전달 안해도 호출은 가능하고,
+            // 오바해서 전달해도 문제없다.
+
+            // 인자를 전달해야하는데,
+            // ▶ 인자를 전달 안하면 -> undefined
+            // func01();        // undefined
+
+            // ▶ 갯수 오바해서 인자 전달해도 문제없다.
+            // func01(1111,2222); // 1111
+
+
+            // 위에 보면
+            // else조건인 펑셩타입이 아닌것들이 출력된다.
+            func01(null); // object                // null
+            func01([]);   // 배열 - object         // []
+            func01({});   // 오브젝트객체 - object  // {}
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

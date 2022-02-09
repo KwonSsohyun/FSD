@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            // ▶ 내장 객체
+            //   : 기본적으로 쓸 수 있는것 -> 윈도우(브라우저 객체) 에 있는것
+
+
+            // ▶ 문자열을 숫자로 변환
+            // var a = window.parseInt('1111');
+            // var a = Number.parseInt('1111');
+            var a = parseInt('1111');
+            console.log(a+1);
+
+
+
+            // 콜백펑셩
+            // ▶▶ setInterval(콜백을호출,1000) -> 1000/1초
+            //      → 반복 호출 !!
+            //      → 무겁다.
+            // var callback = function(){
+            //     console.log(new Date());
+            // }
+            // setInterval(callback,1000); // 1초마다 호출
+
+
+            
+            // 되도록 셋타임아웃써라
+            // ex) 메인배너 3초마다 움직임
+            // ▶▶ setTimeout(callback,3000);
+            //      → 몇초뒤 한번만 호출 !!
+            // var callback = function(){
+            //     console.log(new Date());
+
+            //     // 자기 자신을 다시 호출
+            //     // ▶ 재귀 함수
+            //     // 이걸 넣음으로소 셋인터발같은 효과가 남.
+            //     // setTimeout(callback,1000); // 1초마다, 계속 자기자신 호출
+            // }
+            // // 멈출수도 있어야지~
+            // var obj = setInterval(callback,1000); // 1초마다 수행
+
+            // setTimeout(function(){ 
+            //     // 인자로 지울거 전달 -> obj
+            //     clearInterval(obj); // 인터발 지우기
+            // }, 5000); // 딜레이주기위해 -> 5초뒤 한번만
+ 
+            // // setTimeout(callback,3000); // 3초뒤에 한번만!!!
+
+
+            // ▶ 클리어할 대상 
+            //    → var obj; 로 위에다가 선언
+            //      그래야 나중에 클리어할 때 해당 obj변수명으로 
+            //      편하게 잡고 지울 수 있기 때문.
+            var obj;
+            var cnt = 0;
+
+            var callback=function(){
+                console.log(new Date());
+                // 재귀함수 (자기자신 호출)
+                // obj = setTimeout(callback,1000); // 1초뒤 한번만 실행
+                cnt++;
+            };
+            
+            obj=setTimeout(callback,1000); // 1초 뒤 한번만 실행
+            callback(); // 먼저 수행
+          
+            // 1초뒤에 실행되니 cnt는 아직 +플러스 안됬으니까. ▶ cnt = 0 나옴
+            // 하지만, 바로 위에 callback()을 해서
+            // 함수를 먼저 수행시켜버리면, ▶ cnt = 1이 된다.
+            console.log(cnt); // 1
+            
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

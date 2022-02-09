@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            // this의 관점
+            // this === window   // → true
+
+            var a = 1111;
+            window.b = 2222;
+
+            console.log(this.a, this.b);  // 1111  2222
+
+
+            function func01(){
+                console.log(this); // Window 객체를 가르킴
+                
+            }
+
+            func01(); // 호출
+            
+
+            var c = function() { console.log(this); };  // this -> Window 객체를 가르킴
+            c(); // 호출
+
+
+            // ▶ 객체 안에서의 this는 해당객체임
+            var obj = { 'key1':'val1',
+                        'func02':c,
+                        'func03': function() { console.log(this.key1); },  // val1 // 여기서 this는 해당객체 obj를 뜻하고, .key1을 했으니, .key1의 값을 콘솔에 찍어준다.
+                        'func04': function(){ return this.key1; }, // ▶ 겟터 : 값 가져오는 것 - 리턴을 통해서 값 전달
+                        'func05' : function(a) { this.key1=a; }    // ▶ 셋터 : 값 설정
+                      };
+            // obj.func02(); // 여기서의 this는 Object
+
+            obj.func03();  // val1
+ 
+            obj.func05('안녕'); // ▶ 값 설정 // 인자로 전달해줌
+       
+            var d = obj.func04();
+            console.log(d);            // 안녕
+            console.log(obj.func04()); // ▶ 값 조회 // 안녕
+            
+            console.log(obj);  // {key1: '안녕', func02: ƒ, func03: ƒ, func04: ƒ, func05: ƒ}
+
+
+
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

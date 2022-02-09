@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // ▶ 학생성적관리 프로그램
+            //    http://localhost:8080/Day042/ex07_stu.html
+            
+            
+            // 학번
+            var cnt = 0;
+
+            function newStu(){
+                // cnt ▶ 학번 자동 올라감
+                cnt++; 
+                // ▶ 객체 안에서의 this는 해당객체임
+                var stu = {  num:cnt, 
+                             kor:0, 
+                             setKor:function(a){ this.kor=a; },    // ▶ 받아온 인자로, 값 셋팅
+                             getKor:function(){ return this.kor; } // ▶ 리턴으로, 값 전달해서 보여줌
+                          };
+                // ▶ stu를 리턴해준다.
+                // 그럼 호출한 곳에 stu가 들어간다.
+                return stu;
+            }
+
+
+            // ▶▶ 새로운 배열을 만듬
+            // var arr = []; 아래와 같음 == var arr = new Array(); 
+            var arr = [];
+
+            // ▶▶ 배열 마지막에다가 추가하는 것 -> .push()
+            // ▶   : arr 배열에 추가해줌 { num:cnt, ~~~ getKor } -> 까지 객체를 추가해줌}
+            //        배열 안에 객체가 들어있는 것
+            //        → 맨 아래 주석처진대로, 처리 되는 것임.
+            //          var arr = [ {///} ];
+            // ▶     newStu()를 호출하니, newStu()을 보면 리턴을 stu를 해준다.
+            //        그럼 호출한 여기로, stu가 들어간다.
+            //        → 그 들어온 stu가 push되어서 arr배열의 맨뒤로 들어온다.
+            arr.push(newStu());
+
+            // ▶▶ 인자로 값 셋팅
+            //      arr[0] -> arr의 배열의 0번 인덱스에 객체가 들어있는데, 그 객체 안에 setKor키의 벨류값에 메서드가 있는데,
+            //      메서드에 매개변수를 전달해야하니
+            //      매개변수를 전달해서 값을 셋팅한다.
+            arr[0].setKor(90);
+
+            arr.push(newStu()); // 배열 맨 뒤, 순서에다가 추가
+            arr[1].setKor(80);  // 인자로, 값 셋팅
+
+            arr.push(newStu());
+            arr[2].setKor(70);
+
+            arr.push(newStu());
+            arr[3].setKor(60);
+
+
+            // ▶ getKor()에 return이 있으니, 리턴을 통해 값 받아옴
+            for(var i=0; i<arr.length; i++){ // arr 배열 갯수만큼 for문 돈다.
+                // var stu = arr[i];
+                // console.log(stu.num, stu.getKor());
+
+                // 각각의 num의 학번 cnt 값이 나올거고,
+                // .getKor() 이니 설정되있는 값을 가져올것이다.
+                console.log(arr[i].num, arr[i].getKor());
+            }
+
+
+
+
+            // ▶ 배열 안에 객체가 들어있는 것
+            // var arr = [
+            //         {  num:1, 
+            //            kor:0, 
+            //            setKor:function(a){this.kor=a;},     // 받아온 인자로 값 셋팅
+            //            getKor:function(){return this.kor;}  // 리턴으로 값 보여줌
+            //         },
+            //         {  num:2, 
+            //            kor:0, 
+            //            setKor:function(a){this.kor=a;}, 
+            //            getKor:function(){return this.kor;}
+            //         },
+            //         {  num:3, 
+            //            kor:0, 
+            //            setKor:function(a){this.kor=a;}, 
+            //            getKor:function(){return this.kor;}
+            //         }
+            // ];
+
+
+            // arr[0].setKor(90);  // 인자로 값 셋팅
+            // arr[1].setKor(80);
+            // arr[1].setKor(70);
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

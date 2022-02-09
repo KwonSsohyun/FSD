@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+
+            var obj1 = {"key1":"val1", "key2":"val2"};
+
+            // 변환을 해주는 것
+            // JSON에서 보통 통신에서 많이 써서,
+            // JSON에 있는 것에 있는 메서드
+
+            // JSON은 String문자열이므로, 실제 자바스크립트에서 사용하기 위해서는
+            // 파싱을 하여 객체로 사용할 수 있다.
+            // 자바스크립트에서 이럴때 사용하는 객체가 JSON 객체이다.
+
+            // JSON객체에는 parse와 stringify가 내장되어있어서
+            // String -> Object 로
+            // Object -> String 으로 변환해준다. 
+
+
+
+            // ▶▶ JSON.stringify()
+            //      JSON 객체의 stringify (Object -> String 변환)
+            //      : 자바스크립트의 값을 JSON 문자열로 변환한다.
+            //        stringify 메소드는 json 객체를 String 객체로 변환시켜준다.
+            // ▶ 오브젝트를 -> "문자열" 변환
+            // IO를 통해서 주고 받을 수 있어서.
+            var msg = JSON.stringify(obj1);
+
+
+            // ▶▶ JSON.parse()
+            //      JSON 객체의 parse (String -> Object 변환)
+            //     : parse 메소드는 string 객체를 json 객체로 변환시켜준다.
+            // ▶ 문자열을 가지고 -> "오브젝트" 변환
+            // 주고받았으면, 다시 자바스크립트에서 쓸 수 있게, 오브젝트로 변환해준다.
+            var obj2 = JSON.parse(msg);
+
+
+            // 펑셩은 안됨.
+            // 자바스크립트에 있는 문자열을 바꿔준다.
+            // ▶ '{"key1":"val1"}' 이렇게 바깥쪽 '' 싸줘야한다.
+            // 이유는 안싸면 오브젝트고
+            // 싸줘야 문자열이니까
+            // 문자열을 -> 오브젝트로 바꾸는건데
+            // 문자열 형식을 맞춰줘야 하기 때문이다.
+            // {"key1":"val1"}      -> 오브젝트
+            // ▶ '{"key1":"val1"}' -> 문자열
+            var obj3 = JSON.parse('{"key1":"val1"}');
+            var obj3 = JSON.parse('["item1","item2"]');
+            var obj3 = JSON.parse('"js"');
+            var obj3 = JSON.parse('"1234"');
+            var obj3 = JSON.parse('true');
+            var obj3 = JSON.parse('null');
+            
+
+
+            console.log(typeof obj1, obj1); // object ▶ {key1: 'val1', key2: 'val2'}
+            console.log(typeof msg, msg);   // string    {"key1":"val1","key2":"val2"}
+            console.log(typeof obj2, obj2); // object ▶ {key1: 'val1', key2: 'val2'}
+            console.log(typeof obj3, obj3); // object     null
+            
+            
+
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

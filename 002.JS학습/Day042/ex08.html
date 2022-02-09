@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // 자료형
+
+
+            // ▶ String 메서드
+            //    : https://www.w3schools.com/js/js_string_methods.asp
+
+            // slice(start, end)     -> 마이너스 가능한데, 마이너스면 뒤부터셈 (0부터셈, 1부터셈)
+            // substring(start, end) -> (0부터셈, 1부터셈)
+            // substr(start, length) -> (0부터셈, 앞에서정한시점부터의길이)
+
+            // replace()             -> 값 바꾸는 것 → .replace("Microsoft", "W3Schools");
+            //                          대소문자를 구분함
+
+            // concat()              -> 두개 문자열 붙힐때 .concat(" ", text2);
+            // trim()                -> 양쪽 공백 날리기
+
+
+
+
+            // ▶ Number 메서드
+            // (///).toString()         -> 문자열로 바꾸고 싶을때  → (100 + 23).toString(); 앞에 꼭 괄호 써준다.
+            // parseInt()               -> 정수를 리턴   parseInt(1.2원)       -> 1 (.점은 숫자로 인식 안함)
+            // parseFloat()             -> 실수를 리턴   parseFloat('12.34원') -> 12.34
+            // Number()                 -> 내용상의 띄어쓰기는 문자로 봐 버림 
+
+
+
+            // ▶ 배열 메서드
+            // 배열을 만드는 방법 2가지
+            var arr1 = new Array();
+            var arr2 = []           // 아무것도 안넣었으니 -> 길이 0
+
+            // 동적할당 이니까~
+            // 앞에 없는 것들은 언디파인
+            arr2[0] = 1111;
+            arr2[1] = 2222;
+            arr2[2] = 3333;
+            arr2[3] = 4444;
+
+
+            // alert(arr2);
+            console.log(arr2.length);  // 4
+            console.log(arr2);         // (4) [1111, 2222, 3333, 4444]
+            console.log(typeof arr2);  // object
+
+
+            console.log('-----------------------------------------------');
+
+
+            // 반복문 통해서 추출
+            for(var i=0; i<arr2.length; i++){
+                console.log(arr2[i]);  // 1111 | 2222 | 3333 | 4444
+            }
+
+            console.log('-----------------------------------------------');
+
+
+            // 개선된 루프문
+            // ▶ for of는 ES5까지는 허용
+            // 보기 위해 있는것 (조회 확인용)
+            // for(Bean bean : list) // → 자바에서 list에서 bean 끄내왔었다.
+            // 참조 : https://dydals5678.tistory.com/66
+       
+
+
+            // ▶▶ for  .... in 반복문
+            //     : 객체에 사용 할수 있습니다.
+            //       객체의 key값과 value 값을 뽑아내는데 유용합니다.
+            //       객체의 키값의 갯수만큼 반복하여 첫번째 키값부터 마지막 키값까지 반복합니다.
+            // ▶ 인덱스 얻어내기
+            //    → var obj는 변수 선언한거라고 보면 됨
+            for(var obj in arr2){ // 키(인덱스)
+                console.log(obj); // 0 | 1 | 2 | 3 
+            }
+
+            // ▶ 키, 벨류값 얻어내기
+            for(var obj in arr2){            //obj, arr2[obj] 
+                console.log(obj, arr2[obj]); // 키, 벨류값
+                                             // 0   1111
+                                             // 1   2222
+                                             // 2   3333
+                                             // 3   4444                                                                                                                                 
+            }
+
+
+            console.log('-----------------------------------------------');
+
+
+
+            // ▶▶ for ... of 반복문
+            //      : for of 반복문은 ES6에 추가된 새로운 컬렉션 전용 반복 구문입니다.
+            //        for of 구문을 사용하기 위해선 컬렉션 객체가 [Symbol.iterator] 속성을 가지고 있어야만 합니다.
+            //        (직접 명시 가능)
+            for(var obj of arr2){  // 벨류값 나온다.
+                console.log(obj);  //  1111 | 2222 | 3333 | 4444
+            }
+
+
+
+            console.log('-----------------------------------------------');
+
+
+            // 콜백함수
+            // ex02참조 -> 쉽게하기 위해서 만든것
+            // .forEach(익명함수)
+            // 지가 알아서 필요한만큼 호출해서 실행해서 씀
+            // 보기 위해 있는것 (조회 확인용)
+
+            // ▶▶ forEach 문
+            //      : forEach 반복문은 오직 Array 객체에서만 사용가능한 메서드입니다. (ES6부터는 Map,Set 지원)
+            //        배열의 요소들을 반복하여 작업을 수행할수 있습니다.
+            //        ▶ forEach구문의 인자로 callback함수를 등록할수 있고, 
+            //           배열의 각 요소들이 반복될 때, 이 callback 함수가 호출됩니다. 
+            //           callback 함수에서 → 배열요소의 인덱스와 값에 접근할 수 있습니다.
+
+            arr2.forEach(()=>{ console.log('출력'); }); // 4번 출력 (배열의 갯수가 4개라서)
+            arr2.forEach((val,idx)=>{ console.log(val, idx); }); // 1111 0  -> 벨류값과 인덱스 출력해줌
+                                                                 // 2222 1
+                                                                 // 3333 2
+                                                                 // 4444 3
+
+            arr2.forEach(function(val, idx){ // 각각의값  배열인덱스
+                    console.log(val, idx);   //   1111      0 
+                                             //   2222      1
+                                             //   3333      2
+                                             //   4444      3
+            });
+
+
+
+            var arr = ['가','나','다','라']; 
+            arr.forEach(function(item,index,arr2){ console.log(item, index, arr2[index] ); }); 
+            // ▶ 첫 번째 인수는 → 배열의 각각의 item 
+            // ▶ 두 번째 인수는 → 배열의 index 
+            // ▶ 세 번째 인수는 → 배열 그 자체
+
+            // ▶ 결과 값
+            //    가  0  가
+            //    나  1  나
+            //    다  2  다
+            //    라  3  라
+
+
+
+            console.log('-----------------------------------------------');
+
+
+            // 참조
+            // https://www.w3schools.com/js/js_array_iteration.asp
+            
+
+            
+            // ▶▶ .map()
+            // 실제 배열에 적용까지 가능한게
+            // 수정해서 새로운 배열 만든다.
+            // 실제 값
+            const numbers1 = [45, 4, 9, 16, 25];
+            const numbers2 = numbers1.map(myFunction); // 이렇게 새로운 배열
+
+            function myFunction(value, index, array) {
+                return value * 2;  // 90,8,18,32,50
+            }
+
+
+
+            // ▶▶ .filter()
+            // filter 함수를 활용하여, 조건에 해당하는 값만 배열로 반환할 수 있다.
+            // 필터링해서 새로운 배열 만든다.
+            // 새로운 배열
+
+            // ▶ arr.filter(callback(element[, index[, array]])[, thisArg])
+            //    → callback함수에는 3개의 매개변수를 사용할 수 있다.
+            //      · element : 요소값
+            //      · index : 요소의 인덱스
+            //      · array : 사용되는 배열 객체
+
+            var Array = [1,2,3,4,5];
+            var newArray = Array.filter(function(element, index, array){
+	                        console.log(element);
+	                        console.log(index);
+	                        console.log(array);
+            });
+
+            const numbers = [45, 4, 9, 16, 25];
+            const over18 = numbers.filter(myFunction); // 이렇게 새로운 배열
+
+            function myFunction(value, index, numbers) {
+                return value > 18; // 조건을 준다. // 45,25
+                // true , false 결과
+                // false는 0 
+            }
+
+          
+
+
+            console.log('-----------------------------------------------');
+
+
+            // reduce()에는 누산기가 포함되어 있기 때문에, 
+            // 배열의 각 요소에 대해 함수를 실행하고 누적된 값을 출력할 때 용이하다.
+            // 가장 기본적인 예제로는, 모든 배열의 합을 구하는 경우가 있다.            
+            var sum = arr2.reduce(myFunction);
+
+            console.log("The sum is " + sum);
+
+            function myFunction(total, value, index, array) {
+                console.log('total:',total);
+                return total + value; // 99
+            }
+
+            console.log('-----------------------------------------------');
+
+
+            
+            // Array.from()
+            // Array.from()메소드는 유사 배열 객체(array-like object)나 
+            // 반복 가능한 객체(iterable object)를 얕게 복사해서 
+            // 새로운 배열객체를 생성한다.
+
+            // ▶▶ array.from(object, mapFunction, thisValue)
+            //      object      → 배열로 변환 할 객체
+            //      mapFunction → 배열의 모든 요소에 실행할 함수
+            //      thisValue   → 함수 내부에서 사용될 this에 대한 값
+
+
+            // 문자열을 배열로 만들기
+            var myArr = Array.from("ABCDEFG");
+            console.log(typeof myArr, myArr); // object ▶ (7) ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+
+
+            // 짝수만 출력하는 배열 생성
+            var arr6 = (length) => Array.from({length}, (value, a) => a*2);
+            console.log(arr6(5));  // (5) [0, 2, 4, 6, 8]
+
+
+
+
+        </script>   
+    </head>
+</html>

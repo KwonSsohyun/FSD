@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // 날짜 객체
+            var da = new Date();
+            console.log(da); // Thu Feb 10 2022 01:37:41 GMT+0900 (한국 표준시)
+
+
+            console.log('-----------------------------------------------');
+
+
+            // Date, JSON은 윈도우 객체 안에 있다.
+            // https://www.w3schools.com/jsref/default.asp
+
+
+
+            function Func01(a){
+                this.key1 = a;  // this 한다면, obj2가 된다. 
+                console.log(a); // 1111
+
+            }
+            
+
+            // 객체를 찍어내는건, 앞 글자 대문자로 씀 
+            // → Func01
+            
+            // 이렇게 객체를 생성하고 대입을 하면
+            // this를 하면, 윈도우객체가 아니다.
+            // ▶ obj2가 this가 된다.
+            var obj2 = new Func01(1111);
+            obj2.key1 = '1111';
+
+
+            // 이렇게 객체를 생성하고 대입을 하면
+            // this를 하면, 윈도우객체가 아니다.
+            // ▶ obj3이 this가 된다.
+            var obj3 = new Func01('val2');
+
+
+            console.log(typeof obj2, obj2, obj3); // 타입, 오브젝트
+            // 출력 결과
+            // object 
+            // ▶ Func01 {key1: 1111 } 
+            // ▶ Func01 {key1: 'val2'}
+
+
+            // 모든 객체에는 프로토타입이 있다. Prototype
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

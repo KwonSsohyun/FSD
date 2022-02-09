@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript">
+
+            // 참조
+            // https://www.w3schools.com/js/js_array_methods.asp
+
+
+            var arr1 = [2,6,8,4];
+
+
+            // ▶ push()
+            //    : 배열 맨 뒤로, 값 넣는것
+            //      push는 배열에만 쓸 수 있다.
+            arr1.push(9);
+            console.log(arr1); // (5) [2, 6, 8, 4, 9]
+
+
+            // ▶ unshift()
+            //    : 배열 맨 앞으로, 값 넣는것
+            arr1.unshift(1);
+            console.log(arr1); // (6) [1, 2, 6, 8, 4, 9]
+
+
+
+            console.log('-----------------------------------------------');
+
+
+
+            // ▶ pop()
+            //   : 맨 뒤에 있는거 값 빼는 것 (배열보면 실제로 값 사라짐)
+            //     끄집어 내는서 배열 확인해보면, 그 값은 없다.
+            arr1.pop();
+            console.log(arr1); // (5) [1, 2, 6, 8, 4]
+
+
+
+            // ▶ shift()
+            //    : 맨 앞에 있는거 값 빼는 것 (배열보면 실제로 값 사라짐)
+            arr1.shift();
+            console.log(arr1); // (4) [2, 6, 8, 4]
+
+
+
+            // while(arr2.length){
+            //     console.log(arr2.pop());   // 맨 뒤에거, 값 끄집어 내면서, ㄹㅇ 실제 배열 값 사라짐
+            //     console.log(arr2.shift()); // 맨 앞에거, 값 끄집어 내면서, ㄹㅇ 실제 배열 값 사라짐
+            // }
+
+
+
+            console.log('-----------------------------------------------');
+
+            // 참조
+            // https://developer0809.tistory.com/144
+
+            
+            // ▶ .sort();
+            //    : sort() 메서드는 배열의 요소를 적절한 위치에 정렬한 후 
+            //      그 배열을 반환하며
+            //      return 값이 음수, 양수, 0인지에 따라서 순서를 정한다
+            //    : 배열을 정렬하는 것
+            //      abc순 ㄱㄴㄷ순
+            console.log(arr1.sort()); // (4) [2, 4, 6, 8] // 오름차순
+            // 아래에 콜백함수를 통해서 
+            // 양수면 오름차순
+            // 음수면 내림차순
+            // 을 정한다.
+
+            
+            // ▶ reverse()
+            //    : 배열을 뒤집는 것
+            //      .sort() 괄호 안에서 콜백하면, 
+            //       내가 원하는 순서 정할 수 있다.
+
+            // a, b 파라미터 값이 없을 경우
+            // 배열의 값들은 유니코드 값 순서대로 정렬된다
+
+            // a, b 파라미터 값이 있을 경우
+            // 함수의 리턴 값이 0보다 작은 음수일 경우, a가 b보다 앞에 오도록 정렬하고(오름차순)
+            // 함수의 리턴 값이 0보다 큰 양수일 경우, b가 a보다 앞에 오도록 정렬한다(내림차순)
+            // 리턴 값이 0일 경우, a와 b의 순서를 변경하지 않는다
+            var callback = function(a,b){ 
+                // ▶ return 값이 음수, 양수, 0인지에 따라서 순서를 정한다.
+                return a - b; // 오름차순 정렬
+                return b - a; // 내림차순 정렬
+                //return 1;     // ▶ 양수면, 오름차순
+                //return -1;    // ▶ 음수면, 내림차순
+            };
+
+
+            // .reverse() 를 쓰나, 
+            // .sort(음수를리턴하는 콜백함수) 를 이용하건
+            // 똑같이 내림차순으로 보여준다.
+            console.log(arr1.reverse());      // (4) [8, 6, 4, 2]
+            console.log(arr1.sort(callback)); // (4) [8, 6, 4, 2]
+            
+
+
+
+            // 배열의 있는 값을 문자열로 보여줌
+            console.log(arr1.toString());   // 2,6,8,4,9
+
+
+
+            // Array 메서드
+            // https://www.w3schools.com/js/js_array_methods.asp
+
+            // splice()
+            // 내가 원하는 위치에다가 끼워넣거나 바꿔치고
+
+            // slice()
+            // 뽑아내는 것 (substring과 비슷)
+            // 시작인덱스번호, 보여질인덱스1부터셈
+
+
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

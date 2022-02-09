@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // ▶ 전역
+            // 선언은 명시적인 것뿐
+            // 윈도우 객체의 val1키값에 벨류값 설정하는 것
+            var val1 = 1111;
+            // val1이 이미 있는데, 3333하니 기존 값이었던 1111은 3333이 된다.
+            var val1 = 3333; 
+
+            // 펑셩도 하나의 값이고, 타입이다.
+            var f1 = func01;
+
+            // f1()을 실행하면 val1의 값은 2222가 나오고,
+            // f1()을 실행 안하면, undefined 나옴
+            f1();
+
+            // ▶▶ 윈도우 객체의 val1인 3333이 나옴
+            console.log(window.val1); // 3333
+            console.log(this.val1);   // 3333
+            // val1앞에 아무것도 안적으면, 당연히 전역인 윈도우 객체 val1이다.
+            // 아무것도 안적으면, 위처럼 앞에 window 거나 this가 생략 되어있는것임
+            console.log(val1);        // 3333
+            
+
+
+            // 함수먼저 스캐닝해놨기때문에,
+            // 먼저 호출해도 문제가 없는 것
+            // 어느 공간에 미리 올려 놓는다는 것
+            function func01(){
+                console.log('func01 run...');
+                console.log(window); // 윈도우
+                console.log(this);   // this는 자기자신 - 윈도우
+                // this.val1 = 2222; // → 전역변수인 윈도우 val1에 벨류값 설정하는것
+                
+
+                // 어디인지 모르지만, 여기에 var1 = 2222;
+                // func01의 공간
+                // 새로운 val1
+                // 변수명의 중복은 가능하나
+                // 지역이 됨 
+                // ▶▶ 지역 변수
+                var val1 = 2222;
+                // val1 앞에 아무것도 명시를 안하면,
+                // 당연히 함수 안에서 선언한, val1인 지역변수의 값이 나온다.
+                // → 만약 전역변수인 "윈도우 객체"의 변수를 보고 싶다면,
+                //   해당 변수명 앞에 this. 혹은 window.를 붙힌다.
+                console.log('local : ' + val1); // local : 2222
+            }
+
+
+       
+            // 이것을 아래로 바꿀 수 있다.
+            func01();
+
+
+            // 누구의 실행인데?
+            // 그래서 펑셩부분 전체를 싸서 괄호()로 묶어준다.
+            // 그리고, func01도 필요없다. 여기서 바로 쓸거고, 호출도 따로 안할거니까 말이다.
+            // 익명함수
+            (function (){
+                // ▶▶ 지역 
+                var val1 = 2222;
+                console.log('func01 run...');
+                console.log('local : ' + val1); // local : 2222
+            })();
+
+
+
+
+            // 펑셩도 하나의 값이고, 타입이다.
+            // var f1 = func01;
+            // f1()을 실행하면 val1의 값은 2222가 나오고,
+            // 실행 안하면 1111나옴
+            // f1();
+            // console.log(val1);
+
+
+
+
+            // 이렇게 기존값에 영향을 준다.
+            // 라이프사이클이 기니, 문제가 생길 소지가 많다.
+        
+            // 다 전역이니
+            // for문 밖에서도 쓸 수 있다.
+            for(var i=0; i<3; i++){
+                console.log(i);
+            }
+            // for문에 초기화 안줌
+            for(var i; i<3; i++){
+                console.log(i);
+            }
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

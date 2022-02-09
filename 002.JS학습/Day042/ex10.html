@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            // ▶ 삼항연산자
+            //    if문 특성 가지고 있다.
+
+            // 비? 집 : 놀이동산
+            //    true   false
+
+            // 5>3?  여기가 true/false가 와야한다.
+            var val1 = 5>3? '참' : '거짓';
+            console.log(val1);  // 참
+
+
+            console.log('-----------------------------------------------');
+
+
+            // Object
+            var obj = {'key1':'val1', 'key2' : 'val2'};
+
+            for(var key in obj){
+                console.log(key); // 키가 반복되서 나옴        //  key1 | key2
+                console.log(obj[key]); // 벨류값 반복되서 나옴 //  val1 | val2
+            }
+
+
+            console.log('-----------------------------------------------');
+
+
+            // 기존 obj객체를 복사해서
+            // 새로운 오브젝트에 추가하고, 새로운 키/벨류값 도 추가함.
+            var obj2 = {...obj, 'key3':'val3'}; // 새로온 obj추가해서, key3추가함
+
+            for(var key in obj2){
+                console.log(obj2[key]);  // val1 | val2 | val3
+            }
+
+    
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
