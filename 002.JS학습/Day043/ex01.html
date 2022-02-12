@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // ▶ DOM(Document Object Model) : 문서 객체 
+            // ▶ BOM(Browser Object Model)  : 브라우저 객체
+
+
+            // 팝업 알림 _ 창
+
+
+            // 빈 객체 만들고,
+            // 자바스크립트 언어를 사용해서 만든 환경 내에서 존재하는 객체            
+            var obj = {};
+            window.console.log(obj);
+           
+
+            window.console.log('메시지');
+
+
+             // 얼럿창 확인버튼을 안누르면, 다음 코드 안넘어감
+             // <br/> 개행이 안됨 
+             // 얘는 도큐먼트가 아님
+             // → 따라서 개행하고 싶으면 \n 입력
+             window.alert('메시지 2 \n 개행');  // 메시지 창이 뜸
+
+             // 윈도우 운영체제 입장에서는 자바스크립트 언어를 읽을 수 없어서
+             // 객체다 라고만 하고, 객체내용을 보여주기 위해서는
+             // 윈도우가 읽을 수 있게, 변환해준다.
+             // window.alert(obj);              // [object Object]
+             window.alert(JSON.stringify(obj)); // {}
+
+
+
+             // 얼럿창 사용자 확인이나 취소를 누를지 확인이 필요한 창 -> 컨펌
+             // 컨펌은 리턴값이 있다.
+             // → 확인을 누르면, true
+             // → 취소를 누르면, false
+             // window.confirm('확인하시겠습니까?');
+             var a = window.confirm('확인하시겠습니까?');
+             console.log(a);
+
+
+
+             // 사용자의 입력을 받는 것
+             // 아무것도 안적고 확인누르면 빈값임
+             // 취소를 누르면 null -> 준적이 없는것이니까.
+             // 첫번째 인자 -> 설명
+             // 두번째 인자 -> 입력란 초기값
+             // 프롬프트(운영 체제에서 사용자에게 보내지는 메시지)
+             var b = window.prompt('메시지 입력하세요.', '기본값');
+             console.log(b);
+            
+
+
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

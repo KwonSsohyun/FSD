@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>text & html</h1>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+        </ul>
+        <ol>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>  
+        </ol>
+
+        <script type="text/javascript">
+
+            var ul = document.querySelector('ul');
+            var ol = document.querySelector('ol');
+
+            // 프로퍼티
+            // 자식만
+            ul.innerHTML; //'\n            <li>item 1</li>\n            <li>item 2</li>\n            <li>item 3</li>\n            <li>item 4</li>\n        
+            ul.innerText; // 'item 1\nitem 2\nitem 3\nitem 4'
+
+
+            // 값 대입
+            // 특정부분만 덮어쓰게 됨.
+            // 선택을 했기 때문
+            // document.write("<h1>환영합니다.</h1>"); -> 완전 덮어씀
+
+            // <li>엘리먼트를 만들고, edit1텍스트엘리먼트를 그 안에 넣는다.
+            // ▶ ul.innerHTML = '<li>edit1</li>'; // 그부분만 덮어씀
+
+            // 이건 그냥 텍스트엘리먼트 그자체 입력된다.
+            // 오직 텍스트 노드만
+            // ul.innerText = '<li>edit1</li>';  // 화면에 -> <li>edit1</li> 이렇게 표현됨
+
+
+            // ul이랑 자식 같이 나옴
+            ul.outerHTML;
+            ol.outerHTML; // '<ol>\n            <li>item 1</li>\n            <li>item 2</li>\n            <li>item 3</li>\n            <li>item 4</li>  \n        </ol>'
+
+
+            // 값 넣는것
+            // ul.innerHTML='<li>item 5</li>'; -> 이것만 넣으면 기존값 덮어써버린다.
+            // 그래서 기존 내용 불러와서 그 뒤에 붙힌다.
+            // ul.innerHTML = ul.innerHTML + '<li>item 5</li>';
+            ul.innerHTML += '<li>item 5</li>';
+
+
+
+        </script>
+    </body>
+</html>

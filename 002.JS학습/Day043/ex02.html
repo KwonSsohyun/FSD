@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+
+           // ▶ BOM(Browser Object Model) : 브라우저 객체
+           //    ■ screen    → 스크린 화면
+           //    ■ history   → 기록 (← → 뒤, 앞으로 가기 : 스택구조) 
+           //    ■ location  → 주소 표시줄
+           //    ■ navigator → 브라우저 엔진 체크
+
+
+
+           // ▶ 변수로 윈도우 창 열고 닫기 제어
+           //    손 쉽게 제어하기 위해서
+           var frame;
+
+
+            function func01(){
+                // ▶ 윈도우 새 창 띄우기
+                //    변수 위에 선언한걸 이용해서 창 띄우고
+                //    가고 싶은 특정 페이지 이동
+
+                //    참조 : https://www.w3schools.com/jsref/met_win_open.asp
+                //    페이지이동빼고는 나머지는 상당수 브라우저 지원 안됨
+                //    윈도우가 익스프롤러여서
+                //    _blank -> 새창열기
+                //    width=100px -> 창사이즈 너비
+                //    보안상의 이유로 막혀있다. 
+                //    부트스트랩 modal 사용해라
+
+                //    현재는 창 띄울 일 없다. modal을 이용해라 (div css 디자인임)
+                frame = window.open("https://m.naver.com","_blank","toolbar=yes,scrollbars=yes,resizable=no,top=500,left=500,width=400,height=400");
+            }
+
+            function func02(){
+                // ▶ 창 띄운거 닫기
+                //    변수 접근해서 창 닫기
+                frame.close();
+            }
+
+            // 창 이동
+            // frame.moveTo(100,100);
+
+            // 창 리사이즈 줄이고 키우고 - 팝업창 떴을때
+            // frame.resize(100);
+
+
+
+
+            // ▶ 컨텐츠 창 사이즈
+            //    inner
+            // → 창 사이즈 알아냄
+            // → 콘솔에 쳐 보면 된다.
+            window.innerWidth;
+            window.innerHeight;
+            
+
+
+            // ▶ 브라우저 전체 창 사이즈
+            //    outer
+            window.outerWidth;
+            window.outerHeight;
+
+
+
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+            // ■ screen    → 스크린 화면
+
+
+            // 스크린 화면
+            window.screen;
+
+
+            // 디스플레이 해상도 
+            // ▶ 브라우저 창과 상관없는 진짜 찐 모니터 사이즈를 구해온다.
+            window.screen.width;
+            window.screen.height;
+
+
+            // ▶ 브라우저 창과 상관없는 찐 모니터 사이즈에서 작업표시줄 사이즈 뺀 나머지 사이즈
+            // 작업표시줄 사이즈 뺀 나머지 사이즈
+            // 가용한 사이즈
+            screen.availWidth;
+            screen.availHeight
+            
+
+            // 색 수준
+            screen.colorDepth;
+
+
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+            // ■ location  → 주소 표시줄
+
+
+            // 주소
+            // 프로퍼티, 메서드 있다.
+            window.location;
+
+
+            //【 프로퍼티 】 -----------------------------------------------------------
+            //   프로퍼티니까 키가 있고 벨류도 설정 가능
+
+            // ▶ 현재 주소
+            location.href; // http://localhost:8080/Day043/ex02.html
+            // → location.href; 만 적으면 현재 주소를 알려주지만,
+            //   뒤에 = 을 붙히고 이동하고 싶은 페이지 적으면 
+            //   페이지 이동이 된다.
+        
+        
+            // ▶▶ 페이지 이동
+            //      → 히스토리 기록 생김 !!!
+            //        참조 ex04
+            //        03 -> 04 -> 05
+            //        주소를 04에서 또 05로이동함 (페이지이동에서 페이지이동)
+            //      → 버튼 html만들어서 onclick 붙혀서
+            //        함수 호출했을때 사용도 가능하겠죠~
+            location.href='https://m.naver.com'; // 네이버로 이동
+
+
+
+            // ▶ 주소 얻어내는 것
+            location.origin;    //  지금있는 주소   // http://localhost:8080
+            location.host;      //  localhost:8080
+            location.hostname;  //  localhost
+            location.href       //  http://localhost:8080/Day043/ex02.html
+            location.pathname   //  /Day043/ex02.html
+            location.port       //  8080
+            location.protocol   //  http:
+       
+            
+
+            //【 메서드 】 ------------------------------------------------------------
+
+            // .reload()
+            // ▶ 페이지 새로고침
+            location.reload();
+
+
+            // .replace( /// )
+            // ▶▶ 페이지 이동
+            //      → 히스토리 기록 안쌓임!!!!
+            //        참조 ex04
+            // 04가 05로 바꿔버림 리플레스 한거임
+            // 04 안거치고 -> 05로 감
+            // 03 ->  -> 05로 바로 바꿔버림
+            location.replace('https://m.naver.com');
+
+
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+            // ■ history   → 기록 (← → 뒤, 앞으로 가기 : 스택구조) 
+
+
+            // 히스토리 (페이지 왔다갔다한 기록)
+            window.history;
+
+            // ▶ 뒤로가기
+            history.back();
+
+            // ▶ 앞으로 가기
+            history.forward();
+            
+
+            // ▶ 페이지 이동
+            history.go(-2); // 이전 2페이지 전으로 (마이너스는 전으로 가는 것)
+            history.go(1);  // 다음 페이지
+            history.go(-1); // 이전 페이지
+
+            // location.reload(); 같음
+            history.go(0);  // 현재 페이지 - 새로고침
+
+
+            // ▶ 히스토리 몇 개 있는지
+            //    자료구조 스택구조
+            //    스택에 박아놓고 제일 위에거 뽑아내면, 이전페이지
+            history.length;   // 20이면 20페이지를 왔다갔다 한 것임.
+
+
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+            // ■ navigator → 브라우저 엔진 체크
+
+
+            // 네비게이터
+            // 브라우저 엔진 확인하는 것
+            // 어떤 브라우저로 접근했는지
+            window.navigator;
+
+
+            // ▶ 크로싱 브라우저 문제
+            //    각 버전별로 호환
+            //    어떤 버전으로 들어왔는지 확인
+            //    문자열의 차이 / 메시지의 확인 
+            //    차이점을 찾아야 한다.
+            //    if( ~이런 코드들이라면? ) { 이렇게 적용해 };
+            //    → 현재은 크롬엔진으로 통일이 어느정도 됨.
+            navigator.appName;   // 'Netscape'
+
+
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+
+        </script>
+    </head>
+    <body>
+        <!-- 사용자가 버튼 눌렀을때, 윈도우 창 띄우기 -->
+        <button onclick="func01();">open</button>
+        
+        <!-- 사용자가 버튼 눌렀을때, 윈도우 창 닫기 -->
+        <button onclick="func02();">close</button>
+    </body>
+</html>
