@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <!-- 자바스크립트 *************************************************************-->
+        <script type="text/javascript">
+
+            // html 로딩 된 다음 잡아라.
+            // 엘리먼트 잡고 시작.
+            // 화면상 퍼포먼스 주는 body가 전부 다 로딩 되고 나면,
+            // 자바스크립트 시작
+
+            // 자바스크립트가 문서상 먼저 존재해서 엘리먼트 못 잡아냄.
+            // 로딩설정안하고, 그냥 자바스크립트 코드에
+            // input 태그를 적으면, html문서가 로딩되기 전이니 input태그는 못찾아낸다.
+            // 자바스크립트 v8엔진 성능이 너무 좋아버려서 빠르게 실행되니, 
+            // html해석기보다 먼저 가져와서 못 찾아내는 것.
+            // html이 우선적으로 처리되야함.
+
+            // 여기다가 적으면, input 못 잡음
+            // var input = document.querySelector('input');
+            var input;
+
+
+            function loading(){
+                // 어떤 놈이든 돔 잡아놓고 시작
+                // html 로딩됬을때 수행되는 이벤트니까.
+                // 여기다가 정의하면 된다.
+                // 굳이 자바스크립트코드 body에 안내려도 된다.
+                input = document.querySelector('input');
+            }
+
+
+            function func01(){
+                // 콘솔에 나오게 하기
+                console.log('버튼누름 : ' + input.value);
+                input.value = '';
+            }
+
+            function func02(){
+                // 인풋 값을 가져다가 화면에 띄우기
+                alert('버튼누름 : ' + input.value);
+                input.value = '';
+            }
+
+
+        </script>
+        <!--**************************************************************************-->
+   
+    </head>
+    <body onload="loading();">
+        <h1>DOM  level1 event</h1>
+
+        <input type="text" />
+
+        <!-- 이벤트 달기 ▶ on -->
+        <!-- ▶ 자바스크립트 최초부터 사용 → 이제는 안 쓴다.
+                엘리먼트 인라인 속성으로 붙음 (우선순위 제일 높다.)
+
+             -> 나중에 변경이나 수정이 어려움 / 인라인이라 우선순위 제일 높고, 
+                직접 찾아서 해야하는 불편함이 있다. 
+        -->
+        <button onclick="func01();">btn 1</button> 
+
+        <button onclick="func02()";>btn 2</button>
+        
+        <button onclick="func01();">btn 3</button>
+
+
+
+
+
+
+
+
+    </body>
+</html>

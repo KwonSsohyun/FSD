@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            // ● 적용할 콜백함수 선언
+            var loading = function(){
+                console.log('loading...');
+            };
+
+            // ------------------------------------------------------------
+
+
+            // ▶ DOM  "Level 2"  event
+            //    문서의 로딩시점에 하려고하는거니
+            //    단 하나 정의하기 위해서 
+            //    → 온로드에 대해서는 레벨2인
+            //      window.onload = function(){ //// }
+            //      ★ onload나 기본기능없애주는 것은 이것을 쓴다.
+            window.onload = loading;
+
+
+            // ------------------------------------------------------------
+
+
+            // ▶ DOM  "Level 3"  event
+            //    들어가는인자 → (이벤트종류 , 이벤트적용할함수명) 
+            //    ★ onload나 기본기능없애주는 것 제외 하고는, 이것을 쓴다.
+            window.addEventListener('load', loading);
+
+
+        </script>
+    </head>
+    <body>
+        <h1>DOM Level3 event</h1>
+    </body>
+</html>

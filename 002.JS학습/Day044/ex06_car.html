@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            div{
+                /* 자동차 움직이려고, absolute 줬다. */
+                position: absolute;
+                left: 50px;
+                top: 50px;
+                width: 100px;
+                height: 50px;
+                background-image: url('imgs/car.png');
+                background-size: 100px;
+                text-indent: -9999px;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+            // ② ★ 전역변수 선언
+            var div;
+
+
+            // ① ★ 문서 로딩 후~
+            window.onload = function(){
+
+                // ③ ★ 엘리먼트 잡기
+                div = document.querySelector('div');
+
+
+                // ▶ 초기값을 무조건 줘야한다.
+                //    문서가 로딩될 때 css가 같이 불러와지는게 아니라서,
+                //    → css가 맨 마지막에 불러와진다.
+                // ▶ 자바스크립트는 엘리먼트에 직접 설정을 하는거라서 초기값을 줘야한다. 
+                //    이로써, css는 엘리먼트에 직접 설정을 주는 것이 아니라는 것을 알 수 있다.
+                //    자바스크립트는 직접 엘리먼트에 설정을 주는 것이다.
+                //    브라우저 F12눌러서 개발자 도구의 "Elements"를 보면,
+                // ▶ <div style="left: 10px; top: 10px">차</div>
+                //    엘리먼트에 직접 적용되는 것을 볼 수 있다.
+                //    css에 준 초기값은 가운데 직선이 쭉 가있어서 무시된것을 볼 수 있다.
+                console.log(div.style.left); // 초기값을 안주면, 콘솔에 아무것도 안찍히는 것을 알 수 있다.
+                div.style.left = '10px';
+                div.style.top = '10px';
+
+
+                // window 보여지는 화면을 얘기하면서, 객체
+                // → div.onkeydown 하면 안된다.
+                //   초점 포커싱을 window 브라우저 창에 포커싱을 줬다.
+                window.onkeydown = function(e){
+
+                    // 오른쪽 방향키(→) : 39
+                    // 왼쪽 방향키(←)   : 37
+                    // 위쪽 방향키(↑)   : 38
+                    // 아랫쪽 방향키(↓) : 40
+                    console.log(e.keyCode); // 키보드 키 입력하면, 어떤 키를 눌렀는지 키코드가 콘솔에 보인다.
+
+                    if(e.keyCode==39){ // 오른쪽 방향키(→) : 39
+                        // 기존값 
+                        console.log(div.style.left); // 10px
+                        // 연산을 하려면, 뒤에 px이 없어야한다.
+                        // 그래서 parseInt 해준다. -> px는 빠지고, 숫자만 남게된다.
+                        console.log(parseInt(div.style.left)); // 10
+
+                        // 곱하기를 붙히게 되면, 2배가 되니까 가속 붙은 것처럼 보인다.
+                        // 연산을 한뒤에는 꼭 px단위를 붙혀준다.
+                        div.style.left = parseInt(div.style.left) * 2 + 'px'; 
+
+                        // div.style.left = '100px';
+                        // div.style.top = '0px';
+
+                    } else if(e.keyCode==37){ // 왼쪽 방향키(←)   : 37
+                        console.log(div.style.left);
+                        div.style.left = parseInt(div.style.left) - 5 + 'px';
+
+                    } else if(e.keyCode==38){ // 위쪽 방향키
+                        // 숫자가 0이 되야 하니까 디폴트니까
+                        div.style.top = parseInt(div.style.top) - 5 + 'px';
+
+                    } else if(e.keyCode==40){ // 아래쪽 방향키
+                        div.style.top = parseInt(div.style.top) + 5 + 'px';
+                    }
+
+                    // console.log('key event');
+                }
+
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <!-- http://localhost:8080/Day044/ex06_car.html -->
+        <div>차</div>
+    </body>
+</html>

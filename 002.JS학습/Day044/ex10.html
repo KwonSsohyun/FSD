@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+            // ② ★ 전역변수 선언
+            var div;
+
+            // ④ ★ 이벤트 적용할 콜백함수 선언
+            var callback1 = function(){
+                // 기존 html 안 지워지게 += 한다
+                // div.innerHTML = div.innerHTML + 'click<br/>';
+                
+                // 브라우저창 f12눌러서 html확인해보면
+                //   <div>
+                //      "click"
+                //      <br>
+                //   </div>
+                // 적히는 것을 볼 수 있다.
+                div.innerHTML+='click<br/>';
+            };
+
+            var callback2 = function(){
+                div.innerHTML+='over<br/>';
+            };
+
+            var callback3 = function(){
+                div.innerHTML += 'out<br/>';
+            }
+
+
+
+            // ① ★ 문서 로딩 후~
+            //      onload는  ▶▶  돔 레벨 2를 사용한다.
+            window.onload=function(){
+
+                // ③ ★ 엘리먼트 잡기
+                div = document.querySelector('div');
+
+
+                // ▶ 돔 레벨 2 ---------------------------------------------------------------
+                div.onclick = callback1;
+                // div.onclick = callback2;
+
+
+
+                // ▶ 돔 레벨 3 ----------------------------------------------------------------
+                // ▶ .addEventListener(인자 전달 1, 인자 전달 2)
+                //                     (이벤트종류 , 이벤트적용할함수명) 
+
+                //    ● 인자전달 첫 번째 적는 사항!
+                //      → 앞에 on빼면됨 
+                //        돔레벨 2에서는 onclick 이라고 적었으면,
+                //        돔레벨 3에서는 click   이라고 적는다.
+                //        → 마우스 이벤트  ex04 참조 -> 이벤트 이름은 앞에 on만 빼면됨.
+                //          키보드 이벤트  ex05      -> on을 빼서 하면됨
+                //          폼 태그 이벤트  ex07     -> on을 뺀 change | click | ...
+             
+                //    ● 인자전달 두 번째 적는 사항!  
+                //      → 이벤트적용할함수명을 적고,
+                //        밖에 이벤트 적용할 함수 선언을 해서 연결해준다.
+
+                //    ■ 돔레벨 2에서는 같은 이벤트를 사용하면, 덮어쓰는 형태여서 하나만 되는데,
+                //      돔레벨 3에서는 같은 이벤트를 사용해도, 덮어쓰는 형태가 아니라서, 여러개 쓸 수 있다.
+             
+                //    ■ 돔레벨 3는 돔레벨 2와 함께 써도, 중복으로 같이 표현됨 
+                //      → 얼마든지 이벤트를 각각들을 붙히기만 하면됨
+                
+                //    ■ 만약 인자 2번째인 함수를 익명함수로 쓰면, 
+                //      .removeEventListener 제거를 할 수 없으니 
+                //      돔레벨 3의 장점을 못 쓴다.
+                div.addEventListener('click',callback1);
+                div.addEventListener('click',callback2);
+
+
+                // ▶ .removeEventListener(이벤트종류 , 이벤트제거할함수명) 
+                //    이벤트 뺄 수도 있다. (제거)
+                //    똑같이 인자 2개 필요함
+                //    어떤 이벤트인지, 어떤 콜백함수인지 
+                //    그래야 제거가 가능하니까!
+                div.removeEventListener('click', callback2);
+
+
+                // div.addEventListener('click',callback1);
+                // div.addEventListener('mouseover',callback2);
+                // div.addEventListener('mouseout',callback3);
+
+
+                // ----------------------------------------------------------------------------
+           
+            };
+
+
+
+        </script>
+    </head>
+    <body>
+        <h1>mouse event</h1>
+        <div></div>
+    </body>
+</html>

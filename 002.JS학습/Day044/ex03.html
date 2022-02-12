@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+
+            // ▶▶ .onload
+            //      html 문서의 로딩이 끝나고 나면~
+            //      윈도우가 로딩이 끝났을 때 수행
+            //      화면에 다 표현되는!
+            window.onload = function(){
+                alert('loading end');
+                console.log('window loading end...');
+            };
+
+
+
+            // ▶ .onbeforeunload
+            //    html 문서 언로드 전에 보여라~
+            //    새로고침 하는 순간
+            window.onbeforeunload = function(){
+                console.log('window reloading 전...');
+                // alert('window reloading 전...');
+            }
+
+
+
+            // ▶ .onloadeddata
+            //    윈도우 로딩이 끝나고, 데이터가지고 오고 ~
+            window.onloadeddata = function(){
+                console.log('data loading');
+            }
+
+
+
+
+            // ▶▶ .onresize
+            //      브라우저 창 사이즈 조정될 때마다!
+            var cnt = 0;
+            window.onresize = function(){
+                console.log('사이즈 조정', cnt++);
+            }
+
+
+
+        </script>
+    </head>
+    <body>
+        <h1>window event</h1>
+    </body>
+</html>

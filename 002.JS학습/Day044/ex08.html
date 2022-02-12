@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <style rel="stylesheet" type="text/css">
+            .container{
+                width: 800px;
+                margin: 0 auto;
+            }
+            #header h1{
+                background-image: url('imgs/logo.png');
+                background-repeat: no-repeat;
+                height: 100px;
+                text-indent: -9999px;
+            }
+            #menu,#footer{
+                background-color: gray;
+            }
+            .banner{
+                width: 600px;
+                height: 200px;
+                overflow: hidden;
+                margin: 0 auto;
+                position: relative;
+            }
+            .banner img{
+                width: 200px;
+            }
+            .banner>ul{
+                list-style: none;
+                padding: 0px;
+                width: 1200px;
+            }
+            .banner>ul>li{
+                float: left;
+            }
+            
+            .banner>a{
+                /* .banner 부모가 기준 - 얘는 자식 */
+                position: absolute;
+                left: 0px;
+                top: 75px;
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                border-radius: 25px;
+                text-align: center;
+                line-height: 40px;
+                color: white;
+                text-decoration: none;
+                font-size: 30px;
+                font-weight: bold;
+                opacity: 0.3;
+            }
+            .banner>a:nth-child(3){
+                /* 3번째 자식 ul이 있으니까 */
+                left: 550px;
+            }
+
+            #menu>div{
+                /* overflow: hidden; */
+                height: 50px;
+            }
+            #menu ul{
+                position: relative;
+                list-style: none;
+                padding: 0;
+                width: 400px;
+                margin: 0 auto;
+            }
+            #menu ul>li{
+                float: left;
+                height: 50px;
+                overflow: hidden;
+            }
+            #menu ul>li>a{
+                display: block;
+                width: 100px;
+                height: 50px;
+                background-color: darkgray;
+                text-align: center;
+                color: white;
+                line-height: 50px;
+                text-decoration: none;
+
+            }
+            #menu ul>li>ol{
+                position: absolute;
+                list-style: none;
+                padding: 0;
+                z-index: 50;
+                overflow: hidden;
+                height: 0px;
+            }
+            
+            #menu ul>li>ol>li>a{
+                width: 100px;
+                background-color: darkgray;
+                display: block;
+                height: 50px;
+                text-align: center;
+                color: white;
+                line-height: 50px;
+                text-decoration: none;
+            }
+
+
+
+        </style>
+
+        <script type="text/javascript">
+
+            // ② ★ 전역변수 선언
+            var banner, imgs, aprev, anext, ul, menu2, menu3;
+
+            // ① ★ 문서 로딩 후~
+            window.onload = function(){
+
+                // ③ ★ 엘리먼트 잡기
+                banner = document.querySelector('.banner');
+                imgs = document.querySelectorAll('.banner img');
+
+                menu2 = document.querySelectorAll('#menu ul>li')[1];
+                menu3 = document.querySelectorAll('#menu ul>li')[2];
+
+
+                // ▶ 하위 메뉴 안 보이게 하기
+                //    위에서 menu2 잡은위치에서, 추가로 하위항목 잡고, style 높이값 설정
+                menu2.querySelector('ol').style.height = '0px';
+                menu3.querySelector('ol').style.height = '0px';
+
+
+                // ④ ★ 이벤트 붙히기
+                //   ▶ 마우스 오버 되면, 하위메뉴 보이게 하기
+                var menuOver = function(){
+                    this.querySelector('ol').style.height = '200px';
+                };
+                // menu2나 menu3영역에 "마우스 오버" 되면,
+                // menuOver함수가 발동된다.
+                // 여기서 호출을 하면 지금 작동하면 안되니까. → menuOver();이라고 안적고
+                // 대입을 해준다.
+                menu2.onmouseover = menuOver;
+                menu3.onmouseover = menuOver;
+                
+                // ▶ 마우스 영역 나가면, 하위메뉴 안보이게 하기
+                var menuOut = function(){
+                    this.querySelector('ol').style.height = '0px';
+                };
+                menu2.onmouseout = menuOut;
+                menu3.onmouseout = menuOut;
+
+
+                // ▶▶ 해당코드를 줄여서, 위와 같이 작성했다.
+                // ▶ 마우스 오버 되면, 하위메뉴 보이게 하기
+                // menu3.onmouseover = function(){
+                //     this.querySelector('ol').style.height = '200px';
+                // };
+                // ▶ 마우스 영역 나가면, 하위메뉴 안보이게 하기
+                // menu3.onmouseout = function(){
+                //     this.querySelector('ol').style.height = '0px';
+                //     // menu3.querySelector('ol').style.height = '0px';
+                // };
+                
+
+                
+                // 코드 넣어줌
+                // < ▶ &lt;    
+                // > ▶ &gt;
+                // 내용은 똑같더라도 다른 객체라서
+                // 하고 나서 다시 ul잡아줘야 한다.
+                // ul = 코드가 아래로 내려가야함
+
+                // 브라우저 f12눌러서 개발자모드 보면
+                // <a href="#"><</a>
+                // <a href="#">></a>
+                // 적힌 것을 볼 수 있다.
+                // 기존 html 안 지워지게 += 한다
+                // banner.innerHTML = banner.innerHTML + '<a href="#">&lt;</a><a href="#">&gt;</a>';
+                banner.innerHTML += '<a href="#">&lt;</a><a href="#">&gt;</a>';
+               
+                // ul 엘리먼트 잡아준다.
+                // banner잡아준 위치에서 banner아래에 있는 ul로 잡아준다.
+                ul = banner.querySelector('ul');
+
+                // <  > 엘리먼트 잡아준다.
+                aprev = document.querySelectorAll('.banner>a')[0]; // 이전 <  →  <a href="#"><</a>
+                anext = document.querySelectorAll('.banner>a')[1]; // 다음 >  →  <a href="#">></a>
+
+
+                // 버튼 누르면 페이지 이동 안하게 하기
+                aprev.onclick = function(){ // 이전 <
+                    // ul의 마지막자식인  →  맨 마지막 이미지가
+                    // ul의 앞으로 이동한다.
+                    ul.prepend(ul.lastElementChild);
+
+                    // a링크니까 기본 기능이 페이지 이동이라서
+                    // 이 기능을 없애준다.
+                    // → return false;
+                    return false;
+                }
+                anext.onclick = function(){ // 다음 >
+                    // 텍스트노드빼고 그래서 엘리먼트 차일드 사용!
+                    // ul의 첫번째자식인  →  첫번째 이미지가
+                    // ul의 맨 뒤로 이동한다.
+                    ul.append(ul.firstElementChild);
+
+                    // a링크니까 기본 기능이 페이지 이동이라서
+                    // 이 기능을 없애준다.
+                    // → return false;
+                    return false;
+                }
+            };
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="header" class="row">
+                <div class="grid12">
+                    <h1>하이미디어</h1>
+                </div>
+            </div>
+
+            <div id="menu" class="row">
+                <div class="grid12">
+                    <ul>
+                        <li><a href="#">item 1</a></li>
+                        <li><a href="#">item 2</a>
+                            <ol>
+                                <li><a href="#">item 2-1</a></li>
+                                <li><a href="#">item 2-2</a></li>
+                                <li><a href="#">item 2-3</a></li>
+                                <li><a href="#">item 2-4</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#">item 3</a>
+                            <ol>
+                                <li><a href="#">item 3-1</a></li>
+                                <li><a href="#">item 3-2</a></li>
+                                <li><a href="#">item 3-3</a></li>
+                                <li><a href="#">item 3-4</a></li>
+                           </ol>
+                        </li>
+                        <li><a href="#">item 4</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="content" class="row">
+                <div class="grid12"> 
+                    <div class="banner">
+                        <ul>
+                            <li><img src="imgs/thumb01.jfif"/></li>
+                            <li><img src="imgs/thumb02.jfif"/></li>
+                            <li><img src="imgs/thumb03.jfif"/></li>
+                            <li><img src="imgs/thumb04.jfif"/></li>
+                            <li><img src="imgs/thumb05.jfif"/></li>
+                            <li><img src="imgs/thumb06.jfif"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer" class="row">
+                <div class="grid12">
+                    <address>
+                        <p>(주) 하이미디어 아카데미</p>
+                        &copy; by Himedia Academy, All Rights Reserved.
+                    </address>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

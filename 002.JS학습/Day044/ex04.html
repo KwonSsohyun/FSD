@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <style rel="stylesheet" type="text/css">
+            div{
+                background-color: yellow;
+                width: 200px;
+                height: 100px;
+            }
+
+            button{
+                display: block;
+                margin: 0px auto;
+            }
+        </style>
+
+
+        <script type="text/javascript">
+            
+            // ① ★ 문서 로딩 다 되고 ~  엘리먼트 잡기
+            //      ▶ window.onload = function (){ /// window.onload라는 메서드를 오버라이딩(재정의) /// } 
+
+            // ② ★ 전역 변수 선언
+            var h1, btn, div;
+
+
+            window.onload = function (){
+
+                // ③ ★ 엘리먼트 잡자~
+                btn = document.querySelector('button');
+                div = document.querySelector('div');
+
+
+                // ----------------------------------------------------------
+
+                // ④ ★ 이벤트 붙히자!
+                //      → 자바스크립트는 엘리먼트 기준으로 체킹
+                
+                // ----------------------------------------------------------
+
+                // ▶ .onclick
+                //    클릭 시
+                btn.onclick = function(){
+                    console.log('클릭');
+                }
+
+                // ▶ .ondblclick
+                //    더블 클릭 시
+                btn.ondblclick = function(){
+                    console.log('더블클릭');
+                }
+
+                // ----------------------------------------------------------
+
+
+                // ▶ .onmouseup
+                //    버튼을 누르고 손 땠을 때
+                //    버튼 바깥 영역에서 마우스를 클릭하는데 클릭떼지말고, 버튼 영역에 가져다 대고 마우스 떼라
+                btn.onmouseup = function(){
+                    console.log('mouse press');
+                }
+
+
+                // ▶ .onmousedown
+                //    버튼을 눌렀을 때
+                //    버튼 꾹 누르는데, 마우스떼지말고 버튼 영역 바깥에서 마우스 손 때라 
+                btn.onmousedown = function(){
+                    console.log('mouse down');
+                }
+
+
+                // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+                // → 이건 중복이 된다. (┬┬﹏┬┬)
+                //    : 부모와 내가 동일한 이벤트를 처리하고 있을 때 
+                //      중복이 일어나는 것
+                //      하나만 쓰면 상관 없다. (하나만 쓰면  →  .onmouseenter  |  .onmouseleave  똑같다.)
+
+
+                // ▶ .onmouseover
+                //    마우스가 올라갔다가 
+                div.onmouseover = function(){
+                    console.log('div mouseover');
+                }
+                btn.onmouseover = function(){
+                    console.log('btn mouseover');
+                }
+
+                // ▶ .onmouseout
+                //    마우스가 빠졌다가
+                div.onmouseout = function(){
+                    console.log('div mouseout');
+                }
+                btn.onmouseout = function(){
+                    console.log('btn mouseout');
+                }
+
+
+
+                // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+
+                // →→ 중복이 안되는 이걸 쓰자!!! (●'◡'●))
+                //    하나만 쓰면 상관 없다. (하나만 쓰면  →  .onmouseover  |  .onmouseout  똑같다.)
+
+
+                // ▶ .onmouseenter
+                //    마우스가 올라갔다가 
+                div.onmouseenter = function(){
+                    console.log('div mouseover2')
+                }
+                btn.onmouseenter = function(){
+                    console.log('btn mouseover2')
+                }
+
+
+                // ▶ .onmouseleave
+                //    마우스가 빠졌다가
+                div.onmouseleave = function(){
+                    console.log('div mouseout2')
+                }
+                btn.onmouseleave = function(){
+                    console.log('btn mouseout2')
+                }
+
+
+                // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+            }
+
+
+
+        </script>
+    </head>
+    <body>
+        <h1>마우스 이벤트 </h1>
+            
+        <div>
+            <button>버튼</button>
+        </div>
+    </body>
+</html>

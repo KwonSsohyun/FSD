@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // ② ★ 전역변수 선언
+            var form, input, ch1, ch2, ch3, select, btn, alink, div;
+            
+            // ① ★ 문서 로딩 후~
+            window.onload = function(){
+ 
+                // ③ ★ 엘리먼트 잡기
+                //      폼태그로 해야한다. 
+                //      -> 페이지 이동 막으려고 한다.
+                form = document.querySelector('form');
+
+                // input 타입이 여러개인데, 그중 text 인것
+                // <input type="text" name="id"/> → 이것 잡은 것임
+                input = document.querySelector('input[type="text"]'); 
+                
+                // 버튼
+                btn = document.querySelector('button');
+                
+
+                // ---------------------------------------------------------------
+            
+                // <a href="https://m.naver.com">link</a> → 이것 잡은 것임
+                alink = document.querySelector('div>a');
+
+                // ④ ★ 이벤트 붙히기
+                alink.onclick = function(){
+                    console.log(alink);
+                    // 이때 this는 -> 엘리먼트 자기 자신
+                    console.log(this);
+                    console.log(this.href); // https://m.naver.com/ → 주소나온다.
+
+
+                    // 엘리먼트 속성 자체를 구글 페이지로 이동하게 바꿈
+                    // html은 초기에 찍히는 객체에 찍히는 소스일 뿐,
+                    // ▶ 이렇게 자바스크립트에서 이동페이지를 바꿀 수 있다.
+                    this.href = 'https://google.com';
+
+
+                    // ▶ a태그 눌러도, 페이지 이동 안함
+                    //    기본 동작을 안함
+                    //    → return false;
+                    return false;
+                }
+
+                // ---------------------------------------------------------------
+
+
+                // ch1 → 체크박스 중 "item 1" 
+                // .querySelectorAll()은 특정 CSS 선택자를 가진 "모든" 요소를 배열로 가져오는 메서드입니다.
+                ch1 = document.querySelectorAll('input[type="checkbox"]')[0];
+                select = document.querySelector('select');
+                div = document.querySelector('#result');
+
+                // 버튼 눌렀을 때 → 기본 이동 막기
+                // ▶ return false;
+                btn.onclick = function(){ return false; };
+
+
+                // ▶ 상태변화 있을때 ->  .onchange
+                //    : onchange 이벤트로 내용 변경 감지
+                // select.onchange
+                // input.onchange
+                ch1.onchange = function(){
+                    // 선택한 값 나오는 것을 볼 수 있다.
+                    console.log(this, this.value);
+                    // 선택한대로 아래 화면에 찍히는 것을 볼 수 있다.
+                    // 브라우저에서 F12눌러서 개발자도구 열고 확인을 해보면
+                    // 체크박스 item1을 체크해보면,
+                    // html보면, <div id="result">on</div> 되는것을 볼 수 있다.
+                    div.innerText = this.value;
+                }
+
+
+                // ---------------------------------------------------------------
+
+
+
+                // ▶ 폼 태그의 작동 이벤트
+                //    .onsubmit
+                form.onsubmit = function(){
+                    console.log('btn click');
+
+                    // 인풋에 아무값이 안적혀있으면, 페이지 이동 안함
+                    if(input.value=='') { return false; }
+                    
+
+                    // ▶ 페이지 이동 안함
+                    //    return false;
+
+
+                    // ▶ 페이지 이동
+                    //    이벤트 호출할때는 on이 빠진다.
+                    form.submit();
+
+                    // btn.click();
+                };
+
+            };
+
+        </script>
+    </head>
+    <body>
+        <h1>etc event</h1>
+        <form>
+            <div>id<input type="text" name="id"/></div>
+            <div>
+                <input type="checkbox" name="ch1"/>item 1
+                <input type="checkbox" name="ch2"/>item 2
+                <input type="checkbox" name="ch3"/>item 3
+            </div>
+            <div>
+                <select name="sel">
+                    <option>item 1</option>
+                    <option>item 2</option>
+                    <option>item 3</option>
+                    <option>item 4</option>
+                </select>
+            </div>
+            <!-- 페이지 이동 안적으면 자기페이지 이동 -->
+            <button type="submit">전송</button> 
+        </form>
+        <div>link:<a href="https://m.naver.com">link</a></div>
+        <div id="result"></div>
+    </body>
+</html>

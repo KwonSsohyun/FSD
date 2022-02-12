@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // h1을 잡아낼 수 있어야,
+            // 이벤트 붙힐 수 있다.
+
+            // ▶ 원리설명
+            // ② function callback(){
+            //      console.log(document.querySelector('h1'));
+            //   }
+            // ① 문서가 로딩되면 알아서 콜백됨
+            //   window.onload = callback;
+
+
+            //----------------------------------------------------------------------
+
+
+            // ▶ 윈도우 객체로부터 로딩이 끝나면!
+            //    콜백하는 거죠~
+
+            // ▶ 자바스크립트가 알아서 호출(내가 호출하는것이 아님) -> window.onload 
+
+            window.onload = function(){
+
+                // ▶ 엘리먼트 잡아냄 (콘솔 확인)
+                console.log(document.querySelector('h1'));
+
+                var btn = document.querySelector('button');
+                // 엘리먼트에 정의해주면 된다.
+                // 엘리먼트 속성으로 붙는다.
+                // 버튼 엘리먼트 객체에 onclick메서드를 정의해주는것
+                // 실제 html에는 없다.
+                btn.onclick = function(){
+                    alert('버튼클릭');
+                }
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <h1>DOM Level2 event</h1>
+        <button>btn</button>
+    </body>
+</html>

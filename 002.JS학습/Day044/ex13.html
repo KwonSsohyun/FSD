@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            div{
+                background-color: yellow;
+                width: 300px;
+                height: 200px;
+            }
+            p{
+                background-color: blue;
+                width: 200px;
+                height: 100px;
+            }
+            span{
+                background-color: red;
+            }
+        </style>
+        
+        <script type="text/javascript">
+
+            // ② ★ 전역변수 선언
+            var div, p, span;
+
+
+            // ① ★ 문서 로딩 후~
+            //      onload는  ▶▶  돔 레벨 2를 사용한다.
+            window.onload = function(){
+
+                // ③ ★ 엘리먼트 잡기
+                div = document.querySelector('div');
+                p = document.querySelector('p');
+                span = document.querySelector('span');
+
+                // ------------------------------------------------------
+
+                // ▶ 버블링
+                //    나를 클릭했는데, 부모로 전파
+                //    같은 이벤트니까 전파가 이뤄짐
+                //    조건처리 못하고, 최상단에 와야한다. (최상단이라하면, 맨 위에 e.stopPropagation(); 적으라는 뜻)
+                //    레벨 2에서도 쓸 수 있다.
+                //    ▶ e.stopPropagation();
+                //       → 전파 멈춰! 
+
+                // ------------------------------------------------------
+
+                // ▶ 캡처링
+                //    부모로부터 내쪽으로 전파
+                //    레벨 3에서만 가능
+                //    3번째 인자에 작성
+                //    기본이 false
+                //    ▶ false → 버블링
+                //    ▶ true  → 캡처링
+
+                // ------------------------------------------------------
+
+
+                // ④ ★ 이벤트 붙히기
+                div.addEventListener('mouseover', function(e){
+                    // ▶ 버블링은 레벨 2에서도 쓸 수 있다.
+                    //    이벤트 전파 막는다.
+                    e.stopPropagation();
+                    console.log('div');
+                },false); // 기본이 false
+
+
+                p.addEventListener('mouseover', function(e){
+                    // 이벤트 전파 막는다.
+                    e.stopPropagation();
+                    console.log('p');
+                },true);
+
+
+                span.addEventListener('mouseover', function(e){
+                    // 이벤트 전파 막는다.
+                    e.stopPropagation();
+                    console.log('span');
+                },true);
+                // ▶ 캡처링
+                //    레벨 3에서만 가능
+                //    부모로부터 내쪽으로 전파
+                //    ▶ false → 버블링
+                //    ▶ true  → 캡처링
+
+            };
+
+
+        </script>
+    </head>
+    <body>
+        <div>
+            ~~
+            <p>이벤트전파를 통해 <span>버블링과 켑처링</span>이 일어난다. </p>
+            ~~
+        </div>
+    </body>
+</html>

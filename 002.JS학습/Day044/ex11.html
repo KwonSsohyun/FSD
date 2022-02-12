@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            
+            // ② ★ 전역변수 선언
+            var btns, div, tf1=true;
+
+            // ⑤ ★ 이벤트 적용할 콜백함수 선언
+            var callback1 = function(){
+                // 브라우저 f12 눌러서 html 보면 아래와 같이 된다.
+                //   <div>
+                //      "클릭"
+                //      <br>
+                //   </div>
+                // 기존 html 안 지워지게 += 한다
+                // div.innerHTML = div.innerHTML + '클릭<br/>';
+                div.innerHTML += '클릭<br/>';
+            };
+
+
+            // ① ★ 문서 로딩 후~
+            //      onload는  ▶▶  돔 레벨 2를 사용한다.
+            window.onload = function(){
+
+                // ③ ★ 엘리먼트 잡기
+                btns = document.querySelectorAll('button');
+                div = document.querySelector('div');
+
+                // ④ ★ 이벤트 붙히기
+                //      0번 버튼 이벤트 붙힘
+                btns[0].addEventListener('click', callback1);
+
+
+
+                // ▶ 1번 버튼 누르면, 0번 버튼 이벤트 삭제됨
+                //    → btn2를 누른 후, btn1을 누르게 되면 더 이상 클릭이라는 글자는 나오지 않게 된다.
+                //      [ 코드리뷰 ]
+                //        btn2버튼에 마우스클릭이벤트를 주었는데,
+                //        2번째 인자에 익명함수를 바로 붙혀서,
+                //        btn1에 적용된 마우스클릭이벤트를 삭제해버렸다.
+                btns[1].addEventListener('click', function(){
+                    btns[0].removeEventListener('click', callback1);
+                });
+
+
+                // ▶ 2번째 버튼 누르면 1번만 나옴
+                //    [ 코드리뷰 ]
+                //      btn3에 마우스클릭이벤트를 주었는데,
+                //      2번째 인자에 익명함수를 바로 붙혔다.
+                //      맨 위에서 적역변수 선언할때 tf1=true; 로 설정해서
+                //      if(true) 인 상태니까 if문 들어오게 되고,
+                //      callback1(); 함수를 호출해서 → "클릭" 글자 찍히게 하고,
+                //      tf1을 다시 false로 바꿔준다.
+                btns[2].addEventListener('click', function(){
+                    if(tf1) {
+                        // 1 회성 
+                        callback1();
+                        tf1 = false;
+                    }
+                });
+
+
+            }
+
+
+        </script>
+
+    </head>
+    <body>
+        <h1>버튼 이벤트</h1>
+        <button>btn 1</button>
+        <button>btn 2</button>
+        <button>btn 3</button>
+        <button>btn 4</button>
+        <div></div>
+    </body>
+</html>
