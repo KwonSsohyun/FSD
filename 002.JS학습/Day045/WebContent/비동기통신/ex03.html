@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+            // ▶ AJAX(Asynchronous Javascript And Xml)
+            //    : 서버와 주고받는 데이터를 쉽게 다룰 수 있는 방법이 XMLHttpRequest를 사용하는 방법
+
+            // -----------------------------------------------------------------------------------
+
+            //   【 XMLHttpRequest를 사용하는 방법은 다음과 같습니다. 】
+            //      1. open() 함수를 통해 요청을 초기화한다.
+            //         → open() 함수를 통해 XMLHttpRequest 객체를 초기화할 수 있습니다. 
+
+
+            //      2. onreadystatechange(이벤트 핸들러)에 함수를 설정한다.
+            //         → XMLHttpRequest의 readyState 값이 변경되면 호출되는 이벤트입니다. 
+            //           readyState 값의 변경에 따라, 요청의 처리 결과를 확인할 수 있습니다. 
+
+
+            //      3. send() 함수를 통해 요청을 보낸다.
+            //         → send() 함수를 통해 요청을 서버로 전달합니다. 
+            //           send() 함수는 XMLHttpRequest 요청이 비동기인 경우 요청을 보내고 바로 반환되지만, 
+            //           요청이 동기인 경우에는 서버로부터 응답이 반환될 때까지 대기합니다.
+ 
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+            var div, xhr;
+
+            window.onload = function(){
+                div = document.querySelector('div');
+                // ▶ 비동기통신을 지원하는 객체
+                //    -> 통신을 수행하기 위한 객체
+                //     Request → 웹 브라우저(클라이언트)를 통해 서버에 요청하는것
+                xhr = new XMLHttpRequest();
+
+
+                // ▶ 이벤트 (통신의 상태변화)
+                //    onreadystatechange 이벤트를 이용해 요청에 대한 응답 결과를 처리합니다.
+                xhr.onreadystatechange = function(){
+                    // 콘솔 srcElement > response 에 있다.
+                    // console.log(data);
+                    // 응답을 받는 쪽 -> response
+                    // console.log(xhr.responseText);  
+
+                    // Response → 서버에서 웹 브라우저(클라이언트)에 응답하는 것 
+                    div.innerHTML = xhr.responseText;
+                };
+                
+
+                // ▶ 이 객체로 오픈
+                //    요청을 초기화 합니다.
+                //    -> 객체에 대한 정보 설정
+                //       ▷ 2개의 인자 → ('어떤 메서드방식' , 'url불러올페이지이름');
+                //          · method   : "GET", "POST", "PUT", "DELETE" 등 요청의 HTTP request methods 값을 설정한다.
+                //          · url      : 요청을 처리할 주소 값을 설정한다.
+                //          · async    : 비동기 여부를 설정하며, 기본값은 true로 설정된다.
+                //          · user     : 인증이 필요한 경우 설정하는 username이며 기본값은 null로 설정된다.
+                //          · password : 인증이 필요한 경우 설정하는 password이며 기본값은 null로 설정된다.
+                xhr.open('get' , 'ex01.html');
+                
+
+                // ▶ 통신 수행
+                //    서버에 요청을 보냅니다.
+                //    -> send를 해야만 비동기통신이 된다.
+                xhr.send();
+
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <h1>ex03 page</h1>
+        <!-- 에이젝스 사용해서 ex01페이지 불러오기 -->
+        <div></div>
+    </body>
+</html>

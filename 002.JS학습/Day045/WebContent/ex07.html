@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	var tbody, xhr;
+	
+	var callback = function(){
+		
+		if(xhr.readyState==4 && xhr.status==200){
+			
+			// 문자열을 자바스크립트로 만들었다.
+			// JSON파일을 파싱했다.(가져와서 해석했다.)
+			var obj = JSON.parse(xhr.responseText);
+			// JSON파싱한 거기에 있는 키를 가지고 벨류값을 가져왔다.
+			var arr = obj.student;
+	
+			for(var stu of arr){
+				// of  ▶ 벨류를 받는다.
+				// in  ▶ 키  를 받는다.
+				tbody.innerHTML +='<tr><td>'+stu.num+'</td><td>'+stu.name+'</td><td>'+stu.kor
+	                               +'</td><td>'+stu.eng+'</td><td>'+stu.math+'</td></tr>';
+			}
+		
+		
+			
+		}
+	};
+	
+	window.onload = function(){
+		tbody = document.querySelector('table>tbody');
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		xhr.open('get','ex08.jsp');
+		// xhr.open('get','stu.json');
+		xhr.send();
+	};
+
+</script>
+</head>
+<body>
+	<h1>학생성적리스트</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>학번</th>
+				<th>이름</th>
+				<th>국어</th>
+				<th>영어</th>
+				<th>수학</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+		</tbody>
+	</table>
+</body>
+</html>

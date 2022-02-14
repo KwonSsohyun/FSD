@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- cdn ▶ jQuery 1.x minified -->
+        <!-- https://releases.jquery.com/ -->
+        <!-- 남들이 많이 쓰는 cdn을 쓴다. 그래야 같은 경로면 한번만 내려받아서 클라이언트가 빠르게 내 홈피 쓴다. -->
+        <!-- ▶ 개발할때는 다운로드(인터넷이 된다는 보장이 없기 때문) / 배포시에는 cdn -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            // 자바스크립트 "돔제어" 를 쉽게하기 위한 제공되는 라이브러리 ▶ 제이쿼리
+
+            window.onload=function(){
+                // 둘이 같다.
+                $ === jQuery;
+                // 호출을 해야만, 제이쿼리 문법 쓸수 있다.
+                jQuery();
+
+                // css선택자를 그대로 쓸 수 있다.
+                $('.cl1').css('color','red');
+                $('p:nth-child(4)').css('color','blue'); // +형제 | ~형제들
+            }
+
+
+
+        </script>
+    </head>
+    <body>
+        <!-- 돔제어를 쉽게하기 위한 제공되는 라이브러리 ▶ 제이쿼리 -->
+        <h1>제목</h1>
+        <p>내용 1</p>
+        <h2>소 제목 1</h2>
+        <p class="cl1">내용 2</p>
+        <h2>소 제목 2</h2>
+        <p class="cl1">내용 3</p>
+        <h2>소 제목 3</h2>
+        <p>내용 4</p>
+    </body>
+</html>

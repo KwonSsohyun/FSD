@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	//★ 꼼수 방식 ★ // 
+
+	var xhr, tbody;
+	
+	var callback = function(){
+		console.log("안녕");
+		if(xhr.readyState==4 && xhr.status==200){
+			
+			var data = xhr.responseXML;
+			var stus = data.querySelectorAll('student');
+			
+			for(var i=0; i<stus.length; i++){
+				var stu = stus[i];
+				var num = stu.querySelector('num').innerHTML;
+				var name = stu.querySelector('name').innerHTML;
+				var kor = stu.querySelector('kor').innerHTML;
+				var eng = stu.querySelector('eng').innerHTML;
+				var math = stu.querySelector('math').innerHTML;
+				var tr = '<tr><td>' + num + '</td><td>' + name + '</td><td>'
+				          + kor + '</td><td>' + eng + '</td><td>' + math + '</td></tr>';
+				          
+				tbody.innerHTML += tr;
+			}
+		} else if(xhr.readyState==4) {
+			alert("ERROR");
+		}
+	};
+	
+	
+	window.onload = function(){
+		tbody = document.querySelector('table>tbody');
+		// 정보를 담고 있는것 ▶ XML , JSON
+		// 비동기로 쓰고 싶을때 XMLHttpRequest 객체 쓴다.
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		// xhr.set
+		xhr.open('post','ex03.jsp',true); // false 동기 // true 비동기
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // 엔코딩타입 
+		xhr.send("cnt=3");
+	};
+
+
+
+</script>
+</head>
+<body>
+	<h1>학생성적리스트</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>학번</th>
+				<th>이름</th>
+				<th>국어</th>
+				<th>영어</th>
+				<th>수학</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+		</tbody>
+	</table>
+	<form action="" method="post" enctype="application/x-www-form-urlencoded"></form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	// ★ 정석적인 방식 ★ // 
+
+	var tbody,xhr;
+	
+	var callback = function(){
+		// tbody 지워놓고 시작 -> callback(); 해도 누적이 안된다.
+		tbody.innerHTML = '';
+		
+		if(xhr.readyState==4 && xhr.status==200){
+			// string으로 받으면 파싱해서 써야하는 번거로움이 있다.
+			// console.log(xhr.responseText); 
+			// console.log(typeof xhr.responseText); // 타입 string
+			
+			
+			// 엘리먼트로 받자
+			// console.log(xhr.responseXML); 
+			// console.log(typeof xhr.responseXML); // 타입 object
+			console.log(xhr.responseXML.childNodes[0].childNodes[1].childNodes[3].childNodes[0].nodeValue);  // 텍스트 노드도 같이 나옴 // .nodeValue 값 얻어오기
+			console.log(xhr.responseXML.children[0].children[0].children) //유사배열// HTMLCollection(3) [student, student, student] // HTMLCollection(5) [num, name, kor, eng, math]
+			
+			var arr1 = xhr.responseXML.children[0].children;
+			
+			for(var i=0; i<arr1.length; i++){
+				var stu = arr1[i];
+				// 실제 값이 아니라 노드
+				var num = stu.children[0].childNodes[0].nodeValue;
+				var name = stu.children[1].childNodes[0].nodeValue;
+				var kor = stu.children[2].childNodes[0].nodeValue;
+				var eng = stu.children[3].childNodes[0].nodeValue;
+				var math = stu.children[4].childNodes[0].nodeValue;
+				
+				console.log(num,name,kor,eng,math);
+				
+				var msg ='<tr>';
+				msg += '<td>'+ num +'</td>';
+				msg += '<td>'+ name +'</td>';
+				msg += '<td>'+ kor +'</td>';
+				msg += '<td>'+ eng +'</td>';
+				msg += '<td>'+ math +'</td>';
+				msg += '</tr>';
+				
+				tbody.innerHTML += msg;
+			}
+		}
+	};
+	
+	
+	
+	
+	window.onload = function(){
+		tbody = document.querySelector('table>tbody');
+		
+		// 객체 생성
+		xhr = new XMLHttpRequest();
+		
+		// 상태변화가 있을때 콜백함수 실행시켜라
+		xhr.onreadystatechange = callback;
+		
+		xhr.open('get' , 'stu.xml');
+		xhr.send();
+	};
+
+</script>
+</head>
+<body>
+	<h1>학생성적리스트</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>학번</th>
+				<th>이름</th>
+				<th>국어</th>
+				<th>영어</th>
+				<th>수학</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</body>
+</html>
