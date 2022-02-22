@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+
+        <script type="text/javascript">
+            
+            window.onload = function(){
+                
+                var cnt = 1;
+
+                // ▶ 캐러셀(롤링배너)
+                var callback = function(){
+                    $('img').attr('src', 'imgs/thumb0'+ cnt +'.jfif');
+                    cnt++;
+                    if(cnt==7) cnt=1;
+                    // console.log(cnt);
+                };
+                
+                window.setInterval(callback, 1000);
+                
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <img />
+        </div>
+    </body>
+</html>

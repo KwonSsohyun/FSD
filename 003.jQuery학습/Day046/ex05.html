@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="uth-8">
+
+        <style rel="stylesheet" type="text/css">
+            ul{
+                list-style: none;
+            }
+            ul>li{
+                float: left;
+                /* 첫 이미지는 안보이게 하기 */
+                /* display: none; */
+            }
+            ul>li>img{
+                width: 100px;
+            }
+
+            /* 클래스로 보이게 안보이게 하기 */
+            .hide{
+                display: none;
+            }
+
+        </style>
+
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+
+            // ▶▶ 캐러셀(롤링배너)
+            $(function(){
+
+                var cnt = 0;
+               
+                // ▶ css를 이용한 요소보이게 하기    
+                var callback = function(){
+                    // li요소들 안보이게 하기
+                    // $('li').css('display','none');
+
+                    // li중 0번째 요소 보이게 하기
+                    // $('li').eq(cnt++).css('display','block');
+
+                    // 체인을 이용해서 붙일 수 있다.
+                    $('li').css('display','none')
+                           .eq(cnt++).css('display','block');
+
+                    // 삼항연산자
+                    cnt=cnt<6? cnt: 0;
+                };
+
+
+                // ▶ 클래스를 이용한 보이게 안보이게 하기
+                var callback2 = function(){
+                    // $('li').addClass('hide');
+                    // $('li').eq(cnt++).removeClass('hide');
+
+                    $('li').addClass('hide')
+                           .removeClass(function(idx,cname){if (cnt == idx) return cname; });
+                           // (인덱스, 클래스네임)
+                           // 처음에는 li 다 안보이게 했다가
+                           // 클래스를지워라(리턴타입이 문자열임)
+                           // 뭘 지우냐? cnt와 인덱스번호가 같으면 cname인 hide를 리턴한다.
+
+                    cnt++;
+                    cnt = cnt<6? cnt: 0;
+                    // $('li').eq(0).removeClass('hide');
+                };
+
+                // ▶ 1초마다 호출하기
+                // window.setInterval(callback, 1000);
+                window.setInterval(callback2, 1000);
+
+
+                // 클래스가 있으면 지우고
+                //         없으면 추가
+                // ▶ .toggleClass()
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li><img src="imgs/small01.jfif"/></li>
+                <li><img src="imgs/small02.jfif"/></li>
+                <li><img src="imgs/small03.jfif"/></li>
+                <li><img src="imgs/small04.jfif"/></li>
+                <li><img src="imgs/small05.jfif"/></li>
+                <li><img src="imgs/small06.jfif"/></li>
+            </ul>
+        </div>
+    </body>
+</html>

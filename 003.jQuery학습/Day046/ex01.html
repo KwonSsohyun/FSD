@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <style rel="stylesheet" type="text/css">
+            h1{
+                color: blue;
+            }
+        </style>
+
+        <!-- 제이쿼리를 먼저 로딩해서 불러와야, 제이쿼리문법을 사용할 수 있다. -->
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+
+        <!-- 여기서 제이쿼리 문법 사용한다. -->
+        <script type="text/javascript">
+            
+            // ▶ 온로드 onload
+            //    자바스크립트 와 제이쿼리 표현 
+            //    window.onload = function(){ //// } ▶ 자바스크립트
+            //    $(function(){ //// });             ▶ 제이쿼리
+
+
+            // ▶ 제이쿼리 → html 문서가 로딩이 되면
+            // ▶ $(document).ready(function(){ });  
+            //    $(function(){ });                  는 동일한 의미입니다. 
+            //    코딩이 길어지다 간편하게 후자와 같이 많이 사용을 합니다. 
+
+
+            $(function(){
+                // → 위와 아래는 같다.
+                //   ▶ $와 jQuery 같다.
+                //      jQuery === $;    → true
+                //      ▶ jQuery('h1').css('color','red');
+                //      ▶ $('h1').css('color','red');
+                //         → 네이버는 $가 제이쿼리가 아니다.(네이버 api)
+                $('h1').css('color','red');
+
+
+
+                // ▶ 엘리먼트 선택! (css선택자 그대로 사용)
+                // $('h1+p').css('color','red');             // h1 다음에 등장하는 p 태그
+                // $('ul>li').css('color','red');            // ul아래의 li 잡음
+                // $('li:nth-child(2n)').css('color','red'); // li 짝수
+                // $('p:nth-child(8)').css('color','red');   // 8번째 자식중 p태그인것
+                
+
+
+                // ▶ 그 밖에 선택자 (제이쿼리 선택자)
+                $('p').last().css('color','red'); // p태그의 마지막
+                $('li').first();
+                $('li').last();
+                $('li').eq(0);
+
+
+                // ▶ 골라내는 명령 → .filter()
+                $('li').filter(':nth-child(2n)');   // 짝수
+                $('li').filter(':nth-child(2n-1)'); // 홀수 
+
+
+                // ▶ 다중 선택
+                $('h1,h2');
+
+
+                // ▶ 인덱스 번호 (0번부터 센다.)
+                $('li:eq(3)'); 
+
+
+                // ▶ 짝수 → even
+                $('li:even'); // ▶ 짝수 (인덱스 - 0, 2, 4 ...)
+                // ▶ 홀수 → odd
+                $('li:odd');  // ▶ 홀수 (인덱스 - 1, 3, 5 ...)
+
+
+                $('li:lt(3)'); // ▶ 인덱스 3번 보다 작은 → lt 
+                $('li:gt(2)'); // ▶ 인덱스 2번 보다 큰   → gt
+
+
+                $('li:not(#id4)');  // ▶ 아이디4를 제외한 나머지 (다른선택자 - ex) id , class , 속성 ...)
+                $('body>*:not(p)'); // ▶ body아래 p를 제외한 나머지
+
+
+                $('li:has(a)'); // ▶ li중 a앵커를 가지고 있는 것
+                $('li:empty');  // ▶ 아무것도 안가지고 있는 비어있는 li 선택
+
+
+
+                // ▶ 텍스트노드 → 해당 문자열을 찾아라
+                $("li:contains('item 2-')"); // item 2- 이라는 가지고 있는 문자열을 찾아라
+
+
+                // h1이라는 문자열을 제이쿼리를 던진것
+                // h1엘리먼트 잡아줌
+                // 리턴 타입 제이쿼리 객체 this이다.
+                // 그래서 체인이 가능한것
+                // 자기 객체에 메서드 계속 붙히는것
+                // 제이쿼리 문법을 써야한다. 
+                // ex) innerHTML 같은 자바스크립트문법 안먹는다.
+                $('h1');
+
+                // 자바스크립트의
+                // 리턴 타입 엘리먼트
+                // 순수엘리먼트라 innerHTML 바로 먹는다.
+                // $('h1');의 제이쿼리문법과 지금의 자바스크립트와 다르다.
+                document.querySelector('h1');
+                
+
+                // ▶ 제이쿼리 함수 호출
+                //    온로드 onload
+                //    window.onload = function(){ //// } ▶ 자바스크립트
+                //    $(function(){ //// });             ▶ 제이쿼리
+                $(function(){ alert('test'); });
+
+
+
+                // ▶▶ 인자가 한 개면, 겟터 (값 가져 오는 것)
+                // ▶▶ 인자가 두 개면, 셋터 (값 셋팅 하는 것)
+                //      → 자바스크립트에서는 값을 먼저 셋팅해줘야 겟터가 가능하다.
+                //      → 제이쿼리는 늦어서, css에 속성을 가져올 수 있다.
+                //        ('속성' : '벨류')
+                $('h1').css('color');       // ▶ 겟터  → 'rgb(255, 0, 0)'
+                $('h1').css('color','red'); // ▶ 셋터  →  값 설정
+                
+
+
+                // 자바스크립트에서는 캐멀만 지원한다.
+                // backgroundColor  (o)
+                // background-color (x)
+                // 제이쿼리는 둘다 가능
+                // → 여러개 ▶ 겟터 []
+                // → 여러개 ▶ 셋터 {}
+                $('h1').css(['backgroundColor','color']);                   // ▶ 겟터 (리턴타입 -> 문자열)       // 검정색인데 투명도 → 'rgba(0, 0, 0, 0)'
+                $('h1').css({'backgroundColor':'black','color':'yellow'});  // ▶ 셋터 (리턴타입 -> 제이쿼리 객체)
+
+
+            }); 
+
+
+        </script>
+    </head>
+    <body>
+        <h1>jquery</h1>
+        <p>제이쿼리 불러오기</p>
+
+        <h2>소제목 1</h2>
+        <p>내용 1</p>
+
+        <h2>소제목 2</h2>
+        <p>내용 2</p>
+
+        <h2>소제목 3</h2>
+        <p>내용 3</p>
+
+        <ul>
+            <li>item 1-<a href="#">link</a></li>
+            <li>item 2-<a href="#">link</a></li>
+            <li>item 3-</li>
+            <li id="id4">item 4-<a href="#">link</a></li>
+            <li>item 5-<a href="#">link</a></li>
+            <li></li>
+            <li>item 6-<a href="#">link</a></li>
+        </ul>
+    </body>
+</html>

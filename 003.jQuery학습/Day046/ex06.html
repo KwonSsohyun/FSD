@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+
+            var arr = [];
+
+            $(function(){
+                // $('div').html();
+                // $('div').text();
+
+                // innerHtml -> 태그사용가능
+                // innertext -> ㄹㅇ텍스트
+                // $('div').html('<a href="#">link</a>');
+                
+
+                // ▶ 셋터
+                // $('div').html('<img src="imgs/thumb01.jfif" />'); // div에 이미지 설정 ▶ 셋터
+                // ▶ 겟터
+                // $('div').html();                                  // 태그를 그대로 문자열로 받는다. ▶ 겟터
+
+
+                // ▶ 자바스크립트
+                //    var arr = [1, 3, 5, 7];
+                //    arr.forEach(function(ele,idx){console.log(ele,idx);});
+                //    → ele  idx
+                //    →  1    0
+                //    →  3    1
+                //    →  5    2
+                //    →  7    3
+
+                // ▶ 제이쿼리
+                //    $('li').each(function(idx,ele){console.log(idx, ele);});
+                //    → idx      ele
+                //    →  0   <li>..</li>  진짜 엘리먼트 나옴
+                //    →  1   <li>..</li>
+                //    →  2   <li>..</li>
+                //    →  3   <li>..</li>
+
+
+                // li의 갯수만큼 콜백함수가 돌았다.
+                $('li').each(function(idx,ele){ 
+                    arr.push($(ele).html()); // 문자열을 넣었다. // <img ~ > 다 들어감 → .html()이 innerhtml같은거여서 ele의 자식 html이니
+                    // arr.push(ele.innerHTML);
+                });
+
+
+                var callback = function(){
+                    $('div').html(arr[0]);
+
+                    var temp = arr.shift(); // 앞에서 빼다가
+                    arr.push(temp);         // 맨 뒤 값 넣는것
+
+                    // $('div').html(arr[0]);
+                };
+                setInterval(callback, 1000);
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <h1>html & text</h1>
+
+        <div>
+            <ul>
+                <li><img src="imgs/small01.jfif"/></li>
+                <li><img src="imgs/small02.jfif"/></li>
+                <li><img src="imgs/small03.jfif"/></li>
+                <li><img src="imgs/small04.jfif"/></li>
+                <li><img src="imgs/small05.jfif"/></li>
+                <li><img src="imgs/small06.jfif"/></li>
+
+            </ul>
+        </div>
+    </body>
+</html>

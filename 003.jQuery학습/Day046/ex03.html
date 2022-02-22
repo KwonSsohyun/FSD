@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <style rel="stylesheet" type="text/css">
+            .cl1{
+                background-color: gray;
+            }
+        </style>
+
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+
+        <script type="text/javascript">
+
+            // ▶ 읽기전용 속성 줌
+            //    → 셋터
+            $('input').attr('readonly','readonly');
+
+
+            // ▶ 속성 확인
+            //    → 겟터
+            $('a').attr('href');
+
+            // ▶ 속성 설정
+            //    → 셋터
+            $('a').attr('href', 'https://www.naver.com/');
+
+
+            // ▶ 속성 변경
+            //    케러셀 쉽게 가능~ (계속 이미지 변경~)
+            $('img').attr('src', 'imgs/car.png');
+            $('img').attr('src', 'imgs/thumb01.jfif');
+
+
+            $('textarea').width();    // ▶ 조회 → 겟터
+            $('textarea').width(200); // ▶ 설정 → 셋터
+
+            $('textarea').css('height','300px'); // 셋터 (css를 통한 설정) 
+            $('textarea').height(300);           // 셋터 (css 높이 설정)  (쉽게 설정할수있게 따로 빼줌)
+
+            
+            $('body').height();     // 바디의 높이
+            $(document).height();   // 문서 높이
+            $(window).height();     // 창 높이
+
+
+            // ● 내부높이                      ▶ jquery.height()
+            // ● 내부높이 + padding            ▶ jquery.innerHeight()
+            // ● 내부높이 + padding + border   ▶ jquery.outerHeight()
+            
+
+
+            // ▶ 클래스 설정
+            $('a').addClass('cl1');      // a링크 요소에 .cl1이름으로 클래스 추가한다.
+            $('a').attr('class', 'cl1'); // a링크 요소에 class를 설정하는데 .cl1이름으로 class를 설정한다.
+                                         // 위에 .cl1이름으로 css설정이 있으니 적용될 것이다.
+
+
+            // ▶ 클래스 제거
+            $('a').removeClass('cl1');
+
+
+            // ▶ 클래스가 있는지 없는지 체크 
+            //    .hasClass()
+
+
+        </script>
+    </head>
+    <body>
+        <h1>속성</h1>
+        <div>
+            <img/>
+            <a href="https://google.com">link</a>
+        </div>
+        
+        <div>
+            <input type="text"/>
+        </div>
+        
+        <div>
+            <select>
+                <option>item 1</option>
+                <option>item 2</option>
+            </select>
+        </div>
+
+        <textarea></textarea>
+
+    </body>
+</html>

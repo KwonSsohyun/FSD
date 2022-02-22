@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+
+            $(function(){
+
+                // 잡은 엘리먼트의 문자열 끼워넣어준다.
+
+                // ▶ .prepend → 맨 앞
+                // $('ul').prepend('<li>item 0</li>'); // 맨 앞 추가
+
+                // ▶ .append → 맨 뒤
+                // $('ul').append('<li>item 4</li>');  // 맨 뒤 추가
+                
+
+                // 엘리먼트 잡고, ul에 붙혀준다. (엘리먼트 이동)
+                // .appendTo() 
+                // ▶ 문자열이 태그의 형태가 되어버리면 엘리먼트를 만들어버리고, ul로 이동시켜준다.
+                $('<li>item 4</li>').appendTo('ul'); // ul의 맨 뒤 붙혀진다.
+                // .prependTo()
+                $('<li>item 0</li>').prependTo('ul'); // ul의 맨 앞 붙혀진다.
+
+
+                
+                // $('ul').html(); 
+                // ▶ 인자 없으면 불러오는거 -> 겟터
+                
+                // $('ul').html($('ul').html()+'<li>item 5</li>');
+                // ▶ 인자 있으면 쓰는거 -> 셋터
+
+                // 기존거 갖고와서 뒤에 붙힘
+                // $('ul').html('<li>item 5</li>'); → 이렇게만하면 ul에 item5만 보이게 되니
+                // 기존 내용을 가져와서 그 뒤에 붙혀야 한다.
+                // 아래코드와 같이 해야 한다.
+                $('ul').html($('ul').html() + '<li>item 5</li>'); 
+
+
+                // $('ul').append('ol>li');
+
+                ////$('ul').append($('ol>li'));
+                /////$('ol>li').appendTo('ul'); 
+
+                // 실행할때마다 맨 앞에게 맨 뒤로 간다.
+                // li의 첫번째가 ul맨 뒤로 이동한다.
+                $('li').first().appendTo('ul');
+
+
+                // 형제요소로 붙게된다.
+                // ▶ ul 태그 뒤로 after 글자 생성되서 보임
+                //    $('ul').after('after');
+                
+                // ▶ ul 태그 앞으로 before 글자 생성되서 보임
+                //    $('ul').before('before'); 
+
+
+                // 형제요소로 붙게된다.
+                // ▶ after(뒤에는 텍스트노드임 태그들어가면안됨)
+                //    → 괄호안에는 태그 들어가면 안되고, 글자만 들어갈 수 있음!
+                $('ul').after('after');
+
+
+                // ▶ 엘리먼트를 넣으면 만드는것     '<div>after</div>'
+                // ▶ 안넣으면 그 엘리먼트를 찾는 것 'ul'
+                $('<div>after</div>').insertAfter('ul');
+                // → 어딘가 만들어졌고, ul 뒤에 붙는다.
+
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+        <ol>
+            <li>ol 1</li>
+            <li>ol 2</li>
+            <li>ol 3</li>
+          
+        </ol>
+    </body>
+</html>
