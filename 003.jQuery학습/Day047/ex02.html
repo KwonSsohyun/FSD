@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style rel="stylesheet" type="text/css">
+        .carousel{
+            display: none;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+
+        // ▶ 콜백함수 수행할때마다 이전을 알아야 하니까.
+        //    전역으로 뺌
+        var before1;
+
+
+        $(function(){
+           var callback = function(){
+                if(before1) $('.carousel').append(before1);  // ①
+                // 변수 before1에 값 대입 (li의 첫번째)
+                before1 = $('.carousel li').first();         
+                // .insertBefore 앞에다가 넣겠다.
+                before1.insertBefore('.carousel');           // ②
+           };
+
+           setInterval(callback,1000);
+            
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <!-- div>ul>(li>img)*6 -->
+    <!-- div>ul>(li>img[src='imgs/small0.jfif'])*6 -->
+    <!-- div>ul.carousel>(li>img[src='imgs/small0.jfif'])*6 -->
+    
+    <div>
+        <!-- ② 이자리에 첫번째놈 넣음 before1 -->
+        <ul class="carousel"> 
+            <li><img src="imgs/small01.jfif" alt=""></li>
+            <li><img src="imgs/small02.jfif" alt=""></li>
+            <li><img src="imgs/small03.jfif" alt=""></li>
+            <li><img src="imgs/small04.jfif" alt=""></li>
+            <li><img src="imgs/small05.jfif" alt=""></li>
+            <li><img src="imgs/small06.jfif" alt=""></li>
+            <!-- ① 여기다가 다시 잡아서 놓고 - before1 -->
+        </ul>
+    </div>
+
+</body>
+</html>

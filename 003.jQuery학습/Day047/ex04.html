@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- ▶ 반응형 웹에서 2가지 코드는 필수! --> 
+    <!--    ● 윈도우10버전 엣지를 위한것 (크롬형엔지니어로 갈아타서 지금은 괜찮으나 버전업안한사람을 위함) -->
+    <!--      엣지브라우저에게 맞게 디바이스에 맞게 폰트 나와라 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--    ● 모바일을 위한 것 -->
+    <!--      디바이스 운영체제에 맞춰주는 코드 -->
+    <!--      폰트사이즈 pc기준 → 핸드폰으로 가면 디바이즈 설정에 맞게 맞춰준다. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        
+        // ▶ 자바스크립트의 onload는 덮어쓴다. 하나만 쓸 수 있다.
+        //    온로드는 데이터 로딩이 되고나면 이다. (시점이느림)
+        window.onload = function(){
+            console.log('js onload1');
+        };
+        //    → 덮어써서 2만 발동함
+        window.onload = function(){
+            console.log('js onload2');
+        };
+
+        // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+        // ▶ 2가지
+        //    → 이벤트로서의 onload
+        //    → 통신으로서의 onload
+        // $(document).onload(function(){
+        //     console.log('jq onload');
+        // });
+
+
+        // ▶ 레디가 앞선다.
+        //    온로드는 데이터 로딩이 되고나면 이라면 (시점이느림),
+        //     → 제이쿼리의 레디는 데이터 로딩이 되고, 화면이 그리기 전 (돔 제어가 가능한 시점)
+        //       이미지가 안불러져와도, 와꾸 그리드는 그려지고, 불러와진다.
+        $(document).ready(function(){
+            console.log('jq ready1');
+            document.querySelector('img').onload = function(){
+                console.log('이미지 로딩완료');
+            };
+        });
+
+        //    ● 여러개 ready해도, 덮어쓰지 않는다.
+        //       → 돔레벨 3 원리
+        $(document).ready(function(){
+            console.log('jq ready2');
+        });
+
+
+        // ---------------------------------------------------------------------------
+
+
+        // ▶ 레디 축약형
+        $(function(){
+            console.log('jq ready3');
+        });
+
+        // ---------------------------------------------------------------------------
+
+
+    </script>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <img src="imgs/car.png"/>
+</body>
+</html>

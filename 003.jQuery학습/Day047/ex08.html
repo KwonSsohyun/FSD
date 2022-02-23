@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        // ▶ 콜백함수 밖에 선언
+        var callback1 = function(e){
+            console.log('btn2 click', e.type ,this);
+            return false;
+        };
+
+        var callback2 = function(){
+            alert('btn2 click');
+        };
+
+        // -------------------------------------------------------------
+
+        $(function(){
+
+            // ▶▶ 원하는 요소 선택해서, 이벤트 주기
+            $('button').eq(0) // btn1 버튼 눌렀을 때~
+                    .click(function(){
+                        console.log('btn1 click');
+                    })
+                    .click(function(){
+                         alert('btn1 click');
+            });
+
+            // $('button').eq(0).click(function(){
+            //     console.log('btn1 click');
+            // });
+
+            // $('button').eq(0).click(function(){
+            //     alert('btn1 click');
+            // });
+
+        // -------------------------------------------------------------
+
+
+            // ▶▶ 이벤트 붙혔다 뗐다 하기
+            //      인자 3개 준다. (이벤트, 셀렉트, 콜백함수)
+            //      ● 이벤트 붙히기 → .on()
+            //      ● 이벤트 떼기   → .off()
+
+            // $(document).on('click', $('button').eq(1), function(){
+            //     console.log('btn2 click');
+            // });
+            //****** $(document).on('click', $('button').eq(1), callback1);
+
+            // $(document).on('click', $('button').eq(1), function(){
+            //     alert('btn2 click');
+            // });
+            //****** $(document).on('click', $('button').eq(1), callback2);
+            //****** $(document).off('click', $('button').eq(1), callback2);
+
+
+            // on은 셀렉트 타입 상관없다.
+            // off는 셀렉트 타입 스트링으로만 된다. (셀렉트)
+            // ▶ 근데 둘다 쓸거니 왠만하면 "스트링" 으로 써라.
+            // ▶ 전체 도큐먼트 전체 선택해서, 일일히 요소 선택해서 이벤트 준다.
+            //    .체이닝 가능
+            $(document)
+                // ▶ 인자 3개 준다. (이벤트, 셀렉트, 콜백함수)
+                // ▶ 이벤트를 여러개 달때는 띄어쓰기를 기준으로 한다.
+                //    ● 이벤트 붙히기 → .on()
+                .on('click','a',callback1) // a앵커태그 link클릭하면 callback1함수 실행됨
+                .on('mouseup mousedown','button:eq(1)',callback1) // btn2버튼 클릭하면 callback1함수 실행됨
+                //    ● 이벤트 떼기   → .off()
+                .off('mouseup','button:eq(1)',callback1); // btn2버튼에 이벤트적용된 것중에 mouseup 이벤트 삭제됨
+                // .on('click','button:eq(1)',callback2);
+                // .off('click','button:eq(1)',callback2);
+           
+
+
+            // $(document).on('click','button:eq(1)',callback1);
+            // $(document).on('click','button:eq(1)',callback2);
+            // $(document).off('click','button:eq(1)',callback2);
+
+            // $(document).on('click','a',callback1);
+
+
+
+            // ▶ 직접 요소를 잡아서 
+            //    이벤트 붙히고, 떼고도 가능하다.
+            $('a')
+                .on('click',callback1) // a 앵커 link클릭하면 callback1 함수 호출됨.
+                .on('mouseup mousedown',callback1) // a 앵커 link클릭하면 callback1 함수 호출됨.
+                .off('mouseup',callback1); // a 앵커 link에 이벤트 적용된 것중에 mouseup 이벤트 삭제됨
+
+
+        // -------------------------------------------------------------
+
+
+            // ▶ .one()
+            //     → 이벤트를 한번만 할때
+            $(document).one('click','button:eq(2)', callback2); // btn3버튼 누르면, callback2 함수가 실행되는데 이벤트 한번만 수행됨
+
+
+
+        // -------------------------------------------------------------
+
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <a href="https://m.naver.com">link</a>
+    <h1>event like DOM3</h1>
+    <button>btn1</button>
+    <button>btn2</button>
+    <button>btn3</button>
+</body>
+</html>

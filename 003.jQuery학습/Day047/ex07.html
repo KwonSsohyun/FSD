@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+
+            // ■ 벨류데이션 체크 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+            
+            // ▶ 페이지 이동막기
+            $('form').submit(function(e){
+                console.log('기본기능 취소');
+                // e.preventDefault();
+                // return false;
+
+                var id1 = $('input').eq(0).val();
+                if(id1) return true; // 인풋에 내용 있으면, 이동함
+                else return false;   // 내용 비어 있으면,   이동 안함
+            });
+
+
+            // ▶ 상태변화 → .change() 체인지
+            //    셀렉트 중에 아무거나 선택하면~
+            $('select').change(function(){
+                // 선택한 옵션이 val() 벨류
+                console.log('select 선택' , $('select').val()); // select 선택 item2 (→ item2선택함)
+            });
+
+            // $('input').eq(0).change(function(){
+            //     console.log('select 선택');
+            // });
+
+
+            // ▶ 이전 페이지로 가기
+            //    history.back();
+            $('button[type=button]').click(function(){ // 버튼 타입이 버튼인걸 클릭하면~ (→ 뒤로 버튼)
+                history.back();
+            });
+
+
+            //---------------------------------------------------------------------
+
+
+            // ▶▶ 포커스 얻었을 때 → focusin() | focus()
+            //      포커스가 왔을때 지우기
+            $('input').eq(0).focusin(function(){ // id 인풋창에 커서 눌렀을 때
+                // 이벤트가 일어난 객체에 this
+                // 확인해보면 엘리먼트 객체인것을 알수 있다.
+                // 그래서 this로 치환 가능하다.
+                // 콘솔로 확인해보고 this가 맞는지 확인해보고 사용한다.
+                // 이벤트걸린 자기 자신
+                console.log(this);
+
+                var val = $(this).val(); // 인풋창에 적힌 벨류데이션 값을 val 변수에 담는다.
+                if(val==='id입력')$('input').eq(0).val(''); // id입력이라고 적힌 글자면 빈칸으로 만들어준다.
+
+                // → 다시 포커싱 들어와도 쓴 값은 안 사라지게 하기
+                //   var val = $('input').eq(0).val();
+                //   if(val === 'id입력') $('input').eq(0).val('');
+            });
+
+            // $('input').eq(0).focus(function(){
+            //     // 다시 포커싱 들어와도 쓴 값은 안 사라지게 하기
+            //     var val = $('input').eq(0).val();
+            //     if(val === 'id입력') $('input').eq(0).val('');
+            // });
+
+
+            //---------------------------------------------------------------------
+
+
+            // ▶▶ 포커스 얻었다가 잃었을 때 → focusout() | blur() 
+            $('input').eq(1).focusout(function(){ // pw 인풋창에 커서 눌렀다가 인풋바깥창에 커서를 눌렀을 때
+                if($(this).val().length<4)alert('4자이상'); // 입력값이 4자글자이하면 얼럿창 뜬다.
+                // if($('input').eq(1).val().length<4)alert('4자이상');
+            });
+
+            // $('input').eq(1).blur(function(){
+            //     if($('input').eq(1).val().length<4)alert('4자이상');
+            // });
+
+
+            //---------------------------------------------------------------------
+
+            
+            // ▶ 콜백함수를 호출하는 이벤트 → e.target
+            //    2개에다가 일괄적으로 이벤트 달았다.
+            //    ▶ 포커스 얻었다가 잃었을 때 → focusout()
+            $('input').focusout(function(e){ // input이 2개인데, 2개 모두에 이벤트 달았다.
+                console.log(this,e.target);
+                if($(this).val().length<4)alert('4자이상');
+            });
+
+
+            //---------------------------------------------------------------------
+
+
+            // ▶ 포커스 얻었다가 잃었을 때 → focusout()
+            $('input').focusout(function(){
+                // "4자리이상"이라는 글자가 계속 쌓이면, 안되니까 없애고 시작
+                // 이벤트 선택한 뒤에 지운다.
+                $(this).next().remove();
+
+                // → insertAfter()
+                //   같은 레벨로 뒤로 들어간다. 
+                if($(this).val().length<4) // 4자 아래면 해당 문구 나옴
+                    $('<span>4자리이상</span>')
+                        .css('color', 'red')
+                        .insertAfter(this); 
+                
+                // 4자이상이면 문구 사라짐
+                else $(this).next().remove(); 
+            });
+
+        });
+        
+
+
+    </script>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <!-- form>(div>label+input[type=text])*2+(div>select>option*4)+(div>button*2) -->
+    <form action="ex08.html">
+        <!-- 누구의 라벨인지 묶어주는것 for="id" |  id="id" -->
+        <!-- input id의 라벨이라는것 -> 의미만 묶어주는것 -->
+        <!-- 의미상 묶어준다는것 -->
+        <!-- 라벨쓸때는 묶어주는 거니까 for를 써라 -->
+        <div><label for="id">id</label><input type="text" id="id" value="id입력"></div>
+        <div><label for="pw">pw</label><input type="password" id="pw"></div>
+        <div>
+            <select name="sel">
+                <!-- value안적었을 시 텍스트노드가 똑같아서 생략  -->
+                <option value="it1">item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">전송</button>
+            <button type="reset">취소</button>
+            <button type="button">뒤로</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+
+            // ▶▶ 키보드 이벤트 달기
+
+            var callback = function(e){ 
+                // 이벤트 타입을 알아보자!
+                console.log(e.type);           // keyup
+ 
+                // 뭘 눌렀는지 확인해보자! - 키코드(번호)가 나옴
+                console.log(e.keyCode);        // 65
+
+                // 뭘 눌렀는지 확인해보자! - 진짜 누른 값 나옴
+                console.log(e.key);            // a
+
+                // keyup이 실시간이고 나머지는 한박자씩 늦는걸 볼 수 있다.
+                // input에 뭘 적었는지 값 보여줌
+                console.log($('input').val()); // a
+
+                // console.log('key event');
+            };
+
+            // 인풋창에 a라고 입력해보았다.
+            $('input').keydown(callback);
+            $('input').keypress(callback);
+            $('input').keyup(callback);
+
+
+            // ▶ 선택을 하면 .select() 셀렉트 (ex 드레그 불펌방지)
+            //    https://api.jquery.com/select/
+            //    → 셀렉트가 다 되는건 아니다. ▶ <input type="text"> | <textarea> → 해당경우만 가능
+            //      tip ● 셀렉트박스를 선택했을때가 → 상태변화 체인지 .change() → (ex03의 select선택하면 바뀌었을때 체크)
+            //            ▶ 상태변화 → .change() 체인지
+            $('input').select(function(){
+                alert($('input').val()); // 인풋창에 입력한 것을 드레그하면, 얼럿창으로 입력한 값 뜬다.
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <h1>key 이벤트</h1>
+    <input type="text"/>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style rel="stylesheet" type="text/css">
+        div{
+            width: 300px;
+            height: 50px;
+            background-color: rgb(255,0,0);
+        }
+        div>div{
+            width: 200px;
+            height: 50px;
+            background-color: rgb(0,255,0);
+        }
+        div>div>div{
+            width: 100px;
+            height: 50px;
+            background-color: rgb(0,0,255);
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+
+        // ▶ 이벤트 버블링
+        //    종속성에 인해 일어난다. 
+        //    → 나 먼저 그 다음 부모
+        //    → 제이쿼리에서는 이벤트버블링만 일어난다. 
+        //      ▶ 전파를 막는다.  e.stopPropagation();
+
+
+        $(function(){
+            $('div').on('click', function(e){
+                // ▶ 전파막기
+                //    e.stopPropagation();
+                e.stopPropagation();
+
+                console.log($(this).css('background-color'));
+
+            }); 
+        });
+
+
+        // ----------------------------------------------------------------
+
+
+        // ▶ 캡처링은 자바스크립트에서만 된다.
+        var div1, div2, div3;
+        $(function(){
+
+            var callback = function(e){
+                console.log(this);
+            };
+
+            div1 = document.querySelector('div');
+            div2 = document.querySelector('div>div');
+            div3 = document.querySelector('div>div>div');
+
+            // ▶ 캡처링
+            //    → 부모먼저 그 다음 나 순서
+            div1.addEventListener('click', callback, true);
+            div2.addEventListener('click', callback, true);
+            div3.addEventListener('click', callback, true);
+            
+            
+        // ----------------------------------------------------------------
+
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        box1
+        <div>
+            box2
+            <div>
+                box3
+            </div>
+        </div>
+    </div>
+</body>
+</html>

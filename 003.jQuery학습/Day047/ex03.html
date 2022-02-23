@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        // 참고 
+        // http://webcache.googleusercontent.com/search?q=cache:lTX2BS04EDQJ:www.ktword.co.kr/test/view/view.php%3Fm_temp1%3D3967+&cd=10&hl=ko&ct=clnk&gl=kr
+
+
+        // [ 프로퍼티(Property) , 어트리뷰트(Attribute) 비교 ]
+        //   ※ 일반적으로, 두 용어를 동의어로 사용하지만,
+        //      - 프로퍼티(Property)는, `이름 : 값` 쌍의 실체로써, 동적으로 조작 가능함을 주로 의미하며,
+        //      - 어트리뷰트(Attribute)는, 프로퍼티들을 그룹지을 수 있는/연관시키는 정적인 속성을 의미
+
+        //   ㅇ 웹문서의 DOM 모델 상에서 볼 때, 이 둘을 구분하며,
+        //      ▶ 어트리뷰트는, HTML 요소에 소속된/고정된 일부로써 봄
+        //         HTML 요소 내에 붙박이로써 존재하고, 처음에 주어진 값이 변하지 않음
+        //         예) <a href=''> => href, <img src=''> => src 등
+        //      ▶ 프로퍼티는, DOM 트리 내 객체의 속성을 나타내며, `이름 : 값` 쌍으로 표현됨
+        //         DOM 트리 내에 필요시 넣고 뺄 수 있고, 동적으로 변할 수 있음
+
+        // -------------------------------------------------------------------------------------------
+
+        // ▶ .attr() (어트리뷰트 속성)
+        //    ● 속성 지움
+        //      $('select').removeAttr('disabled');
+
+        //    ● 속성 줌
+        //      $('select').attr('disabled','disabled');
+
+        // -------------------------------------------------------------------------------------------
+
+        // ▶ .prop()  (프로퍼티 속성)
+        //     쉽고 통일되게 1.6에서 추가된 문법 
+        //      → disabled | readonly | checked
+        //        이 3가지를 제어할 때는 prop쓴다.(프로퍼티 속성)
+        //        .attr()도 되나 통일이 안되서, 
+        //        불리언타입이라 true, false로 리턴됨
+        $('select').prop('disabled');      // true -> 불리언 타입으로 리턴됨
+
+        // ● 속성 줌
+        $('select').prop('disabled',true);
+
+        // ● 속성 지움
+        $('select').prop('disabled',false);
+        
+        
+        // -------------------------------------------------------------------
+
+
+        // 벨류값 가져오기
+
+        // ▶ .val()  
+        //      → 직접 친 속성값을 받고 싶을땐
+        //      → 직접 인풋창에 친 벨류값 가져온다.
+        $('input').eq(0).val();
+
+
+        // ▶ .attr() 
+        //     → 직접태그에 value속성 가져오는건데
+        //       html에 직접 벨류값 안줘서 undefined 뜬다.
+        //       내가 현재는 value="abcd" 줘서 abcd라고 뜬다.
+        $('input').eq(0).attr('value');
+
+
+        // -------------------------------------------------------------------
+
+        $(function(){
+            console.log($('input').first().val());
+            $('select').prop('disabled',false);
+        });
+
+
+    </script>
+</head>
+<body>
+    <!-- form>(div>label+input)*2+(div>select>option*4)+div>button[type=submit] -->
+    <form>
+        <!-- 4점대부터 된다. readonly disabled -->
+        <!-- readonly="readonly" -->
+        <div><label>id</label><input type="text" value="abcd" readonly/></div>
+        <div><label>pw</label><input type="text" disabled/></div>
+        <div>
+            <select disabled>
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+        <div><button type="submit">전송</button></div>
+    </form>
+</body>
+</html>

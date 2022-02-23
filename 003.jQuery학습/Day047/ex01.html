@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    
+    <script type="text/javascript">
+        
+        var arr = [
+            'imgs/small01.jfif',
+            'imgs/small02.jfif',
+            'imgs/small03.jfif',
+            'imgs/small04.jfif',
+            'imgs/small05.jfif',
+            'imgs/small06.jfif'
+        ];
+
+        var arr2 = [];
+
+        $(function(){
+            // arr.forEach(function(ele,idx){  → 자바스크립트 (엘리먼트, 인덱스)
+             $(arr).each(function(idx,ele){ // → 제이쿼리 (인덱스, 엘리먼트)
+                // ▶ 엘리먼트 만듬
+                //    이미지 태그 만듬 → src 속성 부여함
+                //    ● $(이것).appendTo(대상) → 이것을 대상 뒤에다가 붙히겠다.(to가 뭐뭐로~향해)
+                //    ● $(대상).append(이것)   → 이것을 앞에 $(대상)뒤에다가 붙히겠다.
+                $('<img/>').attr('src',ele).appendTo('.rolling');
+
+                // ▶ 참고
+                //    $('ul').append('<li>item4</li>');   ▶ <li>item4</li>을 ul 뒤에다가 붙이겠다.
+                //    $('<li>item4</li>').appendTo('ul'); ▶ <li>item4</li>을 ul 뒤에다가 붙이겠다.
+
+                // 제일 마지막것이 나오니 덮어쓴다.
+                // $('.rolling').html(img);
+
+                // 누적해서 한번에
+                //// $('.rolling').append(img);
+
+                
+             });
+             // ▶ 롤링아래 이미지
+             //    위에서 이미지 엘리먼트 만들었기에 태그 존재함
+             //    이미지 잡고, 배열에 담는다.
+             $('.rolling img').each(function(idx,ele){
+                arr2.push(ele);
+             });
+
+        });
+
+        function callback(){
+                // $('.rolling').html('<img src="'+arr[0]+'"/>');
+                // arr.push(arr.shift());
+
+                $('.rolling').html(arr2[0]);
+            
+        }
+
+        // setInterval(callback,1000);
+
+    </script>
+
+</head>
+<body>
+    <div class="rolling">
+        <!-- 젠코딩 -->
+        <!-- https://ko.wikipedia.org/wiki/%EC%97%90%EB%B0%8B_(%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4) -->
+
+        <!-- 내용상의 이미지 아니고서는, 자바스크립트에서 엘리먼트생성해서 이미지 넣는다. -->
+
+        <!-- ul>(li>img)*6 -->
+        <!-- <ul>
+                <li><img src="imgs/small01.jfif" alt=""></li>
+                <li><img src="imgs/small02.jfif" alt=""></li>
+                <li><img src="imgs/small03.jfif" alt=""></li>
+                <li><img src="imgs/small04.jfif" alt=""></li>
+                <li><img src="imgs/small05.jfif" alt=""></li>
+                <li><img src="imgs/small06.jfif" alt=""></li>
+             </ul> -->
+
+    </div>
+</body>
+</html>

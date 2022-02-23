@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        // ▶▶ 마우스 이벤트 달기
+
+        // ▶ 인자로 받을 수 있다.
+        //    https://api.jquery.com/category/events/event-object/
+
+
+        $(function(){
+
+            // ● .click()
+            //    버튼 → 클릭 시
+            $('button').click(function(e){
+                // 클릭한 위치의 x, y의 좌표를 받아볼 수 있다.
+                $('div').append('x : '+ e.pageX +', y : '+e.pageY+'<br/>');
+                // $('div').append('클릭<br/>');
+            });
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+            // ▶ 이벤트 전파 됨
+
+            // ● .mouseover()
+            //    버튼 → 마우스 위로 가면
+            $('button').mouseover(function(){
+                // $('div').append('over<br/>');
+                console.log('button over');
+            });
+
+            // ● .mouseout()
+            //    버튼 → 마우스가 빠져나가면
+            $('button').mouseout(function(){
+                console.log('button out');
+            });
+
+            $('body').mouseover(function(){
+                console.log('body over');
+            });
+
+            // 버튼 → 마우스가 빠져나가면
+            $('body').mouseout(function(){
+                console.log('body out');
+            });
+
+            // ---------------------------------------------------
+
+            // ▶ 이벤트 전파 안됨
+
+            // ● .mouseenter()
+            //    버튼 → 마우스 위로 가면
+            $('button').mouseenter(function(){
+                console.log('mouse over 2');
+            });
+
+            // ● .mouseleave()
+            //    버튼 → 마우스가 빠져나가면
+            $('button').mouseleave(function(){
+                console.log('mouse out 2');
+            });
+
+            $('body').mouseenter(function(){
+                console.log('body mouse over 2');
+            });
+
+            $('body').mouseleave(function(){ 
+                console.log('body mouse out 2');
+            });
+
+            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+            // ▶ 인자를 받을 수 있다. function(e)
+
+            //    ● .dblclick()
+            //       div → 더블클릭 시
+            $('div').dblclick(function(e){
+                $('div').append('double click<br/>');
+            });
+
+            // ---------------------------------------------------
+
+
+            // ● .mouseup()
+            //    마우스 클릭 했을때
+            $('button').mouseup(function(e){
+                $('div').append('마우스버튼 up<br/>');
+            });
+
+            // ● .mousedown()
+            //    마우스 클릭 뺐을때
+            $('button').mousedown(function(e){
+                $('div').append('마우스버튼 down<br/>');
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>마우스 이벤트</h1>
+    <button>btn</button>
+    <div></div>
+</body>
+</html>

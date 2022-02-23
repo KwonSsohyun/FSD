@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style rel="stylesheet" type="text/css">
+        .carousel{
+            width: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel>ul{
+            list-style: none;
+            padding: 0px;
+            width: 600px;
+        }
+        .carousel>ul>li{
+            float: left;
+        }
+        .carousel>ul>li>img{
+            width: 100px;
+        }
+        .carousel>a{
+            /* 앵커태그는 인라인요소 -> 블럭요소로 바꿔서 한줄 다 차지하게 해준다. 
+               가로 50px / 세로 100px로 영역을 설정해서 그만큼 차지하게 된다.
+            */
+            display: block;
+            width: 50px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+        }
+        .carousel>a:last-child{
+            left: 50px;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        // 캐러셀 만들기!
+
+        $(function(){
+            $('<a href="#">prev</a>')
+                .click(function(){return false;})
+                .appendTo('.carousel');
+            
+            $('<a href="#">next</a>')
+                .click(function(){
+                    next();
+                    return false;
+                })
+                .appendTo('.carousel');
+            
+            setInterval(next, 1000);
+        });
+
+        var left = 0;
+
+        function next(){
+            left -= 100;
+            if(left == -600) left = 0;
+            $('.carousel>ul').css('margin-left', left);
+        }
+        
+
+    </script>
+
+</head>
+<body>
+    <!-- div.container>(div#header>h1)+(div#menu>a[href="#"]*4)+(div#content>div.carousel>ul>(li>img[src="imgs/small0.jfif"])*6)+(div#footer) -->
+    <div class="container">
+        <div id="header">
+            <h1>하이미디어</h1>
+        </div>
+        <div id="menu">
+            <a href="#">menu1</a>
+            <a href="#">menu2</a>
+            <a href="#">menu3</a>
+            <a href="#">menu4</a>
+        </div>
+        <div id="content">
+            <div class="carousel">
+                <ul>
+                    <li><img src="imgs/small01.jfif" alt=""></li>
+                    <li><img src="imgs/small02.jfif" alt=""></li>
+                    <li><img src="imgs/small03.jfif" alt=""></li>
+                    <li><img src="imgs/small04.jfif" alt=""></li>
+                    <li><img src="imgs/small05.jfif" alt=""></li>
+                    <li><img src="imgs/small06.jfif" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer">
+            copyright &copy; Himedia Academy, All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>
