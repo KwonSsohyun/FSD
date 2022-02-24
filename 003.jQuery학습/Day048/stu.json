@@ -1,0 +1,7 @@
+{"students":[
+    { "num" : 10, "name":"권소현", "kor":91, "eng":81, "math":71 },
+    { "num" : 20, "name":"깡토팔", "kor":92, "eng":82, "math":72 },
+    { "num" : 30, "name":"토순이", "kor":93, "eng":83, "math":73 },
+    { "num" : 40, "name":"토팔이", "kor":94, "eng":84, "math":74 },
+    { "num" : 50, "name":"깡깡이", "kor":95, "eng":85, "math":75 }
+]}

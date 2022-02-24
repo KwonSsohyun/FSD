@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style rel="stylesheet" type="text/css">
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto;
+        }
+        table>thead>tr>th:nth-child(1){
+            width: 100px;
+        }
+        table,th,td{
+            border: 1px solid gray;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            // ▶ 제이쿼리 통신
+            //    jQuery === $
+            //    → 서버(톰캣)가 있어야 통신 가능  
+            $.get('stu.xml',function(data){
+
+                // 위치는 하지 않지만, 엘리먼트 만들어짐
+                var tbody = $('<tbody></tbody>');
+
+
+                // 원래는 오브젝트 타입임
+                // 노드 잡아내기 힘들어서, 제이쿼리로 감싸고 제이쿼리 문법 쓴다.
+                // → data.childNodes 이런식으로 쓰면 불편하니, 제이쿼리 감싸고 제이쿼리 문법 쓰자.
+                // ▶ stu.xml -> XML 돔을 갖고 왔으니까.
+                //    xml 돔을 가져왔으니 제이쿼리 문법 사용가능하다.
+                //    원래 제이쿼리는 돔제어를 쉽게 하기 위한 거니까 말이다.
+                // **** console.log($(data).find('student'));
+
+
+                // stu.xml 에서 find 찾는다. -> stu.xml 파일 안에 있는 student 찾고,
+                // foreach 문으로 각각을 다 돈다. (인덱스,엘리먼트)
+                $(data).find('student').each(function(idx, ele){ // find() 함수는 선택된 태그(객체)의 모든 자식태그들을 검색해서 찾는 것
+
+                    var num = $(ele).find('num').html(); // stu.xml 파일 안에 있는 num 찾고, <num>1</num> -> 1만 가져온다.
+                    var name = $(ele).find('name').html();
+                    var kor = $(ele).find('kor').html();
+                    var eng = $(ele).find('eng').html();
+                    var math = $(ele).find('math').html();
+
+                    // console.log($(ele).find('name').html()); // 제이쿼리 문법 쓰려고 .find() 쓰려고 제이쿼리로 ele 감쌈 
+                                                                // xml에서는 ▶ html() 적어야 엘리먼트의 노드벨류를 얻어온다.
+                                                                //             <name>강길동</name> → "강길동" 이렇게 노드벨류만 얻어낼 수 있다.
+                                                                //             text() → xml은 텍스트노드가 아니니까
+
+                    console.log(num,name,kor,eng,math);
+                    
+                    // 엘리먼트 만들어서 집어넣는다.
+                    $('<tr/>') // <tr></tr>을 만든거임
+                        // ▶ 만든 <tr> ////이 사이에다가 append한 내용들이 들어간다.//// </tr>  
+                        .append('<td>'+ num +'</td>')
+                        .append('<td>'+ name +'</td>')
+                        .append('<td>'+ kor +'</td>')
+                        .append('<td>'+ eng +'</td>')
+                        .append('<td>'+ math +'</td>')
+                        .appendTo(tbody); // <tr> //append// </tr> 이것들이 tbody안으로 들어간다. → <tbody> ///// </tbody>
+
+                    
+                });
+
+                // 테이블 안에 뒤로 집어넣는다.
+                $('table').append(tbody);
+
+            });
+        });
+
+
+    </script>
+
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- 서버(톰캣)가 있어야 통신 가능 -->
+    <h1>학생성적 리스트</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+            </tr>
+        </thead>
+        <!-- <tbody></tbody> -->
+    </table>
+</body>
+</html>

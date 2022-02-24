@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!-- ★ 제이쿼리UI ▶ css 파일 불러오고 -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+    
+    <!-- 제이쿼리 소스 먼저 불러오고 -->
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+
+    <!-- ★ 그다음, 제이쿼리UI ▶ 제이쿼리 소스 불러온다. -->
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(function(){
+            // ▶ 체이닝 사용
+
+            $('button')
+                .eq(0) // → btn1
+                    .click(function(){
+                        // $('div').hide(); // 히든처리
+
+                        // 확 안없어지는 것처럼 안하게 하기
+                        // $('div').hide(1000);
+
+                        // https://api.jquery.com/show/
+                        // ▶ .show( duration [, easing ] [, complete ] )
+                        //            지연시간  , 이징      ,  콜백함수
+                        // $('div').show('slow', 'linear');
+                        //                        ● 기본 이징 → swing스윙, linear리니어
+                        // ▶ 더 많은 이징을 쓰고 싶다면 "제이쿼리UI" 를 가져와서 써라.
+
+
+                        // ▶ 제이쿼리 UI
+                        //    https://jqueryui.com/
+                        //    https://api.jqueryui.com/easings/
+
+                        
+                        $('div').hide('fast', function(){
+                            alert('숨김');
+                        }); // 0.2초
+                    })
+                .next() // .eq(1)을 의미 → btn2
+                    .click(function(){
+                        $('div').show('slow', 'easeOutBounce'); // 보이게 하기 0.6초
+                        // 0.4초가 기본값임 숫자안줘도 적용됨
+                    })
+                .next()  // → btn3
+                    .click(function(){
+                        $('div').toggle({ // 옵션 객체형식
+                            duration:3000, // 3초동안 진행
+                            easing:'swing',
+
+                            // complete:function(){ alert('끝') } // 완료됬을때 complete
+
+                            
+                            // ▶ step     프레임을 기준으로
+                            // step:function(a,b){ console.log(a,b.start); }
+
+
+                            // ▶ progress 퍼센트를 기준으로
+                            //    적용되는 엘리먼트 a.elem
+                            //    this가 이 엘리먼트인것을 알 수 있다.
+                            //    → a나머지정보를 담는 객체(엘리먼트 this객체)  |  b퍼센트 0,1   |  c는 남은 시간
+                            //                                                  b -> 0퍼센트(안보임) / 1퍼센트(보임) 
+                            //                                                       쇼 히든이 교차됨
+                            ////// progress:function(a,b,c){ console.log(this, a.elem, b, c); }
+                           
+
+                            complete:function(){ // complete → 이벤트가(토글) 완료된 다음 
+                                // 트리거
+                                $('button').eq(2).click(); // btn3 무한반복
+                            }
+
+                        }); 
+                    });
+
+
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <!-- h1+button*4+div -->
+    <h1>애니메이션 1</h1>
+    <button>btn1</button>
+    <button>btn2</button>
+    <button>btn3</button>
+    <button>btn4</button>
+    <div>
+        모든 국민은 종교의 자유를 가진다. 모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 
+        대통령은 조국의 평화적 통일을 위한 성실한 의무를 진다.
+        모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 
+        각급 선거관리위원회는 선거인명부의 작성등 선거사무와 국민투표사무에 관하여 관계 행정기관에 필요한 지시를 할 수 있다.
+    </div>
+</body>
+</html>

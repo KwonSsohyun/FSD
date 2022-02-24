@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style rel="stylesheet" type="text/css">
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0px auto;
+        }
+        table>thead>tr>th:nth-child(1){
+            width: 100px;
+        }
+        table,th,td{
+            border: 1px solid gray;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        
+        $(function(){
+
+            // ▶ get 방식쓰기
+            //    $.get('stu.json',function(data){
+            //    $.get('stu.jsp',function(data){
+            //    → json파일 형식(확장자)을 만약 "stu.jsp"로 바꿨다면
+            //      jsp확장자 파일이지만, 해당파일에 json문법 형식에 잘 맞게만 적었다면,
+            //      json처럼 쓰고 싶다면, 해당파일 맨 아래에 컨텐츠타입을 명시해줘야한다.
+            //      <%@ page contentType="application/json" pageEncoding="UTF-8" %>
+            //      이와 가져오는 타입에 맞게 컨텐츠타입을 명시해 준다면
+            //      post방식이든, get방식이든 쓸 수 있다. 
+
+
+            // ▶ post 방식쓰기
+            //    $.post('stu.json',function(data){
+
+
+            // ▶ getJSON 방식쓰기
+            //    확장자 상관없이 json문법만 지키면, 가져올수있다.
+            //    1) 반드시 내용이 json문법 지켜야 한다.
+            //    2) getJSON 밖에 없다.(겟방식밖에 없다.) / → postJSON없다.
+            $.getJSON('stu.json',function(data){
+
+                // 위치는 하지 않지만, 엘리먼트 만들어짐
+                var tbody = $('<tbody/>'); // <tbody></tbody> 같은 뜻임
+
+                // 자바스크립트 문법 그대로 사용
+                // 프로퍼티 사용
+                // 예시) ▶ 객체 생성 
+                //          var ob = {'a' : 1};
+                //       ▶ property 접근하기
+                //          ob.a; // => 1
+
+                data.students.forEach((ele,idx) => {
+                    // stu.json을 보면
+                    // ▷ { "students" : [ ] }               → 전체도 객체고
+                    // ▶ { "num" : 10, "name":"권소현", ...} → 각 라인씩도 각각의 객체
+                    //    이때의 ele는 { "num" : 10, "name":"권소현", ...} 이 각줄이 엘리먼트!
+                    console.log(ele.num, ele.name, ele.kor, ele.eng, ele.math);
+
+                    // 엘리먼트 만들고, 넣는다.
+                    $('<tr/>')
+                        .append($('<td/>').text(ele.num)) // .text(새로운 내용 넣음)
+                        .append($('<td/>').text(ele.name))
+                        .append($('<td/>').text(ele.kor))
+                        .append($('<td/>').text(ele.eng))
+                        .append($('<td/>').text(ele.math))
+                        .appendTo(tbody);
+                });
+
+                $('table').append(tbody);
+
+            });
+        });
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>학생성적 리스트</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+            </tr>
+        </thead>
+        <!-- tbody -->
+    </table>
+</body>
+</html>

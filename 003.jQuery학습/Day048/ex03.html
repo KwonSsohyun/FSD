@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style rel="stylesheet" type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+        // ▶ 제이쿼리 애니메이션은 CSS를 이용한다.
+        //    인터발 이용안하고, 부드럽게 사용가능하다.
+        //    과부화가 안걸린다.
+        
+        // ▶ .animate()
+        //     css에 해당하는 것을 오브젝트로 주면된다. 프로퍼티! ▶ .css({ color : red }) 
+        //     캐멀케이스 이용한다!  → font-size 이렇게 입력했다가 -이게 빼기가 된다!
+        //                           ▶ fontSize 이렇게 입력한다! 
+        //     단위명세! ▶ px
+
+        $(function(){
+
+            var callback =()=>{
+                $('div').delay(1000) // 지연시간 1초
+
+                // css의 애니메이션으로 생각했을때
+                // from -> to 로 동작 설정하지 않는가?
+                // 원래 있던 위치 기본시작점 ▶ from
+                // ▶ 아래 animate 코드들이 ▶ to 
+
+
+                // animate은 콜백함수
+                // 큐 ▶ 실행해야하는 것들을 담아놓고 순서대로 진행한다.
+                //       ex) rxjava - https://blog.neonkid.xyz/261
+
+
+                // 현재 진행하는 애니메이션을 멈추는게 stop()
+                // $('div').stop();
+                .animate({marginLeft:'400px'},1000)
+                .animate({marginTop:'400px'},1000)
+                .animate({marginLeft:'0px'},1000)
+                .animate({marginTop:'0px'},1000)
+
+
+                // $('div').animate({ // 자바스크립트 오브젝트 → Type: PlainObject
+                //     marginLeft: '400px',
+                //     // ▶ 이어서 되는게 싫다. 하면 위코드처럼 분절해서 animate를 동작 따로따로 줘야한다.
+                //     marginTop:'400px'
+                //     // ▶ backgroundColor : 'red' ▶ 배경색은 적용 안됨 → "제이쿼리컬러 플러그인" 이용해야함
+                // })
+
+            }
+
+
+            $('button')
+                .first() // → start 버튼
+                    .click(callback)
+                .next()  // → stop 버튼
+                    // 스탑버튼 눌렀을때 완전 종료하고 싶은데
+                    // 몇 개의 애니메이션이 남아 있는지 알아야한다.
+                    // 실행해야하는 것들을 큐에 담아놓는다.
+                    //  .queue() 
+                    //  ▶ $('div').queue().length
+                    .click(
+                        ()=>{
+                            // while($('div').queue.length)
+                            //       // 애니메이션 갯수만큼 스탑을 건다.
+                            //       $('div').stop();
+
+
+                            // 해당 애니메이션은 진행하고, 멈춤
+                            // stop 현재 애니메이션을 멈춘다.
+                            // .clearQueue() 실행할 일들이 사라진다.
+                            // ▶ 큐에 있는 것들을 모두 비우는 것이지
+                            //    이미 시작된 일을 멈춰 주지는 않는다.
+                            //    → .stop()을 통해서 지금 진행중인 일을 멈춘다.
+                            $('div').clearQueue();
+                            
+
+                            // ▶▶ 큐 에있는 것들을 모두 비우고, 현재 진행 중인 일을 멈춘다.
+                            $('div').clearQueue().stop();
+
+
+                            // ▶ 현재 진행중인 일을 멈춘다. ▶ .stop()
+                            //    멈춤과 동시에 다음일이 시작된다.
+                            //    그리고 큐를 비운다. ▶ .clearQueue()
+                            //    클리어큐는 실행중인 일은 멈추지 않기 때문에, 이미 실행된 다음일까지는 마저 수행이된다.
+                            //    그리고 멈춘다. 왜? 클리어큐를 통해 다음 일들은 삭제가 됬기 때문.
+                            $('div').stop().clearQueue(); 
+                            // $('div').stop().clearQueue().stop(); // 이 코드를 하면 되긴한다.
+
+
+                            // ▶ .finish() 완료상태로 가는것
+                            //    마치 애니메이션 다 한 마지막 상태로 간다. (ex 스킵버튼 누른 느낌)
+                            //    애니메이션 끝점 상태로 가는 것
+                            $('div').finish();
+
+
+                            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+                            // ▶ .dequeue()
+                            //     뎁큐구조는 양쪽에서 끄집어 낸다.
+                            //     두 개씩 끄집어 낸다.
+                            //     현재 진행이랑 다음 것을 같이 한다.
+                            //     → 포물선 그릴 때 쓴다.
+                            $('div').dequeue();
+
+
+                        })
+
+                    // .click(()=>{ $('div').stop(); })
+            
+            console.log('js 메인종료');
+
+        });
+        
+    </script>
+
+</head>
+<body>
+    <h1>애니메이션 3</h1>
+    <button>start</button>
+    <button>stop</button>
+    <div></div>
+</body>
+</html>

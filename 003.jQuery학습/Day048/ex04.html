@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- ★ bxslider 플러그인 만든사람것의 css 소스 -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.min.css" /> -->
+
+    <style rel="stylesheet" type="text/css">
+        img{
+            width: 200px;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+
+    <!-- ★ 제이쿼리를 이용해서 만든사람이 만들었다. -->
+    <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        // ▶ bxslider 플러그인
+        //    남들이 만들어놓은 것을 가져다가 쓴다.
+        //     → https://bxslider.com/examples/
+
+        var bx;
+
+        $(function(){
+            // .bxSlider() 의 함수 정의는
+            //  위의 bxslider.min.js 에 다 정의가 되어있는 것을 가져다가 쓰는 것이다.
+            //  ****** $('.slider').bxSlider();
+
+            bx = $('.slider').bxSlider({ // 기존이랑 차이점은 오브젝트가 들어있다 차이점 정도 (프로퍼티 형식으로 작성한다.)
+                    // https://bxslider.com/examples/auto-show-start-stop-controls/
+                    // auto: true,
+                    // autoControls: true,
+                    // stopAutoOnClick: true,
+                    // pager: true, 
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+
+
+                    // ▶ Carousel 캐러셀
+                    //    ● slideWidth
+                    //       → 값이 0이면, 창을 늘리거나 줄이거나 할때 화면사이즈에 맞게 퍼센트로 맞게 조절이 된다.
+                    //         값을 0이상의 숫자를 주면 해당 사이즈로 고정되서 창이 줄거나 커져도 해당 사이즈로 보여진다. 
+                    slideWidth: 200,
+
+                    minSlides : 2,   // 픽스되는 최소 갯수
+                    maxSlides : 3,   // 최대 갯수
+
+                    // moveSlides → 몇개가 이동움직일거냐
+                    moveSlides : 1, // min이랑 max의 사이값이어야함 
+                                    // ex) minSlides : 1 , maxSlides : 3  |  moveSlides는 1~3중에 숫자올 수 있다. 
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+
+
+                    // ▶ General
+                    //    프로퍼티 값안주면, 디폴트 적용됨
+                    //    프로퍼티 형식으로 작성하면됨
+                    //    ▷ 이름 : 올수있는타입
+                    mode : 'horizontal', // horizontal - 가로로 보임(기본값)  |  fade - 흐려졌다가 보임  |  vertical 세로로 보여짐
+                    speed : 500,         // 시간 (숫자가 작을수록 빠르다. → 1000분의 1초)
+                    slideMargin : 10,    // 이미지 간격 띄우기
+                    // randomStart : true,   // 접속을 할때, 시작이미지가 랜덤
+                    // infiniteLoop : false, // 무한루프를 false주면, 끝에 이미지 되면 다시 처음으로 안 온다. 끝에서 멈춤
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+
+
+                    // ▶ Controls
+                    controls : true,   // false → 마우스로 다음슬라이드 보이게 밀 수 있다.
+                    nextText : '다음', // 원래 next 글자를 내가 원하는 글자로 대체해서 쓸 수 있다.
+                    prevText : '이전', // 원래 prev 글자를 내가 원하는 글자로 대체해서 쓸 수 있다.
+
+                    // 내가 html 만든 것으로 클릭했을 때 페이지 슬라이드 되게 하고 싶다.
+                    // html으로 태그를 만들고, 
+                    // 해당태그를 "제이쿼리 셀렉터" 로 선택해줘야함
+                    nextSelector : $('span:eq(1)'),
+                    prevSelector : $('span:eq(0)'),
+
+                    auto : true,          // 자동 시작
+                    autoControls : true,  // start 누르면 자동슬라이스 됨  |  stop 슬라이스 멈춤
+                    startText : "시작",   // 원래 start 글자를 내가 원하는 글자로 대체해서 쓸 수 있다.
+                    stopText : "중지",    // 원래 stop 글자를 내가 원하는 글자로 대체해서 쓸 수 있다.
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+
+
+                    // ▶ Auto
+                    pause : 3000,       // 애니메이션 시간 (멈춰있는 시간)
+                    autoStart : false,  // 자동으로 시작안하게 하기
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+
+
+                    // ▶ Pager
+                    //    사전적의미 호출기
+                    pagerType : 'short', // 짧게 보여준다. → 1 / 2
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+
+
+                    // ▶ Callbacks
+                    onSliderLoad : function(){ console.log('loading'); }, // html의 class="slider" 슬라이더가 로딩됬을 때 
+
+                    // 인자 → (제이쿼리객체 , 현재인덱스번호 , 다음인덱스번호) ▶ 다 똑같은 걸 가르킨다. (다음슬라이스를 가르킨다.)(이전을 누르면 이전슬라이스 가르킴)
+                    onSlideBefore : function(a,b,c){ $('div:eq(0)').html(a.html()) },          // ▶ 슬라이스가 넘어가기 전에, 콜백함수를 수행한다.
+                                                                                               //    콜백함수 안에 div 0번째니까 맨처음 div에
+                                                                                               //    똑같이 돌아가는 첫 이미지를 넣는다.
+                                                                                               //    지금 현재 보여지는 객체 a
+                                                                                               //    현재 보여지는 이미지 a의 html 소스를 가져온다.
+                                                                                               //    div 0번째 순서에 있는 곳에 html 소스 넣어준다.
+                    // onSlideBefore : function(a,b,c){ console.log('onSlideBefore',a,b,c); }, // ▶ 슬라이스 넘어가기 전
+
+                    onSlideNext : function(a,b,c){ console.log('onSlideNext',a,b,c); }, //  ▶ 다음 > 슬라이스로 넘어 가면 (방향에 대한) 
+                    onSlidePrev : function(a,b,c){ console.log('onSlidePrev',a,b,c); }, //  ▶ 이전 < 슬라이스로 넘어 가면 (방향에 대한)
+
+                    onSlideAfter : function(a,b,c){ console.log('onSlideAfter',a,b,c); } // ▶ 슬라이스 다 넘어져 왔을 때
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+
+
+                    // ▶ Public Methods
+                    // bx.goToSlide(2);      -> 인덱스 2번 보여짐
+                    // bx.goToNextSlide();   -> 다음 이미지 보여짐
+                    // bx.getCurrentSlide(); -> 현재 슬라이드 인덱스 번호 → ex) 4
+                    // bx.getSlideCount();   -> 슬라이스 총 갯수         → ex) 6
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+                    
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <!-- 캐러셀 -->
+    <div></div>
+    <div class="slider">
+        <div><img src="imgs/small01.jfif" title="img1"/></div>
+        <div><img src="imgs/small02.jfif" title="img2"/></div>
+        <div><img src="imgs/small03.jfif" title="img3"/></div>
+        <div><img src="imgs/small04.jfif" title="img4"/></div>
+        <div><img src="imgs/small05.jfif" title="img5"/></div>
+        <div><img src="imgs/small06.jfif" title="img6"/></div>
+    </div>
+    <span/><span/>
+</body>
+</html>

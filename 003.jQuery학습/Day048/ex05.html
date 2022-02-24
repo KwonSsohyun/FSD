@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+
+    <script type="text/javascript">
+
+
+        // ▶ 제이쿼리 통신 
+        //    가져오면 통신하는 것  
+        //    → 서버(톰캣)가 있어야 통신 가능      
+
+
+        $(function(){
+            $('button').click(function(){
+
+                    // ▶ 제이쿼리 통신
+                    //    jQuery === $
+                    //    $.get 이렇게 축약해서도 씀
+                    jQuery.get('lec01.txt', function(data){ // 성공하면 수행되는 콜백 (200)
+                        console.log(data); // lec01.txt 의 내용이 불러와져서 콘솔에 찍히는 것을 볼 수 있다.
+                    });
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+                    // ▶ 자바스크립트 통신
+                    xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = callback; // 콜백성공 상태 걸어서, 성공 callback시 함수 수행되게 해야한다.
+                    xhr.open('get', 'ex01.html');
+                    xhr.send();
+
+
+                    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+                    // ▶ .load()
+                    //    https://api.jquery.com/load/#load-url-data-complete
+
+                    // $('#target').load('ex01.html'); 
+                    // ex01.html이 보이긴 하나, 작동시키려고 버튼들을 누르면
+                    // ex01.html에 적용한 버튼들은 안먹는다.
+                    // 왜 안 먹을까?
+                    // ex05.html에서 해당 코드는 html로딩된 다음에 수행시키는데
+                    // ex01.html에서도 html로딩된 다음에 수행하라하니
+                    // 이미 html이 로딩됬는걸?
+                    // 그러니 또 로딩된 다음에 하라는것이니 안되죠~
+                    // 그럼 어떻게 해결할 수 있을까?
+                    // $(document).on() 을 하면 된다.
+
+
+                    // <div id="target"> //// </div> → 태그 안에 사이로 내용이 불러와진다. 
+                    // $('#target').load('lec01.txt'); 
+            });
+                    
+
+        });
+
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ajax</h1>
+    <button>loading</button>
+    <div id="target"></div>
+    <div>상단의 내용은 불러온 내용</div>
+</body>
+</html>
