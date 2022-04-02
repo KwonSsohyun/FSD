@@ -1,0 +1,17 @@
+package com.springbook.biz.board;
+
+public class PageVO {
+	
+	private int btnCnt;
+	private int onePage;
+	
+	
+	public int getBtnCnt() {
+		return btnCnt;
+	}
+	public void setBtnCnt(int btnCnt) {
+		this.btnCnt = btnCnt;
+	}
+	
+	
+}

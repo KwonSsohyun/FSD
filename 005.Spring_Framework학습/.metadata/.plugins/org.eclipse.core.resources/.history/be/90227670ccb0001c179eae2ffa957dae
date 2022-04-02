@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDAO">
+
+	<resultMap id="userResult" type="user">
+		<id property="id" column="ID" />
+		<result property="password" column="PASSWORD" />
+		<result property="name" column="NAME"/>
+		<result property="role" column="ROLE" />
+	</resultMap>
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>

@@ -1,0 +1,15 @@
+package com.springbook.biz.board;
+
+import java.sql.SQLException;
+
+import com.springbook.biz.board.impl.BoardDAO;
+ 
+public class BoardServiceClient {
+	
+	public static void main(String[] args) throws SQLException {
+		
+		BoardDAO vo = new BoardVO();
+		
+		
+		
+}

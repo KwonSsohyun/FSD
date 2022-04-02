@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <context:component-scan base-package="org.spring.www" />
+    <context:component-scan base-package="com.springbook.biz" />
+    <context:component-scan base-package="com.springbook.view" />
+	<mvc:annotation-driven />
+ 
+    <!-- 인터셉터 객체 생성 -->
+    <!-- 
+    	 인터셉터 - 가로채기 기능
+    	 인터셉터는 리퀘스트맵핑 전에 처리
+    	 인터셉터는 주로 컨트롤러 이벤트 호출 전에 가로채서 어떠한 처리를 해주기 위해 사용되는 기능
+    	 세션체크가 필요한 페이지는 XML 설정에 의해 정의해줌으로써
+    	 각 jsp 페이지마다 로그인 체크(세션 체크) 해주는 코드를 모두 작성해줄 필요가 없습니다.
+     -->
+    <bean id="authenticationInterceptor" class="org.spring.www.interceptor.AuthenticationInterceptor">
+    </bean>
+    <!-- Interceptor 설정 -->
+<!--     <mvc:interceptors> -->
+<!--         <mvc:interceptor> -->
+<!--             <mvc:mapping path="/insertBoard.do"/> -->
+<!--             <mvc:mapping path="/getBoard.do"/> -->
+<!--             <ref bean="authenticationInterceptor"/> -->
+<!--         </mvc:interceptor> -->
+<!--     </mvc:interceptors> -->
+    
+    <!-- Interceptor 설정 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*" />
+			<mvc:exclude-mapping path="/login.do" />
+			<mvc:exclude-mapping path="/getBoardList.do" />
+            <ref bean="authenticationInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
+    <mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+
+
+
+
+</beans>

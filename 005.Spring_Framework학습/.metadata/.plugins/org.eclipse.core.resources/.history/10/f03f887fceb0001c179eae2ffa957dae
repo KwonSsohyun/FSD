@@ -1,0 +1,20 @@
+package com.springbook.biz.user.impl;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.springbook.biz.user.UserVO;
+
+@Repository
+public class UserDAOMybatis {
+	
+	@Autowired
+	public SqlSessionTemplate mybatis;
+	
+	public void inserUser(UserVO vo) {
+		
+	}
+	
+	
+}

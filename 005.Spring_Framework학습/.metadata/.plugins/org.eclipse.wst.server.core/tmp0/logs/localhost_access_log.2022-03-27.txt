@@ -1,0 +1,17 @@
+127.0.0.1 - - [27/Mar/2022:19:52:39 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:19:52:40 +0900] "GET /SpringMVC/login.jsp HTTP/1.1" 200 2159
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:19:52:41 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:19:52:55 +0900] "POST /SpringMVC/login.do HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:19:52:55 +0900] "GET /SpringMVC/getBoardList.do HTTP/1.1" 404 814
+127.0.0.1 - - [27/Mar/2022:19:53:25 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:19:53:26 +0900] "GET /SpringMVC/login.jsp HTTP/1.1" 200 2159
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:19:53:31 +0900] "POST /SpringMVC/login.do HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:19:53:31 +0900] "GET /SpringMVC/getBoardList.do HTTP/1.1" 200 4971
+127.0.0.1 - - [27/Mar/2022:22:16:00 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:22:16:00 +0900] "GET /SpringMVC/WEB-INF/classes/com/springbook/view/board/GetBoardListController.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:22:16:24 +0900] "GET /SpringMVC/WEB-INF/classes/com/springbook/view/user/LoginController.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:22:16:42 +0900] "GET /SpringMVC/login.jsp HTTP/1.1" 200 2159
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:22:16:56 +0900] "GET /SpringMVC/WEB-INF/board/getBoardList.jsp HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:22:17:17 +0900] "GET /SpringMVC/login.jsp HTTP/1.1" 200 2159
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:22:17:25 +0900] "POST /SpringMVC/login.do HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Mar/2022:22:17:26 +0900] "GET /SpringMVC/getBoardList.do HTTP/1.1" 200 4971

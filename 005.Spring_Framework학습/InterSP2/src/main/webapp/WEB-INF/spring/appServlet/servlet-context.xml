@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<context:component-scan base-package="com.my.web" />
+	<annotation-driven />
+
+
+	<!-- ViewResolver -->
+	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- interceptors -->
+	<interceptors>
+		<interceptor>
+			<!-- 인터셉터가 적용될 URL -->
+			<mapping path="/**" />
+			<!-- 인터셉터가 제외될 URL -->
+			<exclude-mapping path="/login*" />
+			<exclude-mapping path="/join*" />
+			<exclude-mapping path="/home*" />
+			<!-- 적용될 인터셉터를 지정 -->
+			<beans:bean class="com.my.web.interceptor.Interceptor" />
+		</interceptor>
+	</interceptors>	
+	
+</beans:beans>

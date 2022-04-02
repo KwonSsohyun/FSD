@@ -1,0 +1,78 @@
+
+3월 24, 2022 13:16:45.902 NEW SESSION
+3월 24, 2022 13:16:45.902 [3412:12276:0324/131645.899:ERROR:device_event_log_impl.cc(214)] [13:16:45.898] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 24, 2022 13:16:45.907 [3412:12276:0324/131645.906:ERROR:device_event_log_impl.cc(214)] [13:16:45.907] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 24, 2022 14:49:05.279 [11932:21400:0324/144905.279:ERROR:device_event_log_impl.cc(214)] [14:49:05.278] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 24, 2022 14:49:05.294 [11932:21400:0324/144905.293:ERROR:device_event_log_impl.cc(214)] [14:49:05.293] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 24, 2022 15:14:24.880 [17800:12648:0324/151424.879:ERROR:device_event_log_impl.cc(214)] [15:14:24.879] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 24, 2022 15:14:24.898 [17800:12648:0324/151424.897:ERROR:device_event_log_impl.cc(214)] [15:14:24.897] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 24, 2022 16:33:21.496 [11852:13256:0324/163321.495:ERROR:device_event_log_impl.cc(214)] [16:33:21.496] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 24, 2022 16:33:21.503 [11852:13256:0324/163321.502:ERROR:device_event_log_impl.cc(214)] [16:33:21.502] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 24, 2022 16:37:45.846 [6236:15676:0324/163745.846:ERROR:device_event_log_impl.cc(214)] [16:37:45.846] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 24, 2022 16:37:45.852 [6236:15676:0324/163745.852:ERROR:device_event_log_impl.cc(214)] [16:37:45.852] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 24, 2022 18:25:38.672 [6236:15676:0324/182538.672:ERROR:device_event_log_impl.cc(214)] [18:25:38.672] USB: usb_service_win.cc:260 Failed to get device driver name: 요소가 없습니다. (0x490)
+
+3월 25, 2022 10:40:36.439 NEW SESSION
+3월 25, 2022 10:40:36.439 [23488:22008:0325/104036.437:ERROR:device_event_log_impl.cc(214)] [10:40:36.437] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 25, 2022 10:40:36.441 [23488:22008:0325/104036.441:ERROR:device_event_log_impl.cc(214)] [10:40:36.440] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 25, 2022 10:47:40.398 [3140:15188:0325/104740.398:ERROR:device_event_log_impl.cc(214)] [10:47:40.398] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 25, 2022 10:47:40.402 [3140:15188:0325/104740.402:ERROR:device_event_log_impl.cc(214)] [10:47:40.402] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 25, 2022 10:48:12.436 [3140:15188:0325/104812.436:ERROR:device_event_log_impl.cc(214)] [10:48:12.437] USB: usb_service_win.cc:260 Failed to get device driver name: 요소가 없습니다. (0x490)
+3월 25, 2022 17:00:02.58 [17140:1976:0325/170002.058:ERROR:device_event_log_impl.cc(214)] [17:00:02.057] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 25, 2022 17:00:02.63 [17140:1976:0325/170002.063:ERROR:device_event_log_impl.cc(214)] [17:00:02.063] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 25, 2022 17:01:12.443 [16476:14540:0325/170112.442:ERROR:device_event_log_impl.cc(214)] [17:01:12.442] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 25, 2022 17:01:12.450 [16476:14540:0325/170112.450:ERROR:device_event_log_impl.cc(214)] [17:01:12.450] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+3월 27, 2022 19:52:42.804 NEW SESSION
+3월 27, 2022 19:52:42.805 [21612:20820:0327/195242.800:ERROR:device_event_log_impl.cc(214)] [19:52:42.800] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 27, 2022 19:52:42.805 [21612:20820:0327/195242.804:ERROR:device_event_log_impl.cc(214)] [19:52:42.804] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+3월 28, 2022 11:55:49.626 NEW SESSION
+3월 28, 2022 11:55:49.626 [7712:8468:0328/115549.624:ERROR:device_event_log_impl.cc(214)] [11:55:49.623] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 28, 2022 11:55:49.629 [7712:8468:0328/115549.629:ERROR:device_event_log_impl.cc(214)] [11:55:49.629] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 28, 2022 12:05:36.914 [16088:8612:0328/120536.914:ERROR:device_event_log_impl.cc(214)] [12:05:36.914] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 28, 2022 12:05:36.920 [16088:8612:0328/120536.920:ERROR:device_event_log_impl.cc(214)] [12:05:36.920] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 28, 2022 12:17:45.278 [20908:388:0328/121745.278:ERROR:device_event_log_impl.cc(214)] [12:17:45.278] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 28, 2022 12:17:45.285 [20908:388:0328/121745.285:ERROR:device_event_log_impl.cc(214)] [12:17:45.285] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 28, 2022 13:21:18.233 [10956:23880:0328/132118.233:ERROR:device_event_log_impl.cc(214)] [13:21:18.233] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 28, 2022 13:21:18.243 [10956:23880:0328/132118.242:ERROR:device_event_log_impl.cc(214)] [13:21:18.242] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+3월 28, 2022 23:22:47.487 NEW SESSION
+3월 28, 2022 23:22:47.487 [20520:5308:0328/232247.485:ERROR:device_event_log_impl.cc(214)] [23:22:47.484] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 28, 2022 23:22:47.488 [20520:5308:0328/232247.487:ERROR:device_event_log_impl.cc(214)] [23:22:47.486] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 28, 2022 23:28:34.323 [18184:15800:0328/232834.323:ERROR:device_event_log_impl.cc(214)] [23:28:34.323] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 28, 2022 23:28:34.330 [18184:15800:0328/232834.330:ERROR:device_event_log_impl.cc(214)] [23:28:34.329] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+3월 29, 2022 11:10:19.457 NEW SESSION
+3월 29, 2022 11:10:19.457 [20396:19724:0329/111019.455:ERROR:device_event_log_impl.cc(214)] [11:10:19.455] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 29, 2022 11:10:19.462 [20396:19724:0329/111019.461:ERROR:device_event_log_impl.cc(214)] [11:10:19.461] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 29, 2022 11:27:03.822 [8852:18416:0329/112703.822:ERROR:device_event_log_impl.cc(214)] [11:27:03.822] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 29, 2022 11:27:03.827 [8852:18416:0329/112703.827:ERROR:device_event_log_impl.cc(214)] [11:27:03.828] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 29, 2022 15:04:12.142 [8852:18416:0329/150412.142:ERROR:interface_endpoint_client.cc(659)] Message 0 rejected by interface blink.mojom.WidgetHost
+3월 29, 2022 15:41:07.378 [21188:11312:0329/154107.378:ERROR:device_event_log_impl.cc(214)] [15:41:07.379] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 29, 2022 15:41:07.387 [21188:11312:0329/154107.387:ERROR:device_event_log_impl.cc(214)] [15:41:07.387] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 29, 2022 17:53:45.75 [9836:4320:0329/175345.075:ERROR:device_event_log_impl.cc(214)] [17:53:45.074] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 29, 2022 17:53:45.82 [9836:4320:0329/175345.082:ERROR:device_event_log_impl.cc(214)] [17:53:45.082] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 29, 2022 18:52:05.506 [14356:11388:0329/185205.505:ERROR:device_event_log_impl.cc(214)] [18:52:05.506] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 29, 2022 18:52:05.512 [14356:11388:0329/185205.511:ERROR:device_event_log_impl.cc(214)] [18:52:05.512] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+3월 30, 2022 09:45:04.512 NEW SESSION
+3월 30, 2022 09:45:04.512 [18804:20396:0330/094504.508:ERROR:device_event_log_impl.cc(214)] [09:45:04.509] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 30, 2022 09:45:04.517 [18804:20396:0330/094504.517:ERROR:device_event_log_impl.cc(214)] [09:45:04.517] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 30, 2022 10:30:43.699 [18804:20396:0330/103043.699:ERROR:device_event_log_impl.cc(214)] [10:30:43.699] USB: usb_service_win.cc:260 Failed to get device driver name: 요소가 없습니다. (0x490)
+3월 30, 2022 14:58:46.340 [18804:20396:0330/145846.340:ERROR:interface_endpoint_client.cc(659)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+4월 01, 2022 11:09:18.479 NEW SESSION
+4월 01, 2022 11:09:18.480 [22840:13448:0401/110918.476:ERROR:device_event_log_impl.cc(214)] [11:09:18.477] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+4월 01, 2022 11:09:18.482 [22840:13448:0401/110918.481:ERROR:device_event_log_impl.cc(214)] [11:09:18.481] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+4월 01, 2022 11:20:51.483 [15500:22628:0401/112051.482:ERROR:device_event_log_impl.cc(214)] [11:20:51.483] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+4월 01, 2022 11:20:51.487 [15500:22628:0401/112051.487:ERROR:device_event_log_impl.cc(214)] [11:20:51.487] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+4월 01, 2022 11:21:06.690 [15500:24064:0401/112106.689:ERROR:database.cc(1777)] Passwords SQLite error: code 2067 errno 0: UNIQUE constraint failed: logins.origin_url, logins.username_element, logins.username_value, logins.password_element, logins.signon_realm sql: INSERT INTO logins (origin_url, action_url, username_element, username_value, password_element, password_value, submit_element, signon_realm, date_created, blacklisted_by_user, scheme, password_type, times_used, form_data, display_name, icon_url, federation_url, skip_zero_click, generation_upload_status, possible_username_pairs, id, date_last_used, moving_blocked_for, date_password_modified) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+4월 01, 2022 11:21:21.683 [15500:9788:0401/112121.683:ERROR:database.cc(1777)] Passwords SQLite error: code 2067 errno 0: UNIQUE constraint failed: logins.origin_url, logins.username_element, logins.username_value, logins.password_element, logins.signon_realm sql: INSERT INTO logins (origin_url, action_url, username_element, username_value, password_element, password_value, submit_element, signon_realm, date_created, blacklisted_by_user, scheme, password_type, times_used, form_data, display_name, icon_url, federation_url, skip_zero_click, generation_upload_status, possible_username_pairs, id, date_last_used, moving_blocked_for, date_password_modified) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+4월 01, 2022 11:26:44.480 [15500:22628:0401/112644.480:ERROR:device_event_log_impl.cc(214)] [11:26:44.480] USB: usb_service_win.cc:260 Failed to get device driver name: 요소가 없습니다. (0x490)
+4월 01, 2022 11:31:08.527 [19292:20508:0401/113108.527:ERROR:device_event_log_impl.cc(214)] [11:31:08.527] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+4월 01, 2022 11:31:08.531 [19292:20508:0401/113108.531:ERROR:device_event_log_impl.cc(214)] [11:31:08.531] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+4월 01, 2022 11:37:25.929 [19292:20508:0401/113725.928:ERROR:device_event_log_impl.cc(214)] [11:37:25.928] USB: usb_service_win.cc:260 Failed to get device driver name: 요소가 없습니다. (0x490)
+4월 01, 2022 15:04:46.478 [15280:18388:0401/150446.478:ERROR:device_event_log_impl.cc(214)] [15:04:46.478] USB: usb_service_win.cc:391 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+4월 01, 2022 15:04:46.485 [15280:18388:0401/150446.485:ERROR:device_event_log_impl.cc(214)] [15:04:46.485] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+4월 01, 2022 18:34:59.813 [15280:18388:0401/183459.813:ERROR:device_event_log_impl.cc(214)] [18:34:59.813] USB: usb_service_win.cc:260 Failed to get device driver name: 요소가 없습니다. (0x490)

@@ -1,0 +1,5 @@
+jdbc.driverClassName=com.mysql.jdbc.swork
+jdbc.url=jdbc:mysql://localhost:3306/swork
+jdbc.username=root
+jdbc.password=1111
+

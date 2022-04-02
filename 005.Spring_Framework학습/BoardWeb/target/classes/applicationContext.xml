@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
+
+
+
+<!--  
+	<bean id="tv" class="polymorphism.SamsungTV">
+		<property name="speaker" ref="apple"></property>
+		<property name="price" value="270000"></property>
+	</bean>
+-->	
+<!-- 	
+	<bean id="tv" class="polymorphism.SamsungTV">
+		<constructor-arg ref="sony"></constructor-arg>
+		<constructor-arg value="2700000"></constructor-arg>
+	</bean> 
+-->
+<!--
+	<bean id="sony" class="polymorphism.SonySpeaker"></bean>
+	
+	<bean id="apple" class="polymorphism.AppleSpeaker"></bean>
+-->	
+	
+	<!--
+	
+	<bean id="tv" class="polymorphism.SamsungTV">
+		<constructor-arg index="1" ref="sony"></constructor-arg>
+		<constructor-arg index="0" value="2700000"></constructor-arg>
+	</bean>
+	
+	<bean id="sony" class="polymorphism.SonySpeaker"></bean>
+	
+	-->
+	
+	
+	<!-- <bean id="tv" class="polymorphism.SamsungTV" scope="prototype"/> -->
+	
+	<!-- <bean id="tv" class="polymorphism.SamsungTV" lazy-init="true" />  -->
+	
+	<!-- <bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod"/> -->
+	<!-- <bean id="lg" class="polymorphism.LgTV" /> -->
+
+
+</beans>

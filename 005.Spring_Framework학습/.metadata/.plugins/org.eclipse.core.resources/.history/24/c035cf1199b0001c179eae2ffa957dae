@@ -1,0 +1,55 @@
+package com.springbook.biz.board.impl;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.springbook.biz.board.BoardVO;
+
+
+@Repository
+public class BoardDAOMybatis extends SqlSessionDaoSupport{
+	
+	@Autowired
+	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+		super.setSqlSessionFactory(sqlSessionFactory);
+	}
+	
+	
+	
+	
+	// CRUD
+	public BoardDAOMybatis() {
+		mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
+	}
+	
+	public void insertBoard(BoardVO vo) {
+		mybatis.insert("BoardDAO.insertBoard", vo);
+		mybatis.commit();
+	}
+	
+	public void updateBoard(BoardVO vo) {
+		mybatis.update("BoardDAO.updateBoard", vo);
+		mybatis.commit();
+	}
+	
+	public void deleteBoard(BoardVO vo) {
+		mybatis.delete("BoardDAO.deleteBoard", vo);
+		mybatis.commit();
+	}
+	
+	public BoardVO getBoard(BoardVO vo) {
+		return (BoardVO) mybatis.selectOne("BoardDAO.getBoard", vo);
+	}
+	
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		return mybatis.selectList("BoardDAO.getBoardList", vo);
+	}
+	
+
+	
+}

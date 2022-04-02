@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax Test</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+	function getBoard(val){
+		var values; // ArrayList 값을 받을 변수를 선언
+		
+		$.ajax({
+			method:"POST",
+			url:"reqAjax1.do",
+			data:{'seq':val},
+			success:function(result){
+				if(result.code == "OK"){ // controller에서 넘겨준 성공 여부 코드
+					values = result.boardList;
+					$.each(values, function(index,value){
+						$("#status").append("번호 " + value.seq + ", 제목 : " + value.title + ", 작성자 : " + value.writer);
+					});
+					console.log("성공");
+				} else {
+					console.log("실패");
+				}
+			},
+			error:function(request,status){
+				alert("오류가 발생했습니다.");
+			}
+		});
+		
+	}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+# login.jsp
+message.user.login.title=LOGIN
+message.user.login.id=ID
+message.user.login.password=PASSWORD
+message.user.login.loginBtn=LOG-IN

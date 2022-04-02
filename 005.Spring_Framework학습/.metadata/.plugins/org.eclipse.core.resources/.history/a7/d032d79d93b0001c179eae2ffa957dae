@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+	
+	<resultMap id="boardResult" type="board">
+		<id property="seq" column="SEQ" />
+		<result property="title" column="TITLE" />
+		<result property="writer" column="WRITER" />
+		<result property="content" column="CONTENT" />
+		<result property="regDate" column="REGDATE" />
+		<result property="cnt" column="CNT" />
+	</resultMap>
+
+   <insert id="insertBoard">
+      insert into board (title, writer, content) values (#{title}, #{writer}, #{content})
+   </insert>
+
+   <update id="updateBoard">
+      update board set title=#{title}, content=#{content} where seq=#{seq}
+   </update>
+
+   <delete id="deleteBoard">
+      delete from board where seq=#{seq}
+   </delete>
+
+   <select id="getBoard" resultType="board">
+      select * from board where seq=#{seq}
+   </select>
+
+   <select id="getBoardList" parameterType="board" resultMap="boardResult">
+      select * from board
+   </select>
+
+</mapper>

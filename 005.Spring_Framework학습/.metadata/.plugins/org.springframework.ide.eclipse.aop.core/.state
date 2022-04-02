@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="InterSP"/>
+<aop-project name="MVCProject02"/>
+<aop-project name="SpringLanguage"/>
+<aop-project name="SpringFileUpload"/>
+<aop-project name="MybatisProject"/>
+<aop-project name="JDBC"/>
+<aop-project name="SpringException"/>
+<aop-project name="PathVar"/>
+<aop-project name="InterSP2"/>
+<aop-project name="MybatisPaging"/>
+<aop-project name="SpringMVC"/>
+</aop-reference-model>

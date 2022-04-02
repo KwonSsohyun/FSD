@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+
+	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
+	
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy> 
+
+<!--	
+	<bean id="afterThrowing" class="com.springbook.biz.common.AfterThrowingAdvice" ></bean>
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />
+		<aop:aspect ref="afterThrowing"> 
+			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" throwing="exceptObj" />
+		</aop:aspect>
+	</aop:config>
+ -->	
+	
+<!-- p.193
+	<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"></bean>
+	<aop:config>
+		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" />
+		<aop:aspect ref="afterReturning">
+			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj" />
+		</aop:aspect>
+	
+	</aop:config>
+ -->
+
+
+
+<!--  -->	
+<!-- p.187  -->
+	<bean id="around" class="com.springbook.biz.common.AroundAdvice" />
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />
+		<aop:aspect ref="around">
+			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
+		</aop:aspect>
+	
+	</aop:config>
+	
+	
+<!-- p.182 ~ 185 
+	<bean id="afterThrowing" class="com.springbook.biz.common.AfterThrowingAdvice" />
+	<bean id="after" class="com.springbook.biz.common.AfterAdvice" />
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />
+		<aop:aspect ref="afterThrowing">
+			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" />
+		</aop:aspect>
+		
+		<aop:aspect ref="after">
+			<aop:after pointcut-ref="allPointcut" method="finallyLog" />
+		</aop:aspect>
+		
+	</aop:config>
+-->
+
+<!-- p.181	
+	<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice" />
+	
+	<aop:config>
+		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" />
+		<aop:aspect ref="afterReturning">
+			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" />
+		</aop:aspect>
+	</aop:config>
+-->
+	
+	
+<!-- p.179
+	<bean id="before" class="com.springbook.biz.common.BeforeAdvice" />
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />
+		<aop:aspect ref="before">
+			<aop:before pointcut-ref="allPointcut" method="beforeLog" />
+		</aop:aspect>
+	</aop:config>
+-->
+
+<!-- 
+	<bean id="log" class="com.springbook.biz.common.LogAdvice"></bean>
+	
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />
+		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" />
+		<aop:aspect ref="log">
+			<aop:before pointcut-ref="getPointcut" method="printLog"/>
+		</aop:aspect>
+	</aop:config>
+-->		
+	
+
+<!--  
+	<bean id="tv" class="polymorphism.SamsungTV">
+		<property name="speaker" ref="apple"></property>
+		<property name="price" value="270000"></property>
+	</bean>
+-->	
+<!-- 	
+	<bean id="tv" class="polymorphism.SamsungTV">
+		<constructor-arg ref="sony"></constructor-arg>
+		<constructor-arg value="2700000"></constructor-arg>
+	</bean> 
+-->
+<!--
+	<bean id="sony" class="polymorphism.SonySpeaker"></bean>
+	
+	<bean id="apple" class="polymorphism.AppleSpeaker"></bean>
+-->	
+	
+	<!--
+	
+	<bean id="tv" class="polymorphism.SamsungTV">
+		<constructor-arg index="1" ref="sony"></constructor-arg>
+		<constructor-arg index="0" value="2700000"></constructor-arg>
+	</bean>
+	
+	<bean id="sony" class="polymorphism.SonySpeaker"></bean>
+	
+	-->
+	
+	
+	<!-- <bean id="tv" class="polymorphism.SamsungTV" scope="prototype"/> -->
+	
+	<!-- <bean id="tv" class="polymorphism.SamsungTV" lazy-init="true" />  -->
+	
+	<!-- <bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod"/> -->
+	<!-- <bean id="lg" class="polymorphism.LgTV" /> -->
+
+
+</beans>
