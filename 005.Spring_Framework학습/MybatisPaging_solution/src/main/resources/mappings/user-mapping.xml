@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDAO">
+
+	<insert id="insertUser">
+		<![CDATA[
+		INSERT INTO USERS VALUES ( #{id}, #{password}, #{name}, #{role})
+		]]>
+	</insert>
+	
+	<update id="updateUser">
+		<![CDATA[
+		UPDATE USERS SET PASSWORD=#{password}, ROLE=#{role} WHERE ID=#{id}
+		]]>
+	</update>
+	
+	<delete id="deleteUser">
+		<![CDATA[
+		DELETE FROM USERS WHERE ID=#{id}
+		]]>
+	</delete>
+
+	<select id="getUser" resultType="user">
+		<![CDATA[
+		SELECT * FROM USERS WHERE ID=#{id} AND PASSWORD=#{password}
+		]]>
+	</select>
+	
+	<select id="getUserList" resultType="user">
+		SELECT * FROM USERS ORDER BY ID
+	</select>
+
+</mapper>

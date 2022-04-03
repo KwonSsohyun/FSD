@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+	<resultMap type="board" id="boardResult">
+		<id property="seq" column="SEQ" />
+		<result property="title" column="TITLE" />
+		<result property="writer" column="WRITER" />
+		<result property="content" column="CONTENT" />
+		<result property="regdate" column="REGDATE" />
+		<result property="cnt" column="CNT" />
+		<result property="filename" column="FILENAME" />
+	</resultMap>
+
+	<insert id="insertBoard">
+		<![CDATA[
+		INSERT INTO BOARD(TITLE, WRITER, CONTENT, FILENAME)
+		VALUES( #{title},#{writer}, #{content}, #{filename})
+		]]>
+	</insert>
+	
+	<update id="updateBoard">
+		<![CDATA[
+		UPDATE BOARD SET TITLE = #{title}, WRITER= #{writer}, CONTENT= #{content} WHERE SEQ= #{seq} 
+		]]>
+	</update>
+	
+	<update id="updateCnt">
+		<![CDATA[
+		UPDATE BOARD SET CNT = CNT+1 WHERE SEQ= #{seq} 
+		]]>
+	</update>
+	
+	<delete id="deleteBoard">
+		<![CDATA[
+		DELETE FROM BOARD WHERE SEQ = #{seq} 
+		]]>
+	</delete>
+
+	<select id="getBoard" resultType="board">
+		<![CDATA[
+		SELECT * FROM BOARD WHERE SEQ= #{seq} 
+		]]>
+	</select>
+	
+	<select id="getBoardList" resultMap="boardResult">
+		SELECT * FROM board WHERE 1=1
+		<if test="searchCondition == 'TITLE'"> AND TITLE LIKE CONCAT('%', #{searchKeyword} ,'%') ORDER BY seq DESC</if>
+		<if test="searchCondition == 'CONTENT'"> AND CONTENT LIKE CONCAT('%', #{searchKeyword} ,'%') ORDER BY seq DESC</if>
+		LIMIT #{listcnt} OFFSET #{start}
+	</select>
+	
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM board WHERE 1=1
+		<if test="searchCondition == 'TITLE' "> AND TITLE LIKE CONCAT('%',#{searchKeyword},'%') </if>
+		<if test="searchCondition == 'CONTENT' "> AND CONTENT LIKE CONCAT('%',#{searchKeyword},'%') </if>
+	</select>
+
+</mapper>
