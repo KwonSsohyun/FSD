@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>디바이스 제어 앱</title>
+
+        <!-- 제이쿼리모바일, 제이쿼리, 폰갭 라이브러리 파일 (다운로드 방식) -->
+        <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+        <script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+        <script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+        <script src="cordova.js"></script>
+        <!-- 사용자 정의 자바스크립트 파일 -->
+        <script src="myCamera.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                initCordova();
+
+                $('#btnVibration').click(function(){
+                    callVibrate();
+                });
+
+                // 배터리 기능 cordova plugin add cordova-plugin-battery-status 플러그인 추가
+                // document 객체로 되지 않는다.
+                // 반드시 window 객체로 처리할 것
+                $('#btnBatteryStatus').click(function(){
+                    window.addEventListener("batterystatus", onBatteryStatus, false);
+                });
+
+
+                // 위치제어 cordova plugin add cordova-plugin-geolocation 플러그인 추가
+                $('#btnLocation').click(function(){
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                });
+
+                // 네트워크 제어
+                $('#btnConnection').click(function(){
+                    checkConnection();
+                });
+            });
+
+            // 진동기능
+            // cordova plugin add cordova-plugin-vibration 플러그인 추가
+            function callVibrate(){
+                navigator.vibrate(2000); // 진동 수행 1000 = 1초
+            }
+
+            // 배터리 잔량
+            function onBatteryStatus(status){
+                // console.log("Level : " + status.level + " isPlugged : " + status.isPlugged);
+                alert('배터리 잔량 : ' + status.level + '%');
+                location.reload();
+            }
+
+            // 위치제어 성공시
+            var onSuccess = function(position){
+                alert(
+                    'Latitude(위도) : ' + position.coords.latitude + '\n' +
+                    'Longitude(경도) : ' + position.coords.longitude + '\n' +
+                    'Altitude(고도) : ' + position.coords.altitude + '\n' +
+                    'Accuracy(정확도) : ' + position.coords.accuracy + '\n' +
+                    'Timestamp : ' + position.timestamp + '\n'
+                );
+            };
+
+            /* 
+                Latitude 위도 : 십진법 단위의 위도 (숫자)
+                Longitude 경도 : 십진법의 경도 (숫자)
+                Altitude 고도 : 타원체 위의 위치 높이(미터) 입니다. (숫자)
+                Accuracy 정확도 : 미터 단위릐 위도 및 경도 좌표의 정확도 수준입니다. (숫자)
+                Timestamp 시간기록 : 현재 시간을 Millisecond 초 (1/1000)로 반환(숫자)
+            */
+
+            // 위치제어 실패시
+            function onError(error) {
+                alert('code : ' + error.code + '\n' + 
+                    'message : ' + error.message + '\n');
+            }
+
+            // 네트워크 연결 상태
+            function checkConnection() {
+                var networkState = navigator.connection.type;
+
+                var states = {};
+                states[Connection.UNKNOWN] = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI] = 'WiFi connection';
+                states[Connection.CELL_5G] = 'Cell 5G connection';
+                states[Connection.CELL_4G] = 'Cell 4G connection';
+                states[Connection.CELL] = 'Cell generic connection';
+                states[Connection.NONE] = 'No network connection';
+
+                alert('Connection type: ' + states[networkState]);
+            }
+        </script>
+        <style>
+            #displayArea{
+                display: block;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div data-role="page" id="page2" data-position="fixed" >
+            <div data-role="header"><h1>Cordova API</h1></div>
+            <div data-role="content">
+                <div class="ui-bar ui-bar-b"><h3>단말기 제어</h3></div><br/>
+                <button id="btnVibration">진동 제어</button>
+                <button id="btnBatteryStatus">배터리 잔량</button>
+                <button id="btnLocation">위치제어</button>
+                <button id="btnConnection">네트워크연결상태 알아내기</button>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="index.html" data-ajax="false">홈으로</a></li>
+                        <li><a href="index2.html" data-ajax="false">다음</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script> -->
+    </body>
+</html>

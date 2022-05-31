@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="kr.co.exam" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <!-- 앱이름 -->
+    <name>TestApp</name>
+
+    <!-- 앱 스토어 목록에 나타날 수 있는 메타데이터를 지정 -->
+    <description>Sample Apache Cordova App</description>
+
+    <!-- 앱 스토어 목록에 나타날 수 있는 저자정보를 지정 -->
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Apache Cordova Team
+    </author>
+
+    <!-- 앱의 시작페이지 지정 -->
+    <content src="index.html" />
+
+    <!-- 사용가능한 파일 시스템 세트는 플랫폼별로 구성 -->
+    <preference name="AndroidExtraFilesystems" value="files,files-external, documents,sdcard,cache,cache-external,assets,root" />
+
+    <!-- access태그 : 앱이 통신할 수 있는 외부 도메인 집합을 정의 -->
+    <access origin="*" />
+
+    <!-- allow-navigation태그 : WebView 자체를 탐색할 수 있는 URL을 제어 -->
+    <allow-navigation href="*" />
+    
+    <!-- allow-intent태그 : 앱이 시스템에 열도록 요청할 수 있는 URL을 제어 -->
+    <allow-intent href="*" />
+
+    <!-- 
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    -->
+</widget>

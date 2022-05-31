@@ -1,0 +1,246 @@
+@charset "utf-8";
+
+
+.ui-page { background-color: #f5f5f5; }
+.ui-btn {
+    font-size: 1em;
+    line-height: 2;
+    font-family: sans-serif;
+    background-color: #fff;
+}
+html .ui-panel-page-container-a {
+    line-height: 2;
+}
+#listgroup {
+    background-color: #ffffff !important;
+}
+
+a.abtn {padding:0;}
+
+label.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left.ui-checkbox-off {
+    border: none;
+    margin-right: 3em;
+    padding: 5px 20px 5px 35px;
+}
+label.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left.ui-checkbox-on {
+    border: none;
+    margin-right: 3em;
+    padding: 5px 10px 5px 40px;
+}
+.ui-li-count .ui-body-inherit{
+    background-color: none;
+}
+.ui-li-count-check .ui-body-inherit{
+    background-color: none;
+}
+
+
+#creat{
+    height: 48px;
+}
+
+.ui-grid-a{
+    padding-bottom: 20px;
+    text-align: center;
+}
+.ui-corner-all{
+    border-radius: 0.5em;
+}
+.ui-input-search {
+    width: 130px;
+}
+.ui-block-b{
+    margin-top: 20px;
+}
+hr {
+    border: 0px;
+    height: 1px;
+    background-color: #f5f5f5;
+    margin: 5px 0px
+}
+
+.ui-page-theme-b a:visited,
+html .ui-bar-b a:visited,
+html .ui-body-b a:visited,
+html body .ui-group-theme-b a:visited {
+    color: none;
+}
+.ui-page-theme-b a:hover,
+html .ui-bar-b a:hover,
+html .ui-body-b a:hover,
+html body .ui-group-theme-b a:hover {
+    color: none;
+}
+/* Focus */
+.ui-page-theme-a .ui-btn:focus,
+html .ui-bar-a .ui-btn:focus,
+html .ui-body-a .ui-btn:focus,
+html body .ui-group-theme-a .ui-btn:focus,
+html head + body .ui-btn.ui-btn-a:focus,
+/* Focus buttons and text inputs with div wrap */
+.ui-page-theme-a .ui-focus,
+html .ui-bar-a .ui-focus,
+html .ui-body-a .ui-focus,
+html body .ui-group-theme-a .ui-focus,
+html head + body .ui-btn-a.ui-focus,
+html head + body .ui-body-a.ui-focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.ui-input-search.ui-input-has-clear .ui-btn.ui-input-clear{
+    top: 60%;
+}
+
+
+.gap { padding-top : 15px; padding-bottom: 30px; }
+a.ui-table-columntoggle-btn.ui-btn.ui-btn-a.ui-corner-all.ui-shadow.ui-mini {
+display: none;
+}
+.ui-li-count.ui-body-inherit {
+/* 수정 */
+background: url(../img/icon_edit.png) no-repeat;
+background-size: 20px 20px;
+background-color: transparent;
+border: none;
+width: 22px;
+height: 24px;
+}
+.ui-li-count.ui-body-inherit.back {
+    /* 수정 */
+    background: url(../img/icon_del_g.png) no-repeat;
+    background-size: 20px 20px;
+    background-color: transparent;
+    border: none;
+    width: 22px;
+    height: 24px;
+    }
+.ui-li-count-check.ui-body-inherit {
+background: url(../img/icon_c.png) no-repeat;
+background-size: 20px 20px;
+background-color: transparent;
+border: none;
+width: 22px;
+height: 24px;
+}
+.ui-listview-inset>.ui-li-static, .ui-listview-inset>.ui-li-divider, .ui-listview-inset>li>a.ui-btn{
+border-left: none;
+}
+.ui-listview>li.ui-li-has-alt>.ui-btn {
+margin-right: 1.3em;
+}
+
+
+label.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left.ui-checkbox-off, 
+label.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left.ui-checkbox-on {
+border: none;
+margin-right: 3em;
+padding: 5px 10px 5px 35px;
+}
+
+.ui-icon-check:after{
+background: url(../img/icon_c.png) no-repeat;
+background-size: 20px 20px;
+background-color: transparent;
+border: none;
+width: 22px;
+height: 24px;
+}
+
+.ui-icon-delete:after{
+/* 삭제 */
+background: url(../img/icon_del.png) no-repeat;
+background-size: 20px 20px;
+background-color: transparent;
+border: none;
+width: 22px;
+height: 24px;
+}
+.ui-icon-plus:after{
+background: url(../img/icon_plue.png) no-repeat;
+background-size: 20px 20px;
+background-color: transparent;
+border: none;
+width: 22px;
+height: 24px;
+}
+.ui-icon-delete:after{
+background: url(../img/icon_del_g.png) no-repeat;
+background-size: 20px 20px;
+background-color: transparent;
+border: none;
+width: 22px;
+height: 24px;
+}
+
+
+.ui-icon-del:after{
+background: url(../img/icon_del.png) no-repeat;
+background-size: 20px 20px;
+background-color: transparent;
+border: none;
+width: 22px;
+height: 24px;
+}
+
+.ui-checkbox input {
+position: static;
+}
+.ui-radio input{
+position: relative;
+}
+
+input[type="checkbox"]{
+display: none;
+}
+#textbox{
+position: absolute;
+top: 10px;
+/* 체크박스 */
+left: 35px; 
+margin: 0;
+width: 70%;
+min-height: 2.2em;
+text-align: left;
+border: 1px solid #ccc;
+background: #fff;
+-webkit-appearance: none;
+-webkit-border-radius: inherit;
+border-radius: 6px;
+z-index: 555;
+}
+input:focus{
+outline: none;
+}
+
+
+
+/* 검색 서브밋 버튼 */
+.ui-input-search:after{
+    background: none;
+}
+
+#searchLi{
+    position: relative;
+    height: 30px;
+}
+#searchLi img{
+    cursor: pointer;
+    position: absolute;
+    top: 13px;
+    left: 12px;
+}
+/*
+div.ui-btn.ui-input-btn.ui-corner-all.ui-shadow.ui-btn-inline{
+    width: 50px !important;
+}
+
+.ui-field-contain:last-child {
+    border-bottom-width: 0;
+    margin-top: -11px;
+}
+
+.ui-alt-icon.ui-icon-search:after, .ui-alt-icon .ui-icon-search:after, .ui-input-search:after{
+    background: url(../img/icon_search_g.png) no-repeat;
+}
+*/

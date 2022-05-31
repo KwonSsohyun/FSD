@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>카메라 앱</title>
+
+        <!-- 제이쿼리모바일, 제이쿼리, 폰갭 라이브러리 파일 (다운로드 방식) -->
+        <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+        <script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+        <script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+        <script src="cordova.js"></script>
+        <!-- 사용자 정의 자바스크립트 파일 -->
+        <script src="myCamera.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                initCordova();
+
+                $('#btnDeviceInfo').click(function(){
+                    getDeviceInfo();
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div data-role="page" id="page1" data-position="fixed" >
+            <div data-role="header"><h1>Cordova API</h1></div>
+            <div data-role="content">
+                <div class="ui-bar ui-bar-b"><h3>단말기 정보</h3></div><br/>
+                <button id="btnDeviceInfo">단말기 정보 확인</button>
+                <div id="infoArea"></div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="index1.html" data-ajax="false">단말기 제어</a></li>
+                        <li><a href="index2.html" data-ajax="false">사진 제어</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

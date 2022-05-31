@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+	<title>createTodo:</title>
+
+    <!-- 제이쿼리 모바일, 제이쿼리 라이브러리 파일 -->
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- 사용자 정의 자바스크립트 파일 -->
+    <script src="js/createTodo_dbHandle.js"></script>
+	
+	<!-- 사용자 정의 CSS 파일 -->
+	<link rel="stylesheet" href="css/createTodo.css">
+
+	<script>
+		$(document).ready(function(){ 
+			// 즉시 실행해라 
+
+			// DB 연결
+			openDB();
+			createTable();   
+
+			// 바로 조회해서 기존에 있는 리스트 가져온다.
+			totalList();
+
+			// 이벤트 함수 정의
+			// ▶  1) 추가  |  2) 수정  |  3) 삭제  |  4) 검색
+
+			// 1) 추가
+			$('#add').click( function() {
+				var text = $('#creat').val();
+				text = text.replace(/^[\s\uFEFF\xA0]+/gi,'');
+
+				if(text==null || text==''){
+					alert("Todo를 입력해주세요.");
+					$('#creat').val('');
+					return false;
+				}
+				// 정상적일때만 데이터베이스 추가
+				insertTodo(text);
+			});
+
+
+			// 3) 삭제
+			$(document).on("click", '.ui-icon-del', function(){
+				// alert('삭제 클릭!');
+
+				// 선택한 요소의 부모 id가져오기
+				var click_id = $(this).parent().attr('id');
+				// alert(click_id); // li_14
+
+				// 숫자만 자르기
+				let idx = click_id.split('_')[1];
+				// alert(idx);
+				
+				// 삭제 데이터베이스 호출
+				deleteTodo(idx);
+			});
+
+
+			// 4) 검색
+			$("#searchLi img").click(function(){
+				// alert("클릭");
+
+				// 인풋벨류 가져오기
+				var searchText = $('#search').val();
+				// alert(searchText);
+				$('#search').val('');
+				
+				// 검색 데이터베이스 호출
+				searchTodo(searchText);
+			});
+
+
+		});
+
+		// 체크박스 체크
+		function checkBtn(val){
+			// alert("체크 " + val);
+
+			chk = $('#chbox'+val).prop("checked");  
+			// alert(chk); // false // true
+			var msg;
+
+			if(chk == true){
+				// alert('체크');
+				// 체크 데이터베이스에 넣기
+				msg = "ui-checkbox-on";
+				checkList(chk, msg, val);
+			}else {
+				// alert('미체크');
+				// 미체크 데이터베이스에 넣기
+				msg = "ui-checkbox-off";
+				checkList(chk, msg, val);
+			}
+			
+		}
+
+
+		// 2) 수정
+		// 선언적 함수
+		// 동적이벤트 함수
+		function editBtn(val){
+			// alert(val);
+			let id = "li_"+val;
+			$("#"+id+" label").val("&nbsp;").removeClass("la-txt");
+			$("#"+id+" div").remove(".ui-li-count");
+			$("#"+id+" a.abtn").append($("<input type='text' id='textbox' data-role='none'>"));
+			$("#"+id+" a.abtn").append($("<div class='ui-li-count back ui-body-inherit'>"));
+			$("#"+id + " a:last-child").attr("data-icon", "check").addClass("ui-icon-check").removeClass("ui-icon-del");
+
+			$(".back").click( function() {
+				// alert('수정 취소');
+				// return false;
+				totalList();
+			});
+
+			let idx = val;
+			$(".ui-icon-check").click( function() {
+				// alert('수정 클릭');
+				var editText = $('#textbox').val();
+
+				// 빈값 아닐때만 수정 가능하게 하기
+				editText = editText.replace(/^[\s\uFEFF\xA0]+/gi,'');
+
+				if(editText==null || editText==''){
+					alert("수정할 Todo를 입력해주세요.");
+					$('#textbox').val('');
+					return false;
+				}
+
+				// alert(editText);
+				updateTodo(editText, idx);
+			});
+
+		}
+
+
+
+
+	</script>
+</head>  
+<body>
+
+<!--★★★★★ 시작 화면 ★★★★★-->
+  <div data-role="page" id="page0">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		
+		<!--**************** 검색 ****************-->
+		<div data-role="navbar">
+			<ul>
+				<li><h1>createTodo:</h1></li>
+				<li id="searchLi">
+					<input type="search" name="search" id="search" data-mini="true" placeholder="검색" data-theme="a" />
+					<img src ="img/icon_search_g.png">
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+	<div data-role="content">
+		<form> 
+			<!--**************** 신규 추가 ****************-->
+			<ul data-role="listview" data-inset="true">
+				<li>
+					<a href="#" class="abtn">
+						<input type="text" name="creat" id="creat" value="" data-mini="true" placeholder="new Todo"/>
+					</a>
+					<a href="#" id="add" data-icon="plus"></a>
+				</li>
+			</ul>
+
+
+			<hr>
+			
+
+			<!--**************** 기존 목록 ****************-->
+			<!--------- 목록 --------->
+			<ul data-role="listview" id="list-exist" data-inset="true">
+				<!--  ●●●●●● 기존 목록 ●●●●●●
+					<li>
+						<a href="#" class="abtn">
+							<input type="checkbox" id="chbox1" name="chk" data-inline="true">
+							<label for="chbox1" class="la-txt">토팔이 딸기우유 주기</label>
+							<div class="ui-li-count"></div>
+						</a>
+						<a href="#" data-icon="del"></a>
+					</li>
+				-->
+
+				<!--  ●●●●●● 수정 ●●●●●● 
+					<li>
+						<a href="#" class="abtn">
+							<input type="checkbox" id="chbox12" name="chk" data-inline="true">
+							<label for="chbox12">&nbsp;</label>
+							<input type="text" id="textbox" data-role="none">
+							<div class="ui-li-count back"></div>
+						</a>
+						<a href="#" data-icon="check"></a>
+					</li>
+				-->
+
+			</ul>
+
+
+		</form> 
+	</div>
+ </div>
+
+<script src="cordova.js"></script>
+
+</body>
+</html>
